@@ -7,28 +7,32 @@
 * { box-sizing:border-box; }
 body { font-family:'Salesforce Sans',Arial,sans-serif; background:#f0f4f9; margin:0; padding:24px; }
 h1 { color:#032D60; font-size:22px; margin:0 0 4px 0; }
-.meta { color:#555; font-size:13px; margin-bottom:20px; }
-.kpi-bar { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:24px; }
-.kpi { background:#fff; border:1px solid #d8dde6; border-radius:8px; padding:14px 22px; text-align:center; box-shadow:0 1px 3px rgba(0,0,0,0.06); min-width:110px; }
-.kpi .n { font-size:30px; font-weight:700; color:#032D60; line-height:1; }
+.meta { color:#555; font-size:13px; margin-bottom:20px; line-height:1.6; }
+.kpi-bar { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px; }
+.kpi { background:#fff; border:1px solid #d8dde6; border-radius:8px; padding:14px 20px; text-align:center; box-shadow:0 1px 3px rgba(0,0,0,0.06); min-width:100px; }
+.kpi .n { font-size:28px; font-weight:700; color:#032D60; line-height:1; }
 .kpi .l { font-size:11px; color:#666; margin-top:4px; }
+.legend { display:flex; gap:20px; flex-wrap:wrap; margin:10px 0 24px 0; font-size:12px; color:#555; background:#fff; padding:10px 16px; border-radius:6px; border:1px solid #e5e9ef; }
+.leg-item { display:flex; align-items:center; gap:5px; }
+.dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
 .section { margin-top:28px; }
 .sec-hd { background:linear-gradient(90deg,#032D60 0%,#00A1E0 100%); color:#fff; padding:10px 16px; font-size:14px; font-weight:700; border-radius:4px 4px 0 0; display:flex; align-items:center; gap:8px; }
 .cnt { background:rgba(255,255,255,0.22); border-radius:12px; padding:2px 10px; font-size:12px; }
-table { width:100%; border-collapse:collapse; background:#fff; box-shadow:0 1px 4px rgba(0,0,0,0.08); border-radius:0 0 4px 4px; overflow:hidden; }
+table { width:100%; border-collapse:collapse; background:#fff; box-shadow:0 1px 4px rgba(0,0,0,0.08); }
 td, th { padding:8px; border-bottom:1px solid #e5e9ef; vertical-align:top; word-break:break-word; }
 tr:hover td { background:#eef3ff !important; }
 a { color:#0070D2; text-decoration:none; }
 a:hover { text-decoration:underline; }
-.legend { display:flex; gap:16px; flex-wrap:wrap; margin:12px 0 0 0; font-size:12px; color:#555; }
-.leg-dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:4px; }
 </style>
 </head>
 <body>
-<h1>🔬 Industry-Life Sciences — IST Open Cases</h1>
-<div class="meta">Generated: <strong>Aug 3, 2026</strong> &nbsp;|&nbsp; Filter: Industry-Life Sciences · Support Region: IST · Status ≠ Closed<br>
-Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals International AG, Genmab US SAP, FIDIA FARMACEUTICI S.P.A., Fresenius Kabi AG, Novartis Pharma AG, Vericel Corporation<br>
-<em>Note: Genmab, FIDIA, Fresenius Kabi, Novartis, Vericel — 0 open IST cases found.</em></div>
+
+<h1>&#128302; Industry-Life Sciences — IST Open Cases</h1>
+<div class="meta">
+  Generated: <strong>Aug 3, 2026</strong> &nbsp;|&nbsp; Filter: Industry-Life Sciences &middot; Region: IST &middot; Status &ne; Closed<br>
+  Accounts: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals International AG<br>
+  <em>Genmab US SAP, FIDIA FARMACEUTICI, Fresenius Kabi AG, Novartis Pharma AG, Vericel Corporation — 0 open IST cases.</em>
+</div>
 
 <div class="kpi-bar">
   <div class="kpi"><div class="n">77</div><div class="l">Total Open</div></div>
@@ -36,19 +40,26 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
   <div class="kpi"><div class="n" style="color:#5C2D91">40</div><div class="l">Takeda</div></div>
   <div class="kpi"><div class="n" style="color:#2E844A">35</div><div class="l">With GUS</div></div>
   <div class="kpi"><div class="n" style="color:#E65C00">42</div><div class="l">Without GUS</div></div>
-  <div class="kpi"><div class="n" style="color:#7C3AED">35</div><div class="l">⏳ Engineering</div></div>
-  <div class="kpi"><div class="n" style="color:#E65C00">19</div><div class="l">⏳ Customer</div></div>
-  <div class="kpi"><div class="n" style="color:#0070D2">23</div><div class="l">⏳ Support</div></div>
+  <div class="kpi"><div class="n" style="color:#7C3AED">35</div><div class="l">&#9203; Engineering</div></div>
+  <div class="kpi"><div class="n" style="color:#E65C00">19</div><div class="l">&#9203; Customer</div></div>
+  <div class="kpi"><div class="n" style="color:#0070D2">23</div><div class="l">&#9203; Support</div></div>
 </div>
 
 <div class="legend">
-  <span><span class="leg-dot" style="background:#7C3AED"></span>Waiting: Engineering = GUS investigation raised (age in <span style="color:#C23934;font-weight:700">red</span> = &gt;14 days open)</span>
-  <span><span class="leg-dot" style="background:#E65C00"></span>Waiting: Customer = Need More Info or Solution Provided (pending customer)</span>
-  <span><span class="leg-dot" style="background:#0070D2"></span>Waiting: Support = Working, no GUS raised yet</span>
+  <strong>Waiting Under:</strong>
+  <span class="leg-item"><span class="dot" style="background:#7C3AED"></span> Engineering — GUS/Bug filed</span>
+  <span class="leg-item"><span class="dot" style="background:#E65C00"></span> Customer — Awaiting customer response</span>
+  <span class="leg-item"><span class="dot" style="background:#0070D2"></span> Support — Working, no GUS yet</span>
+  &nbsp;&nbsp;
+  <strong>Most Time Spent:</strong>
+  <span class="leg-item"><span class="dot" style="background:#0070D2"></span> Working (61 cases)</span>
+  <span class="leg-item"><span class="dot" style="background:#E65C00"></span> Need More Info (13 cases)</span>
+  <span class="leg-item"><span class="dot" style="background:#2E844A"></span> Solution Provided (3 cases)</span>
+  &nbsp;&nbsp; <em>Age in <span style="color:#C23934;font-weight:700">red</span> = open &gt;14 days</em>
 </div>
 
 <div class="section">
-  <div class="sec-hd">📋 Category 1 — Cases WITH GUS Investigation <span class="cnt">35 cases</span></div>
+  <div class="sec-hd">&#128203; Category 1 — Cases WITH GUS Investigation <span class="cnt">35 cases</span></div>
   <table><tr style="background:#032D60;color:#fff;font-size:12px">
   <th style="padding:10px 8px;white-space:nowrap">Case #</th>
   <th style="padding:10px 8px">Subject</th>
@@ -60,10 +71,11 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
   <th style="padding:10px 8px">GUS / Bug #</th>
   <th style="padding:10px 8px">Waiting Under</th>
   <th style="padding:10px 8px">Remarks</th>
+  <th style="padding:10px 8px">Most Time Spent</th>
   <th style="padding:10px 8px">Slack Link</th>
 </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=473985872" target="_blank" style="color:#0070D2;font-weight:600">473985872</a></td>
-      <td style="max-width:280px;font-size:12px">Account Object Quick Action Translation</td>
+      <td style="max-width:260px;font-size:12px">Account Object Quick Action Translation</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#2E844A;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Solution Provided</span></td>
@@ -71,11 +83,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#C23934;font-weight:700">33d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23511527" target="_blank" style="color:#7C3AED;font-weight:600">W-23511527</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Solution provided; awaiting customer confirmation (GUS W-23511527)</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Solution provided; awaiting customer confirmation (GUS W-23511527)</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">28d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474191956" target="_blank" style="color:#0070D2;font-weight:600">474191956</a></td>
-      <td style="max-width:280px;font-size:12px">iPad - Signature blank when clicking View Signature on consent submission</td>
+      <td style="max-width:260px;font-size:12px">iPad - Signature blank when clicking View Signature on consent submission</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -83,11 +96,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">6d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23664324" target="_blank" style="color:#7C3AED;font-weight:600">W-23664324</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under investigation (W-23664324)</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23664324)</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">6d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474162076" target="_blank" style="color:#0070D2;font-weight:600">474162076</a></td>
-      <td style="max-width:280px;font-size:12px">Unable to create a visit on Friday due to business hours error</td>
+      <td style="max-width:260px;font-size:12px">Unable to create a visit on Friday due to business hours error</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -95,11 +109,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">10d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23682117" target="_blank" style="color:#7C3AED;font-weight:600">W-23682117</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under investigation (W-23682117)</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23682117)</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">6d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474162019" target="_blank" style="color:#0070D2;font-weight:600">474162019</a></td>
-      <td style="max-width:280px;font-size:12px">Remote Engagement User Experience Issues</td>
+      <td style="max-width:260px;font-size:12px">Remote Engagement User Experience Issues</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
@@ -107,11 +122,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">10d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23627893" target="_blank" style="color:#7C3AED;font-weight:600">W-23627893</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting customer info; GUS W-23627893 raised</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting customer info; GUS W-23627893 raised</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">6d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474153350" target="_blank" style="color:#0070D2;font-weight:600">474153350</a></td>
-      <td style="max-width:280px;font-size:12px">Standard Surveys not visible on Account and Visit records</td>
+      <td style="max-width:260px;font-size:12px">Standard Surveys not visible on Account and Visit records</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -119,11 +135,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">11d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23685505" target="_blank" style="color:#7C3AED;font-weight:600">W-23685505</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under investigation (W-23685505)</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23685505)</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">10d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474147594" target="_blank" style="color:#0070D2;font-weight:600">474147594</a></td>
-      <td style="max-width:280px;font-size:12px">Web - Inconsistent behavior for Content / presentations</td>
+      <td style="max-width:260px;font-size:12px">Web - Inconsistent behavior for Content / presentations</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -131,11 +148,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">12d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23640145" target="_blank" style="color:#7C3AED;font-weight:600">W-23640145</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under investigation (W-23640145)</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23640145)</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">11d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474143151" target="_blank" style="color:#0070D2;font-weight:600">474143151</a></td>
-      <td style="max-width:280px;font-size:12px">Inconsistent affiliation list in Attendees between web and iPad</td>
+      <td style="max-width:260px;font-size:12px">Inconsistent affiliation list in Attendees between web and iPad</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -143,11 +161,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">12d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23645879" target="_blank" style="color:#7C3AED;font-weight:600">W-23645879</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under investigation (W-23645879)</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23645879)</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">12d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474143140" target="_blank" style="color:#0070D2;font-weight:600">474143140</a></td>
-      <td style="max-width:280px;font-size:12px">TOT creation via calendar slot shows Time field unexpectedly</td>
+      <td style="max-width:260px;font-size:12px">TOT creation via calendar slot shows Time field unexpectedly</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -155,11 +174,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">12d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23684068" target="_blank" style="color:#7C3AED;font-weight:600">W-23684068</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under investigation (W-23684068)</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23684068)</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">12d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474141798" target="_blank" style="color:#0070D2;font-weight:600">474141798</a></td>
-      <td style="max-width:280px;font-size:12px">Email sent from Visit page not logged against Visit</td>
+      <td style="max-width:260px;font-size:12px">Email sent from Visit page not logged against Visit</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
@@ -167,11 +187,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">12d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23642837" target="_blank" style="color:#7C3AED;font-weight:600">W-23642837</a><br><small style='color:#C23934'>Bug: <a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23649965" target="_blank" style="color:#7C3AED;font-weight:600">W-23649965</a></small></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Bug filed (W-23649965) — awaiting engineering fix</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Bug filed (W-23649965) — awaiting engineering fix</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">9d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474133481" target="_blank" style="color:#0070D2;font-weight:600">474133481</a></td>
-      <td style="max-width:280px;font-size:12px">Fields in Activities differ between web and iPad</td>
+      <td style="max-width:260px;font-size:12px">Fields in Activities differ between web and iPad</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -179,11 +200,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">13d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23685504" target="_blank" style="color:#7C3AED;font-weight:600">W-23685504</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under investigation (W-23685504)</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23685504)</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">9d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474133424" target="_blank" style="color:#0070D2;font-weight:600">474133424</a></td>
-      <td style="max-width:280px;font-size:12px">Activities not showing for Remote/Face-to-Face Visit in iPad</td>
+      <td style="max-width:260px;font-size:12px">Activities not showing for Remote/Face-to-Face Visit in iPad</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -191,11 +213,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">13d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23660204" target="_blank" style="color:#7C3AED;font-weight:600">W-23660204</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under investigation (W-23660204)</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23660204)</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">10d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474133359" target="_blank" style="color:#0070D2;font-weight:600">474133359</a></td>
-      <td style="max-width:280px;font-size:12px">Display Issues - Inconsistency between web and iPad</td>
+      <td style="max-width:260px;font-size:12px">Display Issues - Inconsistency between web and iPad</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -203,11 +226,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">13d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23627799" target="_blank" style="color:#7C3AED;font-weight:600">W-23627799</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under investigation (W-23627799)</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23627799)</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">11d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474131971" target="_blank" style="color:#0070D2;font-weight:600">474131971</a></td>
-      <td style="max-width:280px;font-size:12px">Web - Unable to submit Initial record for Inventory Count Assessment</td>
+      <td style="max-width:260px;font-size:12px">Web - Unable to submit Initial record for Inventory Count Assessment</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
@@ -215,11 +239,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">13d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23592242" target="_blank" style="color:#7C3AED;font-weight:600">W-23592242</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting customer info; GUS W-23592242 raised</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting customer info; GUS W-23592242 raised</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">8d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474115927" target="_blank" style="color:#0070D2;font-weight:600">474115927</a></td>
-      <td style="max-width:280px;font-size:12px">Duration of call and isRecorded fields not populated after remote call</td>
+      <td style="max-width:260px;font-size:12px">Duration of call and isRecorded fields not populated after remote call</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -227,11 +252,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#C23934;font-weight:700">17d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23658370" target="_blank" style="color:#7C3AED;font-weight:600">W-23658370</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under investigation (W-23658370)</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23658370)</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">13d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474103404" target="_blank" style="color:#0070D2;font-weight:600">474103404</a></td>
-      <td style="max-width:280px;font-size:12px">Presentation slides keep loading when creating custom presentation</td>
+      <td style="max-width:260px;font-size:12px">Presentation slides keep loading when creating custom presentation</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#2E844A;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Solution Provided</span></td>
@@ -239,11 +265,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#C23934;font-weight:700">18d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23592789" target="_blank" style="color:#7C3AED;font-weight:600">W-23592789</a><br><small style='color:#C23934'>Bug: <a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23593982" target="_blank" style="color:#7C3AED;font-weight:600">W-23593982</a></small></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Bug filed (W-23593982) — awaiting engineering fix</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Bug filed (W-23593982) — awaiting engineering fix</td>
+      <td style="white-space:nowrap"><span style="background:#2E844A;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Solution Provided</span> <small style="color:#888">6d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474084917" target="_blank" style="color:#0070D2;font-weight:600">474084917</a></td>
-      <td style="max-width:280px;font-size:12px">Discrepancy in files sync and upload between web and iPad</td>
+      <td style="max-width:260px;font-size:12px">Discrepancy in files sync and upload between web and iPad</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -251,11 +278,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#C23934;font-weight:700">20d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23641677" target="_blank" style="color:#7C3AED;font-weight:600">W-23641677</a><br><small style='color:#C23934'>Bug: <a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23666792" target="_blank" style="color:#7C3AED;font-weight:600">W-23666792</a></small></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Bug filed (W-23666792) — awaiting engineering fix</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Bug filed (W-23666792) — awaiting engineering fix</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">19d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474084891" target="_blank" style="color:#0070D2;font-weight:600">474084891</a></td>
-      <td style="max-width:280px;font-size:12px">Deleting Visit with Attendees from iPad Calendar not removing from web</td>
+      <td style="max-width:260px;font-size:12px">Deleting Visit with Attendees from iPad Calendar not removing from web</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -263,11 +291,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#C23934;font-weight:700">20d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23623162" target="_blank" style="color:#7C3AED;font-weight:600">W-23623162</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under investigation (W-23623162)</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23623162)</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">19d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474071240" target="_blank" style="color:#0070D2;font-weight:600">474071240</a></td>
-      <td style="max-width:280px;font-size:12px">Conditions on components and tab not working in record pages</td>
+      <td style="max-width:260px;font-size:12px">Conditions on components and tab not working in record pages</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#2E844A;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Solution Provided</span></td>
@@ -275,11 +304,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#C23934;font-weight:700">21d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23472597" target="_blank" style="color:#7C3AED;font-weight:600">W-23472597</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Solution provided; awaiting customer confirmation (GUS W-23472597)</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Solution provided; awaiting customer confirmation (GUS W-23472597)</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">11d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474059244" target="_blank" style="color:#0070D2;font-weight:600">474059244</a></td>
-      <td style="max-width:280px;font-size:12px">Account List and Filters issue in Browser and iPad</td>
+      <td style="max-width:260px;font-size:12px">Account List and Filters issue in Browser and iPad</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -287,11 +317,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#C23934;font-weight:700">24d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23683975" target="_blank" style="color:#7C3AED;font-weight:600">W-23683975</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under investigation (W-23683975)</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23683975)</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">19d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474025317" target="_blank" style="color:#0070D2;font-weight:600">474025317</a></td>
-      <td style="max-width:280px;font-size:12px">iPad & Web discrepancy on Edit of Presentation Forum record</td>
+      <td style="max-width:260px;font-size:12px">iPad & Web discrepancy on Edit of Presentation Forum record</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -299,11 +330,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#C23934;font-weight:700">27d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23594018" target="_blank" style="color:#7C3AED;font-weight:600">W-23594018</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under investigation (W-23594018)</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23594018)</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">24d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474014466" target="_blank" style="color:#0070D2;font-weight:600">474014466</a></td>
-      <td style="max-width:280px;font-size:12px">LWC component is not rendering in iPad</td>
+      <td style="max-width:260px;font-size:12px">LWC component is not rendering in iPad</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#2E844A;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Solution Provided</span></td>
@@ -311,11 +343,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#C23934;font-weight:700">28d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23623050" target="_blank" style="color:#7C3AED;font-weight:600">W-23623050</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Solution provided; awaiting customer confirmation (GUS W-23623050)</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Solution provided; awaiting customer confirmation (GUS W-23623050)</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">25d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=473948905" target="_blank" style="color:#0070D2;font-weight:600">473948905</a></td>
-      <td style="max-width:280px;font-size:12px">Unable to save content in visit engagement page despite filling mandatory fields</td>
+      <td style="max-width:260px;font-size:12px">Unable to save content in visit engagement page despite filling mandatory fields</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
@@ -323,11 +356,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#C23934;font-weight:700">38d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23627683" target="_blank" style="color:#7C3AED;font-weight:600">W-23627683</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting customer info; GUS W-23627683 raised</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting customer info; GUS W-23627683 raised</td>
+      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">22d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474151418" target="_blank" style="color:#0070D2;font-weight:600">474151418</a></td>
-      <td style="max-width:280px;font-size:12px">Owner Id field missing from Provider Interaction page layout on web</td>
+      <td style="max-width:260px;font-size:12px">Owner Id field missing from Provider Interaction page layout on web</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
@@ -335,11 +369,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">11d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23645924" target="_blank" style="color:#7C3AED;font-weight:600">W-23645924</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting customer info; GUS W-23645924 raised</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting customer info; GUS W-23645924 raised</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">11d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474136123" target="_blank" style="color:#0070D2;font-weight:600">474136123</a></td>
-      <td style="max-width:280px;font-size:12px">PDF Attachment Not Displayed in Email Template UI After ZIP Upload</td>
+      <td style="max-width:260px;font-size:12px">PDF Attachment Not Displayed in Email Template UI After ZIP Upload</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
@@ -347,47 +382,51 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">13d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23609875" target="_blank" style="color:#7C3AED;font-weight:600">W-23609875</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting customer info; GUS W-23609875 raised</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting customer info; GUS W-23609875 raised</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">8d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474094024" target="_blank" style="color:#0070D2;font-weight:600">474094024</a></td>
-      <td style="max-width:280px;font-size:12px">Approval Request page appears blank on iPad</td>
+      <td style="max-width:260px;font-size:12px">Approval Request page appears blank on iPad</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Hemanth Kumar Yadav Kottam</td>
       <td style="text-align:center;color:#C23934;font-weight:700">19d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23610967" target="_blank" style="color:#7C3AED;font-weight:600">W-23610967</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under investigation (W-23610967)</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23610967)</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">13d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474089763" target="_blank" style="color:#0070D2;font-weight:600">474089763</a></td>
-      <td style="max-width:280px;font-size:12px">Retry Attempt setting is not working as expected</td>
+      <td style="max-width:260px;font-size:12px">Retry Attempt setting is not working as expected</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Soumya Chitra Anandas</td>
       <td style="text-align:center;color:#C23934;font-weight:700">19d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23510462" target="_blank" style="color:#7C3AED;font-weight:600">W-23510462</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting customer info; GUS W-23510462 raised</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting customer info; GUS W-23510462 raised</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">12d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474191958" target="_blank" style="color:#0070D2;font-weight:600">474191958</a></td>
-      <td style="max-width:280px;font-size:12px">Production Issue: Sync Error in iPad</td>
+      <td style="max-width:260px;font-size:12px">Production Issue: Sync Error in iPad</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Harsh Thakkar</td>
       <td style="text-align:center;color:#333">6d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23684045" target="_blank" style="color:#7C3AED;font-weight:600">W-23684045</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under investigation (W-23684045)</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23684045)</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">6d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474144586" target="_blank" style="color:#0070D2;font-weight:600">474144586</a></td>
-      <td style="max-width:280px;font-size:12px">Plan-Related Object Field Labels and Plan Analysis Label</td>
+      <td style="max-width:260px;font-size:12px">Plan-Related Object Field Labels and Plan Analysis Label</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -395,11 +434,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">12d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23608820" target="_blank" style="color:#7C3AED;font-weight:600">W-23608820</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under investigation (W-23608820)</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23608820)</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">11d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474084297" target="_blank" style="color:#0070D2;font-weight:600">474084297</a></td>
-      <td style="max-width:280px;font-size:12px">Validation Error Message Not Displayed for Segmentation Tab on Account Object</td>
+      <td style="max-width:260px;font-size:12px">Validation Error Message Not Displayed for Segmentation Tab on Account Object</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -407,11 +447,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#C23934;font-weight:700">20d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23593328" target="_blank" style="color:#7C3AED;font-weight:600">W-23593328</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under investigation (W-23593328)</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23593328)</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">20d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474141161" target="_blank" style="color:#0070D2;font-weight:600">474141161</a></td>
-      <td style="max-width:280px;font-size:12px">Sending Email from Visit page doesn't redirect back to Visit</td>
+      <td style="max-width:260px;font-size:12px">Sending Email from Visit page doesn't redirect back to Visit</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#2E844A;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Solution Provided</span></td>
@@ -419,47 +460,51 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">12d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23591975" target="_blank" style="color:#7C3AED;font-weight:600">W-23591975</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Solution provided; awaiting customer confirmation (GUS W-23591975)</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Solution provided; awaiting customer confirmation (GUS W-23591975)</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">7d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474237768" target="_blank" style="color:#0070D2;font-weight:600">474237768</a></td>
-      <td style="max-width:280px;font-size:12px">Setup Guidance for Show Invalid Records and Show Suggestions Toggles</td>
+      <td style="max-width:260px;font-size:12px">Setup Guidance for Show Invalid Records and Show Suggestions Toggles</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Nishit Mahato</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Visweswara Rao Gedala</td>
       <td style="text-align:center;color:#333">0d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23491073" target="_blank" style="color:#7C3AED;font-weight:600">W-23491073</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under investigation (W-23491073)</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23491073)</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">3h</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474123822" target="_blank" style="color:#0070D2;font-weight:600">474123822</a></td>
-      <td style="max-width:280px;font-size:12px">Error while changing DCR status to Approved</td>
+      <td style="max-width:260px;font-size:12px">Error while changing DCR status to Approved</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Nishit Mahato</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Harsh Thakkar</td>
       <td style="text-align:center;color:#333">14d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23556005" target="_blank" style="color:#7C3AED;font-weight:600">W-23556005</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting customer info; GUS W-23556005 raised</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting customer info; GUS W-23556005 raised</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">10d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474038740" target="_blank" style="color:#0070D2;font-weight:600">474038740</a></td>
-      <td style="max-width:280px;font-size:12px">Populating LastEventDateTime mandatory for Life Science Emails on Activity timeline</td>
+      <td style="max-width:260px;font-size:12px">Populating LastEventDateTime mandatory for Life Science Emails on Activity timeline</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Cevat Surmeli</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Abhishek Dixit</td>
       <td style="text-align:center;color:#C23934;font-weight:700">26d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23660451" target="_blank" style="color:#7C3AED;font-weight:600">W-23660451</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under investigation (W-23660451)</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23660451)</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">21d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=473996395" target="_blank" style="color:#0070D2;font-weight:600">473996395</a></td>
-      <td style="max-width:280px;font-size:12px">HCP rollup to HCO triggers based on role not affiliation type on Activity Timeline</td>
+      <td style="max-width:260px;font-size:12px">HCP rollup to HCO triggers based on role not affiliation type on Activity Timeline</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
@@ -467,25 +512,27 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#C23934;font-weight:700">32d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23609716" target="_blank" style="color:#7C3AED;font-weight:600">W-23609716</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting customer info; GUS W-23609716 raised</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting customer info; GUS W-23609716 raised</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">25d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474052268" target="_blank" style="color:#0070D2;font-weight:600">474052268</a></td>
-      <td style="max-width:280px;font-size:12px">Certain fields not available in IICS Lake Flow Connect</td>
+      <td style="max-width:260px;font-size:12px">Certain fields not available in IICS Lake Flow Connect</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P3</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Cevat Surmeli</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Sahithi Reddy Merugu</td>
       <td style="text-align:center;color:#C23934;font-weight:700">25d</td>
       <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23434046" target="_blank" style="color:#7C3AED;font-weight:600">W-23434046</a></td>
       <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting customer info; GUS W-23434046 raised</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting customer info; GUS W-23434046 raised</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">20d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr></table>
 </div>
 
 <div class="section">
-  <div class="sec-hd">📋 Category 2 — Cases WITHOUT GUS Investigation <span class="cnt">42 cases</span></div>
+  <div class="sec-hd">&#128203; Category 2 — Cases WITHOUT GUS Investigation <span class="cnt">42 cases</span></div>
   <table><tr style="background:#032D60;color:#fff;font-size:12px">
   <th style="padding:10px 8px;white-space:nowrap">Case #</th>
   <th style="padding:10px 8px">Subject</th>
@@ -497,10 +544,11 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
   <th style="padding:10px 8px">GUS / Bug #</th>
   <th style="padding:10px 8px">Waiting Under</th>
   <th style="padding:10px 8px">Remarks</th>
+  <th style="padding:10px 8px">Most Time Spent</th>
   <th style="padding:10px 8px">Slack Link</th>
 </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474165653" target="_blank" style="color:#0070D2;font-weight:600">474165653</a></td>
-      <td style="max-width:280px;font-size:12px">Unable to update the days until Presentation link expires</td>
+      <td style="max-width:260px;font-size:12px">Unable to update the days until Presentation link expires</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -508,11 +556,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">10d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under active investigation by support</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">7d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474212722" target="_blank" style="color:#0070D2;font-weight:600">474212722</a></td>
-      <td style="max-width:280px;font-size:12px">Product column not visible in Survey list on Visit record</td>
+      <td style="max-width:260px;font-size:12px">Product column not visible in Survey list on Visit record</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -520,11 +569,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">4d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under active investigation by support</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">4d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474212088" target="_blank" style="color:#0070D2;font-weight:600">474212088</a></td>
-      <td style="max-width:280px;font-size:12px">Unable to create Expense record from web; iPad Expense records don't sync</td>
+      <td style="max-width:260px;font-size:12px">Unable to create Expense record from web; iPad Expense records don't sync</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
@@ -532,11 +582,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">4d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting additional information from customer</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">3d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474202194" target="_blank" style="color:#0070D2;font-weight:600">474202194</a></td>
-      <td style="max-width:280px;font-size:12px">PDF Rendering Differences on iPad LSC View Compared to Web View</td>
+      <td style="max-width:260px;font-size:12px">PDF Rendering Differences on iPad LSC View Compared to Web View</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
@@ -544,11 +595,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">5d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting additional information from customer</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
+      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">4d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474195050" target="_blank" style="color:#0070D2;font-weight:600">474195050</a></td>
-      <td style="max-width:280px;font-size:12px">Lookup fields on Provider Visit Product Discussion object not working</td>
+      <td style="max-width:260px;font-size:12px">Lookup fields on Provider Visit Product Discussion object not working</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -556,11 +608,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">6d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under active investigation by support</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">3d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474194366" target="_blank" style="color:#0070D2;font-weight:600">474194366</a></td>
-      <td style="max-width:280px;font-size:12px">Feature settings enabled in one sandbox not available in another</td>
+      <td style="max-width:260px;font-size:12px">Feature settings enabled in one sandbox not available in another</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#2E844A;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Solution Provided</span></td>
@@ -568,11 +621,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">6d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Solution provided; awaiting customer confirmation</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Solution provided; awaiting customer confirmation</td>
+      <td style="white-space:nowrap"><span style="background:#2E844A;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Solution Provided</span> <small style="color:#888">5d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474179440" target="_blank" style="color:#0070D2;font-weight:600">474179440</a></td>
-      <td style="max-width:280px;font-size:12px">iPad - Edit & delete available for ClickStreamMetric from Presentation Forum related list</td>
+      <td style="max-width:260px;font-size:12px">iPad - Edit & delete available for ClickStreamMetric from Presentation Forum related list</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
@@ -580,11 +634,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">7d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting additional information from customer</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">7d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474178827" target="_blank" style="color:#0070D2;font-weight:600">474178827</a></td>
-      <td style="max-width:280px;font-size:12px">Unable to see Help Text for Product section in Rating</td>
+      <td style="max-width:260px;font-size:12px">Unable to see Help Text for Product section in Rating</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
@@ -592,11 +647,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">7d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting additional information from customer</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
+      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">5d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474165633" target="_blank" style="color:#0070D2;font-weight:600">474165633</a></td>
-      <td style="max-width:280px;font-size:12px">Characteristics (Rating) tab not working for Medical Expert in dev1 sandbox</td>
+      <td style="max-width:260px;font-size:12px">Characteristics (Rating) tab not working for Medical Expert in dev1 sandbox</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -604,11 +660,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">10d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under active investigation by support</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">6d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474146477" target="_blank" style="color:#0070D2;font-weight:600">474146477</a></td>
-      <td style="max-width:280px;font-size:12px">Sharing of Life Science Marketable Product</td>
+      <td style="max-width:260px;font-size:12px">Sharing of Life Science Marketable Product</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
@@ -616,11 +673,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">12d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting additional information from customer</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">8d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474133871" target="_blank" style="color:#0070D2;font-weight:600">474133871</a></td>
-      <td style="max-width:280px;font-size:12px">API PDF processing failure: Malware Scan Status update error</td>
+      <td style="max-width:260px;font-size:12px">API PDF processing failure: Malware Scan Status update error</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
@@ -628,11 +686,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">13d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting additional information from customer</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
+      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">11d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474133308" target="_blank" style="color:#0070D2;font-weight:600">474133308</a></td>
-      <td style="max-width:280px;font-size:12px">Product picklist all option behaves inconsistently in iPad</td>
+      <td style="max-width:260px;font-size:12px">Product picklist all option behaves inconsistently in iPad</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
@@ -640,11 +699,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">13d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting additional information from customer</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">8d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474059286" target="_blank" style="color:#0070D2;font-weight:600">474059286</a></td>
-      <td style="max-width:280px;font-size:12px">Observations regarding Survey OOB Functionality - Web and iPad</td>
+      <td style="max-width:260px;font-size:12px">Observations regarding Survey OOB Functionality - Web and iPad</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -652,11 +712,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#C23934;font-weight:700">24d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under active investigation by support</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">16d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474213342" target="_blank" style="color:#0070D2;font-weight:600">474213342</a></td>
-      <td style="max-width:280px;font-size:12px">Product Discussion doesn't deselect when Recommended Actions deselected</td>
+      <td style="max-width:260px;font-size:12px">Product Discussion doesn't deselect when Recommended Actions deselected</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -664,11 +725,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">4d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under active investigation by support</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">3d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474213067" target="_blank" style="color:#0070D2;font-weight:600">474213067</a></td>
-      <td style="max-width:280px;font-size:12px">No Salesforce object tracks email recipient views on Presentation link</td>
+      <td style="max-width:260px;font-size:12px">No Salesforce object tracks email recipient views on Presentation link</td>
       <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#2E844A;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Solution Provided</span></td>
@@ -676,11 +738,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">4d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Solution provided; awaiting customer confirmation</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Solution provided; awaiting customer confirmation</td>
+      <td style="white-space:nowrap"><span style="background:#2E844A;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Solution Provided</span> <small style="color:#888">3d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474139508" target="_blank" style="color:#0070D2;font-weight:600">474139508</a></td>
-      <td style="max-width:280px;font-size:12px">Issue creating Plan record on Offline mode in iPad</td>
+      <td style="max-width:260px;font-size:12px">Issue creating Plan record on Offline mode in iPad</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -688,11 +751,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">13d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under active investigation by support</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">9d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474237159" target="_blank" style="color:#0070D2;font-weight:600">474237159</a></td>
-      <td style="max-width:280px;font-size:12px">Managed Event objects not available on iPad despite DbSchema configuration</td>
+      <td style="max-width:260px;font-size:12px">Managed Event objects not available on iPad despite DbSchema configuration</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -700,11 +764,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">0d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under active investigation by support</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">4h</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474236281" target="_blank" style="color:#0070D2;font-weight:600">474236281</a></td>
-      <td style="max-width:280px;font-size:12px">Issue navigating to account from upper level in Affiliation hierarchy on iPad</td>
+      <td style="max-width:260px;font-size:12px">Issue navigating to account from upper level in Affiliation hierarchy on iPad</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -712,11 +777,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">0d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under active investigation by support</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">6h</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474224290" target="_blank" style="color:#0070D2;font-weight:600">474224290</a></td>
-      <td style="max-width:280px;font-size:12px">Product and key message territory alignment not working as expected</td>
+      <td style="max-width:260px;font-size:12px">Product and key message territory alignment not working as expected</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -724,11 +790,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">3d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under active investigation by support</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">3d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474206000" target="_blank" style="color:#0070D2;font-weight:600">474206000</a></td>
-      <td style="max-width:280px;font-size:12px">Emails not triggered immediately on iPad (inconsistent vs web)</td>
+      <td style="max-width:260px;font-size:12px">Emails not triggered immediately on iPad (inconsistent vs web)</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -736,11 +803,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">5d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under active investigation by support</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">4d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474142461" target="_blank" style="color:#0070D2;font-weight:600">474142461</a></td>
-      <td style="max-width:280px;font-size:12px">DCR Records Not Created for Affiliation Records</td>
+      <td style="max-width:260px;font-size:12px">DCR Records Not Created for Affiliation Records</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -748,11 +816,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">12d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under active investigation by support</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">7d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474134655" target="_blank" style="color:#0070D2;font-weight:600">474134655</a></td>
-      <td style="max-width:280px;font-size:12px">Country Admin User Unable to Create Assessment Task Under Action Plan</td>
+      <td style="max-width:260px;font-size:12px">Country Admin User Unable to Create Assessment Task Under Action Plan</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
@@ -760,11 +829,12 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">13d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting additional information from customer</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">9d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474129004" target="_blank" style="color:#0070D2;font-weight:600">474129004</a></td>
-      <td style="max-width:280px;font-size:12px">Unable to track metrics for MP4 Presentations with actual time spent on video</td>
+      <td style="max-width:260px;font-size:12px">Unable to track metrics for MP4 Presentations with actual time spent on video</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
@@ -772,235 +842,255 @@ Accounts queried: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals Interna
       <td style="text-align:center;color:#333">14d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under active investigation by support</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">9d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474128472" target="_blank" style="color:#0070D2;font-weight:600">474128472</a></td>
-      <td style="max-width:280px;font-size:12px">Overlapping Plan Validation Not Working Consistently on iPad</td>
+      <td style="max-width:260px;font-size:12px">Overlapping Plan Validation Not Working Consistently on iPad</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Sai Shivani Byreddy</td>
       <td style="text-align:center;color:#333">14d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting additional information from customer</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
+      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">7d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474126020" target="_blank" style="color:#0070D2;font-weight:600">474126020</a></td>
-      <td style="max-width:280px;font-size:12px">Custom flow error message not displaying correctly on Inquiry Submit MIR validation</td>
+      <td style="max-width:260px;font-size:12px">Custom flow error message not displaying correctly on Inquiry Submit MIR validation</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Sai Uma Maheswari Kamatham</td>
       <td style="text-align:center;color:#333">14d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under active investigation by support</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">10d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474115275" target="_blank" style="color:#0070D2;font-weight:600">474115275</a></td>
-      <td style="max-width:280px;font-size:12px">LSC Event Management - Workflow Path Does Not Support Multi-Level Sequential Approvals</td>
+      <td style="max-width:260px;font-size:12px">LSC Event Management - Workflow Path Does Not Support Multi-Level Sequential Approvals</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Sai Shivani Byreddy</td>
       <td style="text-align:center;color:#C23934;font-weight:700">17d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under active investigation by support</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">14d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474115244" target="_blank" style="color:#0070D2;font-weight:600">474115244</a></td>
-      <td style="max-width:280px;font-size:12px">LSC Event Management - Limited Product Documentation for Managed Event Budget Objects</td>
+      <td style="max-width:260px;font-size:12px">LSC Event Management - Limited Product Documentation for Managed Event Budget Objects</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Roshan Vemu</td>
       <td style="text-align:center;color:#C23934;font-weight:700">17d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under active investigation by support</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">17d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474094367" target="_blank" style="color:#0070D2;font-weight:600">474094367</a></td>
-      <td style="max-width:280px;font-size:12px">Web Issue - Field Rep User able to edit Expense record after submission</td>
+      <td style="max-width:260px;font-size:12px">Web Issue - Field Rep User able to edit Expense record after submission</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Abhishek Anand</td>
       <td style="text-align:center;color:#C23934;font-weight:700">19d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting additional information from customer</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
+      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">11d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474091985" target="_blank" style="color:#0070D2;font-weight:600">474091985</a></td>
-      <td style="max-width:280px;font-size:12px">Table format not displaying correctly in LSC iPad App</td>
+      <td style="max-width:260px;font-size:12px">Table format not displaying correctly in LSC iPad App</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Srividya Vedula</td>
       <td style="text-align:center;color:#C23934;font-weight:700">19d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under active investigation by support</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
+      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">9d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474087152" target="_blank" style="color:#0070D2;font-weight:600">474087152</a></td>
-      <td style="max-width:280px;font-size:12px">App Alert Share records not auto created when App Alerts created by Automated Process</td>
+      <td style="max-width:260px;font-size:12px">App Alert Share records not auto created when App Alerts created by Automated Process</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Roshan Vemu</td>
       <td style="text-align:center;color:#C23934;font-weight:700">20d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting additional information from customer</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">8d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474200157" target="_blank" style="color:#0070D2;font-weight:600">474200157</a></td>
-      <td style="max-width:280px;font-size:12px">Issue/Question related to Survey Response Timeline</td>
+      <td style="max-width:260px;font-size:12px">Issue/Question related to Survey Response Timeline</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Shirisha Kuncharam</td>
       <td style="text-align:center;color:#333">5d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting additional information from customer</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
+      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">4d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474198525" target="_blank" style="color:#0070D2;font-weight:600">474198525</a></td>
-      <td style="max-width:280px;font-size:12px">List View Filter not working in iPad</td>
+      <td style="max-width:260px;font-size:12px">List View Filter not working in iPad</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Dimple Madhuri Lakshmi Eati</td>
       <td style="text-align:center;color:#333">5d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting additional information from customer</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
+      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">3d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474180613" target="_blank" style="color:#0070D2;font-weight:600">474180613</a></td>
-      <td style="max-width:280px;font-size:12px">Web Issue - Unable to provide object-level access on Video Call object</td>
+      <td style="max-width:260px;font-size:12px">Web Issue - Unable to provide object-level access on Video Call object</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Sai Shivani Byreddy</td>
       <td style="text-align:center;color:#333">7d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting additional information from customer</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
+      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">5d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474178484" target="_blank" style="color:#0070D2;font-weight:600">474178484</a></td>
-      <td style="max-width:280px;font-size:12px">Web Issue - Field User Personas unable to access fields on Expense Object</td>
+      <td style="max-width:260px;font-size:12px">Web Issue - Field User Personas unable to access fields on Expense Object</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Neeti Shyam</td>
       <td style="text-align:center;color:#333">7d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting additional information from customer</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
+      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">6d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474161651" target="_blank" style="color:#0070D2;font-weight:600">474161651</a></td>
-      <td style="max-width:280px;font-size:12px">Provider account territory summary record issue</td>
+      <td style="max-width:260px;font-size:12px">Provider account territory summary record issue</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Mohana Sai Vishnu Sriya Chavva</td>
       <td style="text-align:center;color:#333">10d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under active investigation by support</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">9d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474158192" target="_blank" style="color:#0070D2;font-weight:600">474158192</a></td>
-      <td style="max-width:280px;font-size:12px">Life Sciences Cloud: DCR Records Not Created for Account Create/Update</td>
+      <td style="max-width:260px;font-size:12px">Life Sciences Cloud: DCR Records Not Created for Account Create/Update</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Akansha Vennela</td>
       <td style="text-align:center;color:#333">11d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting additional information from customer</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
+      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">6d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474194770" target="_blank" style="color:#0070D2;font-weight:600">474194770</a></td>
-      <td style="max-width:280px;font-size:12px">Ability to hide Case Details Section from Inquiry Creation Page (Multi Object Layout)</td>
+      <td style="max-width:260px;font-size:12px">Ability to hide Case Details Section from Inquiry Creation Page</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Nishit Mahato</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Abhishek Dixit</td>
       <td style="text-align:center;color:#333">6d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under active investigation by support</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">3d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474188496" target="_blank" style="color:#0070D2;font-weight:600">474188496</a></td>
-      <td style="max-width:280px;font-size:12px">Life Sciences Cloud - Restrict My Team Tab Visibility by Persona</td>
+      <td style="max-width:260px;font-size:12px">Life Sciences Cloud - Restrict My Team Tab Visibility by Persona</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Nishit Mahato</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Hemanth Kumar Yadav Kottam</td>
       <td style="text-align:center;color:#333">6d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under active investigation by support</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">6d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474188264" target="_blank" style="color:#0070D2;font-weight:600">474188264</a></td>
-      <td style="max-width:280px;font-size:12px">User can edit record in Submitted stage even without edit access</td>
+      <td style="max-width:260px;font-size:12px">User can edit record in Submitted stage even without edit access</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Nishit Mahato</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Harsh Thakkar</td>
       <td style="text-align:center;color:#333">6d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under active investigation by support</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">6d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474180482" target="_blank" style="color:#0070D2;font-weight:600">474180482</a></td>
-      <td style="max-width:280px;font-size:12px">User not able to view records in Open/Closed List View on LSC DCR Object on iPad</td>
+      <td style="max-width:260px;font-size:12px">User not able to view records in Open/Closed List View on LSC DCR Object on iPad</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Nishit Mahato</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Hemanth Kumar Yadav Kottam</td>
       <td style="text-align:center;color:#333">7d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under active investigation by support</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">7d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#fff">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474202455" target="_blank" style="color:#0070D2;font-weight:600">474202455</a></td>
-      <td style="max-width:280px;font-size:12px">Not able to filter Medical Insights based on Subject record values online</td>
+      <td style="max-width:260px;font-size:12px">Not able to filter Medical Insights based on Subject record values online</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Nishit Mahato</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Harsh Thakkar</td>
       <td style="text-align:center;color:#333">5d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Awaiting additional information from customer</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
+      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">3d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr><tr style="background:#f8f9fb">
       <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474132953" target="_blank" style="color:#0070D2;font-weight:600">474132953</a></td>
-      <td style="max-width:280px;font-size:12px">#4005 - ProductTerritoryAlignment records don't show in iPad</td>
+      <td style="max-width:260px;font-size:12px">#4005 - ProductTerritoryAlignment records don't show in iPad</td>
       <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
       <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Nishit Mahato</td>
+      <td style="white-space:nowrap;font-size:11px;color:#444">Sai Uma Maheswari Kamatham</td>
       <td style="text-align:center;color:#333">13d</td>
       <td style="font-size:12px"><span style="color:#bbb">—</span></td>
       <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:220px">Under active investigation by support</td>
+      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
+      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">13d</small></td>
       <td style="font-size:12px;color:#bbb">—</td>
     </tr></table>
 </div>
