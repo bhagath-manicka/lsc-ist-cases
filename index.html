@@ -7,8 +7,14 @@
   body{font-family:'Segoe UI',Arial,sans-serif;background:#F3F4F6;margin:0;padding:20px}
   h1{color:#1e3a5f;font-size:22px;margin-bottom:4px}
   .subtitle{color:#6B7280;font-size:13px;margin-bottom:16px}
-  .summary-box{background:#fff;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.1);padding:14px 18px;margin-bottom:20px;display:inline-block;min-width:360px}
+  .summary-box{background:#fff;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.1);padding:14px 18px;margin-bottom:0;display:inline-block;min-width:360px}
   table.main{width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,.1)}
+  .filter-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:14px;background:#fff;padding:10px 14px;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+  .filter-bar label{font-size:12px;color:#374151;font-weight:600}
+  .filter-bar select{font-size:12px;padding:4px 8px;border:1px solid #D1D5DB;border-radius:6px;color:#1F2937;background:#F9FAFB;cursor:pointer}
+  .filter-bar button{font-size:12px;padding:4px 12px;border:none;border-radius:6px;background:#1e3a5f;color:#fff;cursor:pointer;font-weight:600}
+  .filter-bar button:hover{background:#2563EB}
+  #match-count{font-size:12px;color:#6B7280;margin-left:auto}
   table.main th{background:#1e3a5f;color:#fff;padding:9px 10px;font-size:12px;text-align:left;white-space:nowrap;position:sticky;top:0;z-index:2}
   table.main td{border-bottom:1px solid #e5e7eb;vertical-align:top}
 </style>
@@ -16,13 +22,16 @@
 <body>
 <h1>LSC Hypercare accounts open cases</h1>
 <div class="subtitle">As of August 04, 2026 &nbsp;|&nbsp; Total: <strong>83</strong> open cases &nbsp;|&nbsp; Accounts: Pfizer EMEA · Takeda · Genmab US · FIDIA · Fresenius Kabi · Novartis · Vericel</div>
-<div class="summary-box">
+<div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;margin-bottom:20px"><div class="summary-box">
   <table style="border-collapse:collapse">
   <tr><th style="background:#1e3a5f;color:#fff;padding:6px 14px;font-size:12px;text-align:left">Account</th><th style="background:#1e3a5f;color:#fff;padding:6px 14px;font-size:12px">Open Cases</th></tr>
   <tr style='background:#EFF6FF'><td style='padding:6px 14px;font-size:12px'>Pfizer - Commercial LSC - EMEA</td><td style='padding:6px 14px;text-align:center;font-weight:700;color:#2563EB;font-size:13px'>35</td></tr><tr style='background:#FFF7ED'><td style='padding:6px 14px;font-size:12px'>Takeda Pharmaceuticals International AG</td><td style='padding:6px 14px;text-align:center;font-weight:700;color:#2563EB;font-size:13px'>35</td></tr><tr style='background:#F0FDF4'><td style='padding:6px 14px;font-size:12px'>Genmab US - SAP</td><td style='padding:6px 14px;text-align:center;font-weight:700;color:#2563EB;font-size:13px'>10</td></tr><tr style='background:#F0FDFA'><td style='padding:6px 14px;font-size:12px'>FIDIA FARMACEUTICI S.P.A.</td><td style='padding:6px 14px;text-align:center;font-weight:700;color:#2563EB;font-size:13px'>1</td></tr><tr style='background:#FFF1F2'><td style='padding:6px 14px;font-size:12px'>Fresenius Kabi AG (LSC Environment)</td><td style='padding:6px 14px;text-align:center;font-weight:700;color:#2563EB;font-size:13px'>2</td></tr><tr style='background:#FDF4FF'><td style='padding:6px 14px;font-size:12px'>Novartis Pharma AG <span style='color:#9CA3AF;font-size:11px'>(no open cases)</span></td><td style='padding:6px 14px;text-align:center;font-weight:700;color:#9CA3AF;font-size:13px'>—</td></tr><tr style='background:#FEFCE8'><td style='padding:6px 14px;font-size:12px'>Vericel Corporation <span style='color:#9CA3AF;font-size:11px'>(no open cases)</span></td><td style='padding:6px 14px;text-align:center;font-weight:700;color:#9CA3AF;font-size:13px'>—</td></tr>
   <tr style="background:#f9fafb;border-top:2px solid #1e3a5f"><td style="padding:6px 14px;font-weight:700;font-size:12px">Total</td><td style="padding:6px 14px;text-align:center;font-weight:700;font-size:13px;color:#DC2626">83</td></tr>
   </table>
 </div>
+<div class="summary-box" style="margin-left:16px"><table style="border-collapse:collapse"><tr><th style="background:#1e3a5f;color:#fff;padding:6px 14px;font-size:12px;text-align:left">GEO</th><th style="background:#1e3a5f;color:#fff;padding:6px 14px;font-size:12px">Open Cases</th></tr><tr><td style='padding:6px 14px;font-size:12px'><span style='background:#065F46;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600'>IST</span></td><td style='padding:6px 14px;text-align:center;font-weight:700;color:#065F46;font-size:13px'>70</td></tr><tr><td style='padding:6px 14px;font-size:12px'><span style='background:#701A75;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600'>LATAM</span></td><td style='padding:6px 14px;text-align:center;font-weight:700;color:#701A75;font-size:13px'>5</td></tr><tr><td style='padding:6px 14px;font-size:12px'><span style='background:#7C2D12;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600'>AMER-EST</span></td><td style='padding:6px 14px;text-align:center;font-weight:700;color:#7C2D12;font-size:13px'>5</td></tr><tr><td style='padding:6px 14px;font-size:12px'><span style='background:#1E40AF;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600'>EMEA</span></td><td style='padding:6px 14px;text-align:center;font-weight:700;color:#1E40AF;font-size:13px'>2</td></tr><tr><td style='padding:6px 14px;font-size:12px'><span style='background:#92400E;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600'>AMER-PST</span></td><td style='padding:6px 14px;text-align:center;font-weight:700;color:#92400E;font-size:13px'>1</td></tr><tr style="background:#f9fafb;border-top:2px solid #1e3a5f"><td style="padding:6px 14px;font-weight:700;font-size:12px">Total</td><td style="padding:6px 14px;text-align:center;font-weight:700;font-size:13px;color:#DC2626">83</td></tr></table></div>
+</div>
+<div class="filter-bar"><label for="f-account">Account</label><select id="f-account"><option value="">All</option><option>Pfizer - Commercial LSC - EMEA</option><option>Takeda Pharmaceuticals International AG</option><option>Genmab US - SAP</option><option>FIDIA FARMACEUTICI S.P.A.</option><option>Fresenius Kabi AG (LSC Environment)</option></select><label for="f-geo">GEO</label><select id="f-geo"><option value="">All</option><option>IST</option><option>EMEA</option><option>LATAM</option><option>AMER-EST</option><option>AMER-PST</option></select><label for="f-status">Status</label><select id="f-status"><option value="">All</option><option>New</option><option>Working</option><option>Need More Information</option><option>Solution Provided</option><option>Call/Meeting Scheduled</option></select><label for="f-severity">Severity</label><select id="f-severity"><option value="">All</option><option>P1</option><option>P2</option><option>P3</option><option>P4</option></select><label for="f-waiting">Waiting Under</label><select id="f-waiting"><option value="">All</option><option>Engineering</option><option>Customer</option><option>Support</option></select><button onclick="resetFilters()">Reset</button><span id="match-count"></span></div>
 <div style="overflow-x:auto">
 <table class="main">
 <thead><tr>
@@ -1200,4 +1209,43 @@
   Waiting Under: <strong>Engineering</strong> = GUS/Bug filed; <strong>Customer</strong> = NMI/Solution Provided; <strong>Support</strong> = Working, no GUS.
   Most Time Spent = status with highest cumulative hours from CaseHistory. Novartis Pharma AG and Vericel Corporation have 0 open LSC cases today.
 </div>
+<script>
+(function(){
+  function cellText(row,col){var td=row.querySelectorAll('td')[col];return td?td.innerText.trim():'';}
+  function applyFilters(){
+    var fA=document.getElementById('f-account').value.toLowerCase();
+    var fG=document.getElementById('f-geo').value.toLowerCase();
+    var fS=document.getElementById('f-status').value.toLowerCase();
+    var fV=document.getElementById('f-severity').value.toLowerCase();
+    var fW=document.getElementById('f-waiting').value.toLowerCase();
+    var rows=document.querySelectorAll('table.main tbody tr');
+    var visible=0,lastSep=null,sepVis=false;
+    rows.forEach(function(row){
+      if(row.querySelector('td[colspan]')){
+        if(lastSep)lastSep.style.display=sepVis?'':'none';
+        lastSep=row;sepVis=false;return;
+      }
+      var m=true;
+      if(fA&&cellText(row,0).toLowerCase().indexOf(fA)===-1)m=false;
+      if(fG&&cellText(row,3).toLowerCase()!==fG)m=false;
+      if(fS&&cellText(row,5).toLowerCase()!==fS)m=false;
+      if(fV&&cellText(row,6).toLowerCase()!==fV)m=false;
+      if(fW&&cellText(row,8).toLowerCase()!==fW)m=false;
+      row.style.display=m?'':'none';
+      if(m){visible++;sepVis=true;}
+    });
+    if(lastSep)lastSep.style.display=sepVis?'':'none';
+    document.getElementById('match-count').innerText=visible+' case'+(visible!==1?'s':'')+' shown';
+  }
+  function resetFilters(){
+    ['f-account','f-geo','f-status','f-severity','f-waiting'].forEach(function(id){document.getElementById(id).value='';});
+    applyFilters();
+  }
+  window.resetFilters=resetFilters;
+  ['f-account','f-geo','f-status','f-severity','f-waiting'].forEach(function(id){
+    document.getElementById(id).addEventListener('change',applyFilters);
+  });
+  window.addEventListener('DOMContentLoaded',applyFilters);
+})();
+</script>
 </body></html>
