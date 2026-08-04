@@ -1,1099 +1,1167 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>LSC IST Open Cases — Industry-Life Sciences (Aug 3 2026)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LSC IST Open Cases — Aug 4, 2026</title>
 <style>
-* { box-sizing:border-box; }
-body { font-family:'Salesforce Sans',Arial,sans-serif; background:#f0f4f9; margin:0; padding:24px; }
-h1 { color:#032D60; font-size:22px; margin:0 0 4px 0; }
-.meta { color:#555; font-size:13px; margin-bottom:20px; line-height:1.6; }
-.kpi-bar { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px; }
-.kpi { background:#fff; border:1px solid #d8dde6; border-radius:8px; padding:14px 20px; text-align:center; box-shadow:0 1px 3px rgba(0,0,0,0.06); min-width:100px; }
-.kpi .n { font-size:28px; font-weight:700; color:#032D60; line-height:1; }
-.kpi .l { font-size:11px; color:#666; margin-top:4px; }
-.legend { display:flex; gap:20px; flex-wrap:wrap; margin:10px 0 24px 0; font-size:12px; color:#555; background:#fff; padding:10px 16px; border-radius:6px; border:1px solid #e5e9ef; }
-.leg-item { display:flex; align-items:center; gap:5px; }
-.dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
-.section { margin-top:28px; }
-.sec-hd { background:linear-gradient(90deg,#032D60 0%,#00A1E0 100%); color:#fff; padding:10px 16px; font-size:14px; font-weight:700; border-radius:4px 4px 0 0; display:flex; align-items:center; gap:8px; }
-.cnt { background:rgba(255,255,255,0.22); border-radius:12px; padding:2px 10px; font-size:12px; }
-table { width:100%; border-collapse:collapse; background:#fff; box-shadow:0 1px 4px rgba(0,0,0,0.08); }
-td, th { padding:8px; border-bottom:1px solid #e5e9ef; vertical-align:top; word-break:break-word; }
-tr:hover td { background:#eef3ff !important; }
-a { color:#0070D2; text-decoration:none; }
-a:hover { text-decoration:underline; }
+  :root {
+    --sf-navy:#032D60; --sf-blue:#00A1E0; --sf-teal:#00698A;
+    --sf-white:#fff; --sf-gray:#f3f4f6; --sf-border:#e5e7eb;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Salesforce Sans',Arial,sans-serif;background:#f0f4f8;color:#1a1a2e;font-size:13px}
+  header{background:var(--sf-navy);color:white;padding:18px 28px;display:flex;align-items:center;gap:16px}
+  header .logo{font-size:22px;font-weight:700;letter-spacing:-.5px}
+  header .subtitle{font-size:12px;opacity:.75;margin-top:3px}
+  .badge-bar{background:var(--sf-teal);color:white;padding:10px 28px;display:flex;gap:24px;font-size:12px}
+  .stat{display:flex;align-items:center;gap:6px}
+  .stat strong{font-size:18px;font-weight:700}
+  .divider{opacity:.4;font-size:18px}
+  main{padding:20px 28px}
+  .section-header{display:flex;align-items:center;gap:10px;margin:24px 0 10px}
+  .section-header h2{font-size:15px;font-weight:700;color:var(--sf-navy)}
+  .section-badge{background:var(--sf-navy);color:white;padding:2px 10px;border-radius:12px;font-size:11px}
+  .section-badge.no-gus-badge{background:#6B7280}
+  .table-wrap{overflow-x:auto;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+  table{width:100%;border-collapse:collapse;background:white}
+  thead th{background:var(--sf-navy);color:white;padding:9px 10px;text-align:left;font-size:11px;font-weight:600;white-space:nowrap}
+  tbody tr:nth-child(even){background:#f9fafb}
+  tbody tr:hover{background:#e8f4fd}
+  td{padding:8px 10px;vertical-align:middle;border-bottom:1px solid var(--sf-border)}
+  .case-link{color:var(--sf-blue);text-decoration:none;font-weight:600;white-space:nowrap}
+  .case-link:hover{text-decoration:underline}
+  .subject{max-width:260px;font-size:12px;line-height:1.4}
+  .owner{max-width:130px;font-size:12px}
+  .remarks{max-width:200px;font-size:11px;color:#374151;line-height:1.4}
+  .age-cell{text-align:center}
+  .age-ok{color:#16A34A;font-weight:600}
+  .age-yellow{color:#D97706;font-weight:600}
+  .age-red{color:#DC2626;font-weight:700}
+  .pbadge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;color:white}
+  .p1{background:#7C3AED}.p2{background:#DC2626}.p3{background:#D97706}.p4{background:#6B7280}
+  .sbadge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap}
+  .working{background:#DBEAFE;color:#1D4ED8}
+  .nmi{background:#FEF3C7;color:#92400E}
+  .sp{background:#D1FAE5;color:#065F46}
+  .cms{background:#EDE9FE;color:#5B21B6}
+  .new{background:#F3F4F6;color:#374151}
+  .acct-badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600}
+  .pfizer{background:#E0F2FE;color:#0369A1}
+  .takeda{background:#FDE8FF;color:#7E22CE}
+  .gus-link{color:#0176D3;text-decoration:none;font-weight:600;font-size:12px}
+  .gus-link:hover{text-decoration:underline}
+  .bug-link{color:#DC2626;text-decoration:none;font-weight:600;font-size:12px}
+  .bug-link:hover{text-decoration:underline}
+  .no-gus{color:#9CA3AF;font-size:12px}
+  .wu-eng{display:inline-block;padding:2px 8px;border-radius:4px;background:#FEE2E2;color:#991B1B;font-size:11px;font-weight:600}
+  .wu-cust{display:inline-block;padding:2px 8px;border-radius:4px;background:#FEF3C7;color:#92400E;font-size:11px;font-weight:600}
+  .wu-supp{display:inline-block;padding:2px 8px;border-radius:4px;background:#DBEAFE;color:#1D4ED8;font-size:11px;font-weight:600}
+  .tbadge{display:inline-block;padding:3px 8px;border-radius:4px;font-size:11px;font-weight:600;text-align:center;line-height:1.4}
+  .tbadge small{font-size:10px;font-weight:400;display:block}
+  .slack-link{color:#4A154B;text-decoration:none;font-weight:600;font-size:12px}
+  .slack-link:hover{text-decoration:underline}
+  .no-slack{color:#9CA3AF;font-size:12px}
+  .footer{text-align:center;padding:20px;color:#6B7280;font-size:11px}
+  @media(max-width:900px){.subject,.remarks{max-width:160px}}
 </style>
 </head>
 <body>
-
-<h1>&#128302; Industry-Life Sciences — IST Open Cases</h1>
-<div class="meta">
-  Generated: <strong>Aug 3, 2026</strong> &nbsp;|&nbsp; Filter: Industry-Life Sciences &middot; Region: IST &middot; Status &ne; Closed<br>
-  Accounts: Pfizer - Commercial LSC - EMEA, Takeda Pharmaceuticals International AG<br>
-  <em>Genmab US SAP, FIDIA FARMACEUTICI, Fresenius Kabi AG, Novartis Pharma AG, Vericel Corporation — 0 open IST cases.</em>
+<header>
+  <div>
+    <div class="logo">&#9729; Life Sciences Cloud — IST Open Cases</div>
+    <div class="subtitle">Accounts: Pfizer · Takeda · Genmab · FIDIA · Fresenius Kabi · Novartis · Vericel &nbsp;|&nbsp; Region: IST &nbsp;|&nbsp; Updated: Aug 4, 2026</div>
+  </div>
+</header>
+<div class="badge-bar">
+  <div class="stat"><strong>69</strong> Total Open</div>
+  <div class="divider">|</div>
+  <div class="stat"><strong>32</strong> Pfizer</div>
+  <div class="stat"><strong>37</strong> Takeda</div>
+  <div class="divider">|</div>
+  <div class="stat"><strong>42</strong> P2</div>
+  <div class="stat"><strong>1</strong> P3</div>
+  <div class="stat"><strong>26</strong> P4</div>
+  <div class="divider">|</div>
+  <div class="stat"><strong>32</strong> With GUS</div>
+  <div class="stat"><strong>37</strong> Without GUS</div>
+  <div class="divider">|</div>
+  <div class="stat"><strong>32</strong> Engineering</div>
+  <div class="stat"><strong>16</strong> Customer</div>
+  <div class="stat"><strong>21</strong> Support</div>
 </div>
+<main>
+  <div class="section-header">
+    <h2>With GUS / Bug Investigation</h2>
+    <span class="section-badge">32 cases</span>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Case #</th><th>Subject</th><th>Account</th><th>Priority</th>
+          <th>Status</th><th>Owner (IST)</th><th>Age</th><th>GUS / Bug #</th>
+          <th>Waiting Under</th><th>Remarks</th><th>Most Time Spent</th><th>Slack</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474191956" target="_blank" class="case-link">474191956</a></td>
+      <td class="subject">iPad: Signature added for consent submission is blank on View Signature</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Burak Ilikci</td>
+      <td class="age-cell"><span class="age-ok">6d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23664324" target="_blank" class="gus-link">W-23664324</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Engineering investigation ongoing (W-23664324)</td>
+      <td><span class="tbadge working">Working<br><small>6d 10h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
 
-<div class="kpi-bar">
-  <div class="kpi"><div class="n">77</div><div class="l">Total Open</div></div>
-  <div class="kpi"><div class="n" style="color:#032D60">37</div><div class="l">Pfizer</div></div>
-  <div class="kpi"><div class="n" style="color:#5C2D91">40</div><div class="l">Takeda</div></div>
-  <div class="kpi"><div class="n" style="color:#2E844A">35</div><div class="l">With GUS</div></div>
-  <div class="kpi"><div class="n" style="color:#E65C00">42</div><div class="l">Without GUS</div></div>
-  <div class="kpi"><div class="n" style="color:#7C3AED">35</div><div class="l">&#9203; Engineering</div></div>
-  <div class="kpi"><div class="n" style="color:#E65C00">19</div><div class="l">&#9203; Customer</div></div>
-  <div class="kpi"><div class="n" style="color:#0070D2">23</div><div class="l">&#9203; Support</div></div>
-</div>
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474162076" target="_blank" class="case-link">474162076</a></td>
+      <td class="subject">Unable to create a visit on Friday due to 'Schedule visit during business hours' error</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge nmi">Need More Information</span></td>
+      <td class="owner">Sravani Gajula</td>
+      <td class="age-cell"><span class="age-yellow">10d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23682117" target="_blank" class="gus-link">W-23682117</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Awaiting customer info; GUS W-23682117 filed</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>4d 8h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
 
-<div class="legend">
-  <strong>Waiting Under:</strong>
-  <span class="leg-item"><span class="dot" style="background:#7C3AED"></span> Engineering — GUS/Bug filed</span>
-  <span class="leg-item"><span class="dot" style="background:#E65C00"></span> Customer — Awaiting customer response</span>
-  <span class="leg-item"><span class="dot" style="background:#0070D2"></span> Support — Working, no GUS yet</span>
-  &nbsp;&nbsp;
-  <strong>Most Time Spent:</strong>
-  <span class="leg-item"><span class="dot" style="background:#0070D2"></span> Working (61 cases)</span>
-  <span class="leg-item"><span class="dot" style="background:#E65C00"></span> Need More Info (13 cases)</span>
-  <span class="leg-item"><span class="dot" style="background:#2E844A"></span> Solution Provided (3 cases)</span>
-  &nbsp;&nbsp; <em>Age in <span style="color:#C23934;font-weight:700">red</span> = open &gt;14 days</em>
-</div>
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474162019" target="_blank" class="case-link">474162019</a></td>
+      <td class="subject">Remote Engagement User Experience Issues</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge nmi">Need More Information</span></td>
+      <td class="owner">Harshita Kagadal</td>
+      <td class="age-cell"><span class="age-yellow">10d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23627893" target="_blank" class="gus-link">W-23627893</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Awaiting customer info; GUS W-23627893 filed</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>10d 12h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
 
-<div class="section">
-  <div class="sec-hd">&#128203; Category 1 — Cases WITH GUS Investigation <span class="cnt">35 cases</span></div>
-  <table><tr style="background:#032D60;color:#fff;font-size:12px">
-  <th style="padding:10px 8px;white-space:nowrap">Case #</th>
-  <th style="padding:10px 8px">Subject</th>
-  <th style="padding:10px 8px">Account</th>
-  <th style="padding:10px 8px">Priority</th>
-  <th style="padding:10px 8px">Status</th>
-  <th style="padding:10px 8px">Owner (IST)</th>
-  <th style="padding:10px 8px">Age</th>
-  <th style="padding:10px 8px">GUS / Bug #</th>
-  <th style="padding:10px 8px">Waiting Under</th>
-  <th style="padding:10px 8px">Remarks</th>
-  <th style="padding:10px 8px">Most Time Spent</th>
-  <th style="padding:10px 8px">Slack Link</th>
-</tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=473985872" target="_blank" style="color:#0070D2;font-weight:600">473985872</a></td>
-      <td style="max-width:260px;font-size:12px">Account Object Quick Action Translation</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#2E844A;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Solution Provided</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Satya Ghettem</td>
-      <td style="text-align:center;color:#C23934;font-weight:700">33d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23511527" target="_blank" style="color:#7C3AED;font-weight:600">W-23511527</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Solution provided; awaiting customer confirmation (GUS W-23511527)</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">28d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474191956" target="_blank" style="color:#0070D2;font-weight:600">474191956</a></td>
-      <td style="max-width:260px;font-size:12px">iPad - Signature blank when clicking View Signature on consent submission</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Prem Nath Thakuri</td>
-      <td style="text-align:center;color:#333">6d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23664324" target="_blank" style="color:#7C3AED;font-weight:600">W-23664324</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23664324)</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">6d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474162076" target="_blank" style="color:#0070D2;font-weight:600">474162076</a></td>
-      <td style="max-width:260px;font-size:12px">Unable to create a visit on Friday due to business hours error</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Cevat Surmeli</td>
-      <td style="text-align:center;color:#333">10d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23682117" target="_blank" style="color:#7C3AED;font-weight:600">W-23682117</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23682117)</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">6d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474162019" target="_blank" style="color:#0070D2;font-weight:600">474162019</a></td>
-      <td style="max-width:260px;font-size:12px">Remote Engagement User Experience Issues</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
-      <td style="text-align:center;color:#333">10d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23627893" target="_blank" style="color:#7C3AED;font-weight:600">W-23627893</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting customer info; GUS W-23627893 raised</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">6d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474153350" target="_blank" style="color:#0070D2;font-weight:600">474153350</a></td>
-      <td style="max-width:260px;font-size:12px">Standard Surveys not visible on Account and Visit records</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Sravani Gajula</td>
-      <td style="text-align:center;color:#333">11d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23685505" target="_blank" style="color:#7C3AED;font-weight:600">W-23685505</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23685505)</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">10d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474147594" target="_blank" style="color:#0070D2;font-weight:600">474147594</a></td>
-      <td style="max-width:260px;font-size:12px">Web - Inconsistent behavior for Content / presentations</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Prem Nath Thakuri</td>
-      <td style="text-align:center;color:#333">12d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23640145" target="_blank" style="color:#7C3AED;font-weight:600">W-23640145</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23640145)</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">11d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474143151" target="_blank" style="color:#0070D2;font-weight:600">474143151</a></td>
-      <td style="max-width:260px;font-size:12px">Inconsistent affiliation list in Attendees between web and iPad</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Prem Nath Thakuri</td>
-      <td style="text-align:center;color:#333">12d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23645879" target="_blank" style="color:#7C3AED;font-weight:600">W-23645879</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23645879)</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">12d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474143140" target="_blank" style="color:#0070D2;font-weight:600">474143140</a></td>
-      <td style="max-width:260px;font-size:12px">TOT creation via calendar slot shows Time field unexpectedly</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Prem Nath Thakuri</td>
-      <td style="text-align:center;color:#333">12d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23684068" target="_blank" style="color:#7C3AED;font-weight:600">W-23684068</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23684068)</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">12d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474141798" target="_blank" style="color:#0070D2;font-weight:600">474141798</a></td>
-      <td style="max-width:260px;font-size:12px">Email sent from Visit page not logged against Visit</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Cevat Surmeli</td>
-      <td style="text-align:center;color:#333">12d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23642837" target="_blank" style="color:#7C3AED;font-weight:600">W-23642837</a><br><small style='color:#C23934'>Bug: <a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23649965" target="_blank" style="color:#7C3AED;font-weight:600">W-23649965</a></small></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Bug filed (W-23649965) — awaiting engineering fix</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">9d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474133481" target="_blank" style="color:#0070D2;font-weight:600">474133481</a></td>
-      <td style="max-width:260px;font-size:12px">Fields in Activities differ between web and iPad</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Prem Nath Thakuri</td>
-      <td style="text-align:center;color:#333">13d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23685504" target="_blank" style="color:#7C3AED;font-weight:600">W-23685504</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23685504)</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">9d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474133424" target="_blank" style="color:#0070D2;font-weight:600">474133424</a></td>
-      <td style="max-width:260px;font-size:12px">Activities not showing for Remote/Face-to-Face Visit in iPad</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Prem Nath Thakuri</td>
-      <td style="text-align:center;color:#333">13d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23660204" target="_blank" style="color:#7C3AED;font-weight:600">W-23660204</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23660204)</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">10d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474133359" target="_blank" style="color:#0070D2;font-weight:600">474133359</a></td>
-      <td style="max-width:260px;font-size:12px">Display Issues - Inconsistency between web and iPad</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Prem Nath Thakuri</td>
-      <td style="text-align:center;color:#333">13d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23627799" target="_blank" style="color:#7C3AED;font-weight:600">W-23627799</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23627799)</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">11d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474131971" target="_blank" style="color:#0070D2;font-weight:600">474131971</a></td>
-      <td style="max-width:260px;font-size:12px">Web - Unable to submit Initial record for Inventory Count Assessment</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Prem Nath Thakuri</td>
-      <td style="text-align:center;color:#333">13d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23592242" target="_blank" style="color:#7C3AED;font-weight:600">W-23592242</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting customer info; GUS W-23592242 raised</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">8d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474115927" target="_blank" style="color:#0070D2;font-weight:600">474115927</a></td>
-      <td style="max-width:260px;font-size:12px">Duration of call and isRecorded fields not populated after remote call</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Prem Nath Thakuri</td>
-      <td style="text-align:center;color:#C23934;font-weight:700">17d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23658370" target="_blank" style="color:#7C3AED;font-weight:600">W-23658370</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23658370)</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">13d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474103404" target="_blank" style="color:#0070D2;font-weight:600">474103404</a></td>
-      <td style="max-width:260px;font-size:12px">Presentation slides keep loading when creating custom presentation</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#2E844A;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Solution Provided</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
-      <td style="text-align:center;color:#C23934;font-weight:700">18d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23592789" target="_blank" style="color:#7C3AED;font-weight:600">W-23592789</a><br><small style='color:#C23934'>Bug: <a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23593982" target="_blank" style="color:#7C3AED;font-weight:600">W-23593982</a></small></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Bug filed (W-23593982) — awaiting engineering fix</td>
-      <td style="white-space:nowrap"><span style="background:#2E844A;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Solution Provided</span> <small style="color:#888">6d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474084917" target="_blank" style="color:#0070D2;font-weight:600">474084917</a></td>
-      <td style="max-width:260px;font-size:12px">Discrepancy in files sync and upload between web and iPad</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Sravani Gajula</td>
-      <td style="text-align:center;color:#C23934;font-weight:700">20d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23641677" target="_blank" style="color:#7C3AED;font-weight:600">W-23641677</a><br><small style='color:#C23934'>Bug: <a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23666792" target="_blank" style="color:#7C3AED;font-weight:600">W-23666792</a></small></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Bug filed (W-23666792) — awaiting engineering fix</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">19d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474084891" target="_blank" style="color:#0070D2;font-weight:600">474084891</a></td>
-      <td style="max-width:260px;font-size:12px">Deleting Visit with Attendees from iPad Calendar not removing from web</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Sravani Gajula</td>
-      <td style="text-align:center;color:#C23934;font-weight:700">20d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23623162" target="_blank" style="color:#7C3AED;font-weight:600">W-23623162</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23623162)</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">19d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474071240" target="_blank" style="color:#0070D2;font-weight:600">474071240</a></td>
-      <td style="max-width:260px;font-size:12px">Conditions on components and tab not working in record pages</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#2E844A;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Solution Provided</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Cevat Surmeli</td>
-      <td style="text-align:center;color:#C23934;font-weight:700">21d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23472597" target="_blank" style="color:#7C3AED;font-weight:600">W-23472597</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Solution provided; awaiting customer confirmation (GUS W-23472597)</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">11d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474059244" target="_blank" style="color:#0070D2;font-weight:600">474059244</a></td>
-      <td style="max-width:260px;font-size:12px">Account List and Filters issue in Browser and iPad</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Prem Nath Thakuri</td>
-      <td style="text-align:center;color:#C23934;font-weight:700">24d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23683975" target="_blank" style="color:#7C3AED;font-weight:600">W-23683975</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23683975)</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">19d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474025317" target="_blank" style="color:#0070D2;font-weight:600">474025317</a></td>
-      <td style="max-width:260px;font-size:12px">iPad & Web discrepancy on Edit of Presentation Forum record</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Prem Nath Thakuri</td>
-      <td style="text-align:center;color:#C23934;font-weight:700">27d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23594018" target="_blank" style="color:#7C3AED;font-weight:600">W-23594018</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23594018)</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">24d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474014466" target="_blank" style="color:#0070D2;font-weight:600">474014466</a></td>
-      <td style="max-width:260px;font-size:12px">LWC component is not rendering in iPad</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#2E844A;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Solution Provided</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Cevat Surmeli</td>
-      <td style="text-align:center;color:#C23934;font-weight:700">28d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23623050" target="_blank" style="color:#7C3AED;font-weight:600">W-23623050</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Solution provided; awaiting customer confirmation (GUS W-23623050)</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">25d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=473948905" target="_blank" style="color:#0070D2;font-weight:600">473948905</a></td>
-      <td style="max-width:260px;font-size:12px">Unable to save content in visit engagement page despite filling mandatory fields</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Sravani Gajula</td>
-      <td style="text-align:center;color:#C23934;font-weight:700">38d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23627683" target="_blank" style="color:#7C3AED;font-weight:600">W-23627683</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting customer info; GUS W-23627683 raised</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">22d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474151418" target="_blank" style="color:#0070D2;font-weight:600">474151418</a></td>
-      <td style="max-width:260px;font-size:12px">Owner Id field missing from Provider Interaction page layout on web</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
-      <td style="text-align:center;color:#333">11d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23645924" target="_blank" style="color:#7C3AED;font-weight:600">W-23645924</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting customer info; GUS W-23645924 raised</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">11d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474136123" target="_blank" style="color:#0070D2;font-weight:600">474136123</a></td>
-      <td style="max-width:260px;font-size:12px">PDF Attachment Not Displayed in Email Template UI After ZIP Upload</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
-      <td style="text-align:center;color:#333">13d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23609875" target="_blank" style="color:#7C3AED;font-weight:600">W-23609875</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting customer info; GUS W-23609875 raised</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">8d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474094024" target="_blank" style="color:#0070D2;font-weight:600">474094024</a></td>
-      <td style="max-width:260px;font-size:12px">Approval Request page appears blank on iPad</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Hemanth Kumar Yadav Kottam</td>
-      <td style="text-align:center;color:#C23934;font-weight:700">19d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23610967" target="_blank" style="color:#7C3AED;font-weight:600">W-23610967</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23610967)</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">13d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474089763" target="_blank" style="color:#0070D2;font-weight:600">474089763</a></td>
-      <td style="max-width:260px;font-size:12px">Retry Attempt setting is not working as expected</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Soumya Chitra Anandas</td>
-      <td style="text-align:center;color:#C23934;font-weight:700">19d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23510462" target="_blank" style="color:#7C3AED;font-weight:600">W-23510462</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting customer info; GUS W-23510462 raised</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">12d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474191958" target="_blank" style="color:#0070D2;font-weight:600">474191958</a></td>
-      <td style="max-width:260px;font-size:12px">Production Issue: Sync Error in iPad</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Harsh Thakkar</td>
-      <td style="text-align:center;color:#333">6d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23684045" target="_blank" style="color:#7C3AED;font-weight:600">W-23684045</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23684045)</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">6d</small></td>
-      <td style="font-size:12px"><a href="https://salesforce.enterprise.slack.com/archives/C0BLF8ZA5PE" target="_blank" style="color:#00A1E0;font-size:12px">&#128279; #sev1-takeda-...-474191958</a></td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474144586" target="_blank" style="color:#0070D2;font-weight:600">474144586</a></td>
-      <td style="max-width:260px;font-size:12px">Plan-Related Object Field Labels and Plan Analysis Label</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Nishit Mahato</td>
-      <td style="text-align:center;color:#333">12d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23608820" target="_blank" style="color:#7C3AED;font-weight:600">W-23608820</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23608820)</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">11d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474084297" target="_blank" style="color:#0070D2;font-weight:600">474084297</a></td>
-      <td style="max-width:260px;font-size:12px">Validation Error Message Not Displayed for Segmentation Tab on Account Object</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Cevat Surmeli</td>
-      <td style="text-align:center;color:#C23934;font-weight:700">20d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23593328" target="_blank" style="color:#7C3AED;font-weight:600">W-23593328</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23593328)</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">20d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474141161" target="_blank" style="color:#0070D2;font-weight:600">474141161</a></td>
-      <td style="max-width:260px;font-size:12px">Sending Email from Visit page doesn't redirect back to Visit</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#2E844A;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Solution Provided</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Cevat Surmeli</td>
-      <td style="text-align:center;color:#333">12d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23591975" target="_blank" style="color:#7C3AED;font-weight:600">W-23591975</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Solution provided; awaiting customer confirmation (GUS W-23591975)</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">7d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474237768" target="_blank" style="color:#0070D2;font-weight:600">474237768</a></td>
-      <td style="max-width:260px;font-size:12px">Setup Guidance for Show Invalid Records and Show Suggestions Toggles</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Visweswara Rao Gedala</td>
-      <td style="text-align:center;color:#333">0d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23491073" target="_blank" style="color:#7C3AED;font-weight:600">W-23491073</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23491073)</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">3h</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474123822" target="_blank" style="color:#0070D2;font-weight:600">474123822</a></td>
-      <td style="max-width:260px;font-size:12px">Error while changing DCR status to Approved</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Harsh Thakkar</td>
-      <td style="text-align:center;color:#333">14d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23556005" target="_blank" style="color:#7C3AED;font-weight:600">W-23556005</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting customer info; GUS W-23556005 raised</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">10d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474038740" target="_blank" style="color:#0070D2;font-weight:600">474038740</a></td>
-      <td style="max-width:260px;font-size:12px">Populating LastEventDateTime mandatory for Life Science Emails on Activity timeline</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Abhishek Dixit</td>
-      <td style="text-align:center;color:#C23934;font-weight:700">26d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23660451" target="_blank" style="color:#7C3AED;font-weight:600">W-23660451</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under investigation (W-23660451)</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">21d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=473996395" target="_blank" style="color:#0070D2;font-weight:600">473996395</a></td>
-      <td style="max-width:260px;font-size:12px">HCP rollup to HCO triggers based on role not affiliation type on Activity Timeline</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Satya Ghettem</td>
-      <td style="text-align:center;color:#C23934;font-weight:700">32d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23609716" target="_blank" style="color:#7C3AED;font-weight:600">W-23609716</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting customer info; GUS W-23609716 raised</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">25d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474052268" target="_blank" style="color:#0070D2;font-weight:600">474052268</a></td>
-      <td style="max-width:260px;font-size:12px">Certain fields not available in IICS Lake Flow Connect</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P3</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Sahithi Reddy Merugu</td>
-      <td style="text-align:center;color:#C23934;font-weight:700">25d</td>
-      <td style="font-size:12px"><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23434046" target="_blank" style="color:#7C3AED;font-weight:600">W-23434046</a></td>
-      <td style="white-space:nowrap"><span style="background:#7C3AED;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Engineering</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting customer info; GUS W-23434046 raised</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">20d</small></td>
-      <td style="font-size:12px"><a href="https://salesforce-internal.slack.com/archives/C0BHKSJ4N92" target="_blank" style="color:#00A1E0;font-size:12px">&#128279; #sev1-takeda-...-474052268</a></td>
-    </tr></table>
-</div>
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474153350" target="_blank" class="case-link">474153350</a></td>
+      <td class="subject">Standard Surveys are not visible on Account and Visit records</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Srividya Vedula</td>
+      <td class="age-cell"><span class="age-yellow">11d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23685505" target="_blank" class="gus-link">W-23685505</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Engineering investigation ongoing (W-23685505)</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>9d 19h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
 
-<div class="section">
-  <div class="sec-hd">&#128203; Category 2 — Cases WITHOUT GUS Investigation <span class="cnt">42 cases</span></div>
-  <table><tr style="background:#032D60;color:#fff;font-size:12px">
-  <th style="padding:10px 8px;white-space:nowrap">Case #</th>
-  <th style="padding:10px 8px">Subject</th>
-  <th style="padding:10px 8px">Account</th>
-  <th style="padding:10px 8px">Priority</th>
-  <th style="padding:10px 8px">Status</th>
-  <th style="padding:10px 8px">Owner (IST)</th>
-  <th style="padding:10px 8px">Age</th>
-  <th style="padding:10px 8px">GUS / Bug #</th>
-  <th style="padding:10px 8px">Waiting Under</th>
-  <th style="padding:10px 8px">Remarks</th>
-  <th style="padding:10px 8px">Most Time Spent</th>
-  <th style="padding:10px 8px">Slack Link</th>
-</tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474165653" target="_blank" style="color:#0070D2;font-weight:600">474165653</a></td>
-      <td style="max-width:260px;font-size:12px">Unable to update the days until Presentation link expires</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Srividya Vedula</td>
-      <td style="text-align:center;color:#333">10d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">7d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474212722" target="_blank" style="color:#0070D2;font-weight:600">474212722</a></td>
-      <td style="max-width:260px;font-size:12px">Product column not visible in Survey list on Visit record</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Nishit Mahato</td>
-      <td style="text-align:center;color:#333">4d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">4d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474212088" target="_blank" style="color:#0070D2;font-weight:600">474212088</a></td>
-      <td style="max-width:260px;font-size:12px">Unable to create Expense record from web; iPad Expense records don't sync</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Sravani Gajula</td>
-      <td style="text-align:center;color:#333">4d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">3d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474202194" target="_blank" style="color:#0070D2;font-weight:600">474202194</a></td>
-      <td style="max-width:260px;font-size:12px">PDF Rendering Differences on iPad LSC View Compared to Web View</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Prem Nath Thakuri</td>
-      <td style="text-align:center;color:#333">5d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">4d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474195050" target="_blank" style="color:#0070D2;font-weight:600">474195050</a></td>
-      <td style="max-width:260px;font-size:12px">Lookup fields on Provider Visit Product Discussion object not working</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Cevat Surmeli</td>
-      <td style="text-align:center;color:#333">6d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">3d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474194366" target="_blank" style="color:#0070D2;font-weight:600">474194366</a></td>
-      <td style="max-width:260px;font-size:12px">Feature settings enabled in one sandbox not available in another</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#2E844A;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Solution Provided</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Cevat Surmeli</td>
-      <td style="text-align:center;color:#333">6d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Solution provided; awaiting customer confirmation</td>
-      <td style="white-space:nowrap"><span style="background:#2E844A;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Solution Provided</span> <small style="color:#888">5d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474179440" target="_blank" style="color:#0070D2;font-weight:600">474179440</a></td>
-      <td style="max-width:260px;font-size:12px">iPad - Edit & delete available for ClickStreamMetric from Presentation Forum related list</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Prem Nath Thakuri</td>
-      <td style="text-align:center;color:#333">7d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">7d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474178827" target="_blank" style="color:#0070D2;font-weight:600">474178827</a></td>
-      <td style="max-width:260px;font-size:12px">Unable to see Help Text for Product section in Rating</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
-      <td style="text-align:center;color:#333">7d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">5d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474165633" target="_blank" style="color:#0070D2;font-weight:600">474165633</a></td>
-      <td style="max-width:260px;font-size:12px">Characteristics (Rating) tab not working for Medical Expert in dev1 sandbox</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
-      <td style="text-align:center;color:#333">10d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">6d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474146477" target="_blank" style="color:#0070D2;font-weight:600">474146477</a></td>
-      <td style="max-width:260px;font-size:12px">Sharing of Life Science Marketable Product</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Nishit Mahato</td>
-      <td style="text-align:center;color:#333">12d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">8d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474133871" target="_blank" style="color:#0070D2;font-weight:600">474133871</a></td>
-      <td style="max-width:260px;font-size:12px">API PDF processing failure: Malware Scan Status update error</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Prem Nath Thakuri</td>
-      <td style="text-align:center;color:#333">13d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">11d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474133308" target="_blank" style="color:#0070D2;font-weight:600">474133308</a></td>
-      <td style="max-width:260px;font-size:12px">Product picklist all option behaves inconsistently in iPad</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Prem Nath Thakuri</td>
-      <td style="text-align:center;color:#333">13d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">8d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474059286" target="_blank" style="color:#0070D2;font-weight:600">474059286</a></td>
-      <td style="max-width:260px;font-size:12px">Observations regarding Survey OOB Functionality - Web and iPad</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Cevat Surmeli</td>
-      <td style="text-align:center;color:#C23934;font-weight:700">24d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">16d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474213342" target="_blank" style="color:#0070D2;font-weight:600">474213342</a></td>
-      <td style="max-width:260px;font-size:12px">Product Discussion doesn't deselect when Recommended Actions deselected</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Sravani Gajula</td>
-      <td style="text-align:center;color:#333">4d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">3d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474213067" target="_blank" style="color:#0070D2;font-weight:600">474213067</a></td>
-      <td style="max-width:260px;font-size:12px">No Salesforce object tracks email recipient views on Presentation link</td>
-      <td><span style="font-weight:700;color:#032D60">Pfizer</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#2E844A;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Solution Provided</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Nishit Mahato</td>
-      <td style="text-align:center;color:#333">4d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Solution provided; awaiting customer confirmation</td>
-      <td style="white-space:nowrap"><span style="background:#2E844A;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Solution Provided</span> <small style="color:#888">3d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474139508" target="_blank" style="color:#0070D2;font-weight:600">474139508</a></td>
-      <td style="max-width:260px;font-size:12px">Issue creating Plan record on Offline mode in iPad</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Sravani Gajula</td>
-      <td style="text-align:center;color:#333">13d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">9d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474237159" target="_blank" style="color:#0070D2;font-weight:600">474237159</a></td>
-      <td style="max-width:260px;font-size:12px">Managed Event objects not available on iPad despite DbSchema configuration</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
-      <td style="text-align:center;color:#333">0d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">4h</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474236281" target="_blank" style="color:#0070D2;font-weight:600">474236281</a></td>
-      <td style="max-width:260px;font-size:12px">Issue navigating to account from upper level in Affiliation hierarchy on iPad</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
-      <td style="text-align:center;color:#333">0d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">6h</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474224290" target="_blank" style="color:#0070D2;font-weight:600">474224290</a></td>
-      <td style="max-width:260px;font-size:12px">Product and key message territory alignment not working as expected</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
-      <td style="text-align:center;color:#333">3d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">3d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474206000" target="_blank" style="color:#0070D2;font-weight:600">474206000</a></td>
-      <td style="max-width:260px;font-size:12px">Emails not triggered immediately on iPad (inconsistent vs web)</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Nishit Mahato</td>
-      <td style="text-align:center;color:#333">5d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">4d</small></td>
-      <td style="font-size:12px"><a href="https://salesforce.enterprise.slack.com/archives/C0BLPJLHWUA" target="_blank" style="color:#00A1E0;font-size:12px">&#128279; #sev1-takeda-...-474206000</a></td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474142461" target="_blank" style="color:#0070D2;font-weight:600">474142461</a></td>
-      <td style="max-width:260px;font-size:12px">DCR Records Not Created for Affiliation Records</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
-      <td style="text-align:center;color:#333">12d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">7d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474134655" target="_blank" style="color:#0070D2;font-weight:600">474134655</a></td>
-      <td style="max-width:260px;font-size:12px">Country Admin User Unable to Create Assessment Task Under Action Plan</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
-      <td style="text-align:center;color:#333">13d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">9d</small></td>
-      <td style="font-size:12px"><a href="https://salesforce-internal.slack.com/archives/C09179B6UG3/p1784704747230179" target="_blank" style="color:#00A1E0;font-size:12px">&#128279; #ask-lsc-engineering thread</a></td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474129004" target="_blank" style="color:#0070D2;font-weight:600">474129004</a></td>
-      <td style="max-width:260px;font-size:12px">Unable to track metrics for MP4 Presentations with actual time spent on video</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akshay Shetty</td>
-      <td style="text-align:center;color:#333">14d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">9d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474128472" target="_blank" style="color:#0070D2;font-weight:600">474128472</a></td>
-      <td style="max-width:260px;font-size:12px">Overlapping Plan Validation Not Working Consistently on iPad</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Sai Shivani Byreddy</td>
-      <td style="text-align:center;color:#333">14d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">7d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474126020" target="_blank" style="color:#0070D2;font-weight:600">474126020</a></td>
-      <td style="max-width:260px;font-size:12px">Custom flow error message not displaying correctly on Inquiry Submit MIR validation</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Sai Uma Maheswari Kamatham</td>
-      <td style="text-align:center;color:#333">14d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">10d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474115275" target="_blank" style="color:#0070D2;font-weight:600">474115275</a></td>
-      <td style="max-width:260px;font-size:12px">LSC Event Management - Workflow Path Does Not Support Multi-Level Sequential Approvals</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Sai Shivani Byreddy</td>
-      <td style="text-align:center;color:#C23934;font-weight:700">17d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">14d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474115244" target="_blank" style="color:#0070D2;font-weight:600">474115244</a></td>
-      <td style="max-width:260px;font-size:12px">LSC Event Management - Limited Product Documentation for Managed Event Budget Objects</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Roshan Vemu</td>
-      <td style="text-align:center;color:#C23934;font-weight:700">17d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">17d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474094367" target="_blank" style="color:#0070D2;font-weight:600">474094367</a></td>
-      <td style="max-width:260px;font-size:12px">Web Issue - Field Rep User able to edit Expense record after submission</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Abhishek Anand</td>
-      <td style="text-align:center;color:#C23934;font-weight:700">19d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">11d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474091985" target="_blank" style="color:#0070D2;font-weight:600">474091985</a></td>
-      <td style="max-width:260px;font-size:12px">Table format not displaying correctly in LSC iPad App</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Srividya Vedula</td>
-      <td style="text-align:center;color:#C23934;font-weight:700">19d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">9d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474087152" target="_blank" style="color:#0070D2;font-weight:600">474087152</a></td>
-      <td style="max-width:260px;font-size:12px">App Alert Share records not auto created when App Alerts created by Automated Process</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Roshan Vemu</td>
-      <td style="text-align:center;color:#C23934;font-weight:700">20d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">8d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474200157" target="_blank" style="color:#0070D2;font-weight:600">474200157</a></td>
-      <td style="max-width:260px;font-size:12px">Issue/Question related to Survey Response Timeline</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Shirisha Kuncharam</td>
-      <td style="text-align:center;color:#333">5d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">4d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474198525" target="_blank" style="color:#0070D2;font-weight:600">474198525</a></td>
-      <td style="max-width:260px;font-size:12px">List View Filter not working in iPad</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Dimple Madhuri Lakshmi Eati</td>
-      <td style="text-align:center;color:#333">5d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">3d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474180613" target="_blank" style="color:#0070D2;font-weight:600">474180613</a></td>
-      <td style="max-width:260px;font-size:12px">Web Issue - Unable to provide object-level access on Video Call object</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Sai Shivani Byreddy</td>
-      <td style="text-align:center;color:#333">7d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">5d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474178484" target="_blank" style="color:#0070D2;font-weight:600">474178484</a></td>
-      <td style="max-width:260px;font-size:12px">Web Issue - Field User Personas unable to access fields on Expense Object</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Neeti Shyam</td>
-      <td style="text-align:center;color:#333">7d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">6d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474161651" target="_blank" style="color:#0070D2;font-weight:600">474161651</a></td>
-      <td style="max-width:260px;font-size:12px">Provider account territory summary record issue</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Mohana Sai Vishnu Sriya Chavva</td>
-      <td style="text-align:center;color:#333">10d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">9d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474158192" target="_blank" style="color:#0070D2;font-weight:600">474158192</a></td>
-      <td style="max-width:260px;font-size:12px">Life Sciences Cloud: DCR Records Not Created for Account Create/Update</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P4</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Akansha Vennela</td>
-      <td style="text-align:center;color:#333">11d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">6d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474194770" target="_blank" style="color:#0070D2;font-weight:600">474194770</a></td>
-      <td style="max-width:260px;font-size:12px">Ability to hide Case Details Section from Inquiry Creation Page</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Abhishek Dixit</td>
-      <td style="text-align:center;color:#333">6d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">3d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474188496" target="_blank" style="color:#0070D2;font-weight:600">474188496</a></td>
-      <td style="max-width:260px;font-size:12px">Life Sciences Cloud - Restrict My Team Tab Visibility by Persona</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Hemanth Kumar Yadav Kottam</td>
-      <td style="text-align:center;color:#333">6d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">6d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474188264" target="_blank" style="color:#0070D2;font-weight:600">474188264</a></td>
-      <td style="max-width:260px;font-size:12px">User can edit record in Submitted stage even without edit access</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Harsh Thakkar</td>
-      <td style="text-align:center;color:#333">6d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">6d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474180482" target="_blank" style="color:#0070D2;font-weight:600">474180482</a></td>
-      <td style="max-width:260px;font-size:12px">User not able to view records in Open/Closed List View on LSC DCR Object on iPad</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Hemanth Kumar Yadav Kottam</td>
-      <td style="text-align:center;color:#333">7d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">7d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#fff">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474202455" target="_blank" style="color:#0070D2;font-weight:600">474202455</a></td>
-      <td style="max-width:260px;font-size:12px">Not able to filter Medical Insights based on Subject record values online</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Information</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Harsh Thakkar</td>
-      <td style="text-align:center;color:#333">5d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Customer</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Awaiting additional information from customer</td>
-      <td style="white-space:nowrap"><span style="background:#E65C00;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Need More Info</span> <small style="color:#888">3d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr><tr style="background:#f8f9fb">
-      <td style="white-space:nowrap"><a href="https://support.salesforce.com/apex/classicui_prtl_CaseDetail?id=474132953" target="_blank" style="color:#0070D2;font-weight:600">474132953</a></td>
-      <td style="max-width:260px;font-size:12px">#4005 - ProductTerritoryAlignment records don't show in iPad</td>
-      <td><span style="font-weight:700;color:#5C2D91">Takeda</span></td>
-      <td style="text-align:center;font-weight:700;font-size:12px">P2</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span></td>
-      <td style="white-space:nowrap;font-size:11px;color:#444">Sai Uma Maheswari Kamatham</td>
-      <td style="text-align:center;color:#333">13d</td>
-      <td style="font-size:12px"><span style="color:#bbb">—</span></td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Support</span></td>
-      <td style="font-size:12px;color:#444;max-width:200px">Under active investigation by support</td>
-      <td style="white-space:nowrap"><span style="background:#0070D2;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;white-space:nowrap">Working</span> <small style="color:#888">13d</small></td>
-      <td style="font-size:12px;color:#bbb">—</td>
-    </tr></table>
-</div>
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474147594" target="_blank" class="case-link">474147594</a></td>
+      <td class="subject">Web: Inconsistent behavior for Content — few presentations displayed on web vs LSC app</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Akansha Vennela</td>
+      <td class="age-cell"><span class="age-yellow">12d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23640145" target="_blank" class="gus-link">W-23640145</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Engineering investigation ongoing (W-23640145)</td>
+      <td><span class="tbadge working">Working<br><small>6d 22h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
 
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474143151" target="_blank" class="case-link">474143151</a></td>
+      <td class="subject">Inconsistent affiliation list in Attendees/Affiliation filter between web and iPad</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Nishit Mahato</td>
+      <td class="age-cell"><span class="age-yellow">12d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23645879" target="_blank" class="gus-link">W-23645879</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Engineering investigation ongoing (W-23645879)</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>11d 13h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474143140" target="_blank" class="case-link">474143140</a></td>
+      <td class="subject">Creating TOT from calendar time slot: TOT popup shows Time field incorrectly</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Dashrath Singh Kaviya</td>
+      <td class="age-cell"><span class="age-yellow">12d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23684068" target="_blank" class="gus-link">W-23684068</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Engineering investigation ongoing (W-23684068)</td>
+      <td><span class="tbadge working">Working<br><small>10d 17h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474141798" target="_blank" class="case-link">474141798</a></td>
+      <td class="subject">Web/iPad: Email sent from visit page is not getting logged against the Visit</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge nmi">Need More Information</span></td>
+      <td class="owner">Nishit Mahato</td>
+      <td class="age-cell"><span class="age-yellow">12d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23642837" target="_blank" class="gus-link">W-23642837</a><br><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23649965" target="_blank" class="bug-link">W-23649965 🐛</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Bug filed (W-23649965); engineering fix in progress</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>12d 15h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474133481" target="_blank" class="case-link">474133481</a></td>
+      <td class="subject">Fields in Activities differ between web and iPad</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Nishit Mahato</td>
+      <td class="age-cell"><span class="age-yellow">13d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23685504" target="_blank" class="gus-link">W-23685504</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Engineering investigation ongoing (W-23685504)</td>
+      <td><span class="tbadge working">Working<br><small>6d 8h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474133424" target="_blank" class="case-link">474133424</a></td>
+      <td class="subject">Activities not showing for Remote/Face-to-Face Visit in iPad but visible in web</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Nishit Mahato</td>
+      <td class="age-cell"><span class="age-yellow">13d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23660204" target="_blank" class="gus-link">W-23660204</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Engineering investigation ongoing (W-23660204)</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>5d 21h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474133359" target="_blank" class="case-link">474133359</a></td>
+      <td class="subject">Display Issues — Inconsistency between web and iPad</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Nishit Mahato</td>
+      <td class="age-cell"><span class="age-yellow">13d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23627799" target="_blank" class="gus-link">W-23627799</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Engineering investigation ongoing (W-23627799)</td>
+      <td><span class="tbadge working">Working<br><small>7d 11h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474133308" target="_blank" class="case-link">474133308</a></td>
+      <td class="subject">'All' option for product picklist behaves differently in web vs iPad</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Nishit Mahato</td>
+      <td class="age-cell"><span class="age-yellow">13d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23702190" target="_blank" class="gus-link">W-23702190</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Engineering investigation ongoing (W-23702190)</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>7d 14h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474131971" target="_blank" class="case-link">474131971</a></td>
+      <td class="subject">Web: Unable to submit the Initial record for Inventory Count Assessment</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge nmi">Need More Information</span></td>
+      <td class="owner">Nishit Mahato</td>
+      <td class="age-cell"><span class="age-yellow">13d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23592242" target="_blank" class="gus-link">W-23592242</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Awaiting customer info; GUS W-23592242 filed</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>13d 8h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474115927" target="_blank" class="case-link">474115927</a></td>
+      <td class="subject">Duration of call and isRecorded fields not populated after remote call completion</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Dimple Madhuri Lakshmi Eati</td>
+      <td class="age-cell"><span class="age-red">17d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23658370" target="_blank" class="gus-link">W-23658370</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Engineering investigation ongoing (W-23658370)</td>
+      <td><span class="tbadge working">Working<br><small>13d 22h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474084917" target="_blank" class="case-link">474084917</a></td>
+      <td class="subject">Discrepancy in files sync and upload between web and iPad</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Shirisha Kuncharam</td>
+      <td class="age-cell"><span class="age-red">20d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23641677" target="_blank" class="gus-link">W-23641677</a><br><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23666792" target="_blank" class="bug-link">W-23666792 🐛</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Bug filed (W-23666792); engineering fix in progress</td>
+      <td><span class="tbadge cms">Call Scheduled<br><small>7d 13h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474084891" target="_blank" class="case-link">474084891</a></td>
+      <td class="subject">Deleting Visit with Attendees from iPad Calendar not deleting from web</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Arunkumar Vankadhara</td>
+      <td class="age-cell"><span class="age-red">20d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23623162" target="_blank" class="gus-link">W-23623162</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Engineering investigation ongoing (W-23623162)</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>14d 15h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474059244" target="_blank" class="case-link">474059244</a></td>
+      <td class="subject">Account List and Filters issue in Browser and iPad</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Akansha Vennela</td>
+      <td class="age-cell"><span class="age-red">24d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23683975" target="_blank" class="gus-link">W-23683975</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Engineering investigation ongoing (W-23683975)</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>13d 4h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474025317" target="_blank" class="case-link">474025317</a></td>
+      <td class="subject">iPad & Web discrepancy on Edit of Presentation Forum (Content) record</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Sravani Gajula</td>
+      <td class="age-cell"><span class="age-red">27d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23594018" target="_blank" class="gus-link">W-23594018</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Engineering investigation ongoing (W-23594018)</td>
+      <td><span class="tbadge working">Working<br><small>13d 19h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/473948905" target="_blank" class="case-link">473948905</a></td>
+      <td class="subject">Unable to save content in visit engagement page from calendar tab despite filling all mandatory fields</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge nmi">Need More Information</span></td>
+      <td class="owner">Srividya Vedula</td>
+      <td class="age-cell"><span class="age-red">38d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23627683" target="_blank" class="gus-link">W-23627683</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Awaiting customer info; GUS W-23627683 filed</td>
+      <td><span class="tbadge working">Working<br><small>18d 20h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/473985872" target="_blank" class="case-link">473985872</a></td>
+      <td class="subject">Account Object Quick Action Translation</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge sp">Solution Provided</span></td>
+      <td class="owner">Satya Ghettem</td>
+      <td class="age-cell"><span class="age-red">33d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23511527" target="_blank" class="gus-link">W-23511527</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Solution shared; GUS W-23511527 tracking fix</td>
+      <td><span class="tbadge cms">Call Scheduled<br><small>18d 19h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474123822" target="_blank" class="case-link">474123822</a></td>
+      <td class="subject">Error while changing DCR status to Approved</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge nmi">Need More Information</span></td>
+      <td class="owner">Harsh Thakkar</td>
+      <td class="age-cell"><span class="age-red">14d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23556005" target="_blank" class="gus-link">W-23556005</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Awaiting customer info; GUS W-23556005 filed</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>12d 12h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474237768" target="_blank" class="case-link">474237768</a></td>
+      <td class="subject">Setup Guidance for 'Show Invalid Records' and 'Show Suggestions' Toggles on Activity Review Tab</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Visweswara Rao Gedala</td>
+      <td class="age-cell"><span class="age-ok">0d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23491073" target="_blank" class="gus-link">W-23491073</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Engineering investigation ongoing (W-23491073)</td>
+      <td><span class="tbadge working">Working<br><small>14h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474038740" target="_blank" class="case-link">474038740</a></td>
+      <td class="subject">LastEventDateTime is mandatory for Life Science Emails to be visible on Activity timeline</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Abhishek Dixit</td>
+      <td class="age-cell"><span class="age-red">26d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23660451" target="_blank" class="gus-link">W-23660451</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Engineering investigation ongoing (W-23660451)</td>
+      <td><span class="tbadge working">Working<br><small>11d 13h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/473996395" target="_blank" class="case-link">473996395</a></td>
+      <td class="subject">HCP rollup to HCO triggers based on role and not affiliation type on Activity Timeline</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge nmi">Need More Information</span></td>
+      <td class="owner">Satya Ghettem</td>
+      <td class="age-cell"><span class="age-red">32d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23609716" target="_blank" class="gus-link">W-23609716</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Awaiting customer info; GUS W-23609716 filed</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>30d 6h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474084297" target="_blank" class="case-link">474084297</a></td>
+      <td class="subject">Validation Error Message Not Displayed Online for Segmentation Tab on Account Object</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Abhishek Dixit</td>
+      <td class="age-cell"><span class="age-red">20d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23593328" target="_blank" class="gus-link">W-23593328</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Engineering investigation ongoing (W-23593328)</td>
+      <td><span class="tbadge working">Working<br><small>20d 7h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474144586" target="_blank" class="case-link">474144586</a></td>
+      <td class="subject">Plan-Related Object Field Labels and Plan Analysis Label</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Soumya Chitra Anandas</td>
+      <td class="age-cell"><span class="age-yellow">12d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23608820" target="_blank" class="gus-link">W-23608820</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Engineering investigation ongoing (W-23608820)</td>
+      <td><span class="tbadge working">Working<br><small>11d 18h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474052268" target="_blank" class="case-link">474052268</a></td>
+      <td class="subject">Certain fields are not available in IICS Lake Flow Connect</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p3">P3</span></td>
+      <td><span class="sbadge nmi">Need More Information</span></td>
+      <td class="owner">Sahithi Reddy Merugu</td>
+      <td class="age-cell"><span class="age-red">25d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23434046" target="_blank" class="gus-link">W-23434046</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Awaiting customer info; GUS W-23434046 filed</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>17d 6h</small></span></td>
+      <td><a href="https://salesforce-internal.slack.com/archives/C0BHKSJ4N92" target="_blank" class="slack-link">🔗 #474052268</a></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474136123" target="_blank" class="case-link">474136123</a></td>
+      <td class="subject">PDF Attachment Not Displayed in Email Template UI After ZIP Upload</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Harsh Thakkar</td>
+      <td class="age-cell"><span class="age-yellow">13d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23609875" target="_blank" class="gus-link">W-23609875</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Engineering investigation ongoing (W-23609875)</td>
+      <td><span class="tbadge sp">Sol. Provided<br><small>5d 18h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474151418" target="_blank" class="case-link">474151418</a></td>
+      <td class="subject">Owner Id field missing from Provider Interaction page layout on web</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge nmi">Need More Information</span></td>
+      <td class="owner">Sai Shivani Byreddy</td>
+      <td class="age-cell"><span class="age-yellow">11d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23645924" target="_blank" class="gus-link">W-23645924</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Awaiting customer info; GUS W-23645924 filed</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>11d 17h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474094024" target="_blank" class="case-link">474094024</a></td>
+      <td class="subject">Approval Request page appears blank on iPad</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Hemanth Kumar Yadav Kottam</td>
+      <td class="age-cell"><span class="age-red">19d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23610967" target="_blank" class="gus-link">W-23610967</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Engineering investigation ongoing (W-23610967)</td>
+      <td><span class="tbadge cms">Call Scheduled<br><small>7d 21h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474091985" target="_blank" class="case-link">474091985</a></td>
+      <td class="subject">Table format not displaying correctly in LSC iPad App</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Srividya Vedula</td>
+      <td class="age-cell"><span class="age-red">19d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23685690" target="_blank" class="gus-link">W-23685690</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Engineering investigation ongoing (W-23685690)</td>
+      <td><span class="tbadge working">Working<br><small>12d 0h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474191958" target="_blank" class="case-link">474191958</a></td>
+      <td class="subject">Production Issue: Sync Error in iPad</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Harsh Thakkar</td>
+      <td class="age-cell"><span class="age-ok">6d</span></td>
+      <td><a href="https://gus.my.salesforce.com/apex/ADM_WorkLocator?bugorworknumber=W-23684045" target="_blank" class="gus-link">W-23684045</a></td>
+      <td><span class="wu-eng">Engineering</span></td>
+      <td class="remarks">Engineering investigation ongoing (W-23684045)</td>
+      <td><span class="tbadge working">Working<br><small>6d 8h</small></span></td>
+      <td><a href="https://salesforce.enterprise.slack.com/archives/C0BLF8ZA5PE" target="_blank" class="slack-link">🔗 #474191958</a></td>
+    </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-header" style="margin-top:32px">
+    <h2>Without GUS</h2>
+    <span class="section-badge no-gus-badge">37 cases</span>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Case #</th><th>Subject</th><th>Account</th><th>Priority</th>
+          <th>Status</th><th>Owner (IST)</th><th>Age</th><th>GUS / Bug #</th>
+          <th>Waiting Under</th><th>Remarks</th><th>Most Time Spent</th><th>Slack</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474212722" target="_blank" class="case-link">474212722</a></td>
+      <td class="subject">Product column not visible in Survey list on Visit record.</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Nishit Mahato</td>
+      <td class="age-cell"><span class="age-ok">4d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-supp">Support</span></td>
+      <td class="remarks">Active troubleshooting in progress</td>
+      <td><span class="tbadge working">Working<br><small>3d 14h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474212088" target="_blank" class="case-link">474212088</a></td>
+      <td class="subject">Unable to create Expense record from web; Expense records from iPad don't sync to web.</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge nmi">Need More Information</span></td>
+      <td class="owner">Sravani Gajula</td>
+      <td class="age-cell"><span class="age-ok">4d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-cust">Customer</span></td>
+      <td class="remarks">Awaiting additional info / response from customer</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>3d 17h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474202194" target="_blank" class="case-link">474202194</a></td>
+      <td class="subject">PDF Rendering Differences on iPad LSC View Compared to Web View</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge nmi">Need More Information</span></td>
+      <td class="owner">Vivek Reddy</td>
+      <td class="age-cell"><span class="age-ok">5d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-cust">Customer</span></td>
+      <td class="remarks">Awaiting additional info / response from customer</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>4d 13h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474195050" target="_blank" class="case-link">474195050</a></td>
+      <td class="subject">Lookup fields on Provider Visit Product Discussion object are not working</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">G K Naveen</td>
+      <td class="age-cell"><span class="age-ok">6d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-supp">Support</span></td>
+      <td class="remarks">Active troubleshooting in progress</td>
+      <td><span class="tbadge working">Working<br><small>3d 23h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474194366" target="_blank" class="case-link">474194366</a></td>
+      <td class="subject">Certain feature settings enabled in one sandbox not available in another</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge sp">Solution Provided</span></td>
+      <td class="owner">G K Naveen</td>
+      <td class="age-cell"><span class="age-ok">6d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-cust">Customer</span></td>
+      <td class="remarks">Solution provided; awaiting customer confirmation</td>
+      <td><span class="tbadge sp">Sol. Provided<br><small>5d 4h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474178827" target="_blank" class="case-link">474178827</a></td>
+      <td class="subject">Unable to see Help Text for Product section in Rating</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Nishit Mahato</td>
+      <td class="age-cell"><span class="age-yellow">7d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-supp">Support</span></td>
+      <td class="remarks">Active troubleshooting in progress</td>
+      <td><span class="tbadge working">Working<br><small>5d 13h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474165633" target="_blank" class="case-link">474165633</a></td>
+      <td class="subject">Characteristics (Rating) tab is not working for Medical Expert in dev1 sandbox</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Akansha Vennela</td>
+      <td class="age-cell"><span class="age-yellow">10d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-supp">Support</span></td>
+      <td class="remarks">Active troubleshooting in progress</td>
+      <td><span class="tbadge working">Working<br><small>4d 23h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474146477" target="_blank" class="case-link">474146477</a></td>
+      <td class="subject">Sharing of Life Science Marketable Product</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge nmi">Need More Information</span></td>
+      <td class="owner">Srividya Vedula</td>
+      <td class="age-cell"><span class="age-yellow">12d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-cust">Customer</span></td>
+      <td class="remarks">Awaiting additional info / response from customer</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>11d 13h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474059286" target="_blank" class="case-link">474059286</a></td>
+      <td class="subject">Observations regarding Survey OOB functionality — Web and iPad</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Shirisha Kuncharam</td>
+      <td class="age-cell"><span class="age-red">24d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-supp">Support</span></td>
+      <td class="remarks">Active troubleshooting in progress</td>
+      <td><span class="tbadge working">Working<br><small>10d 2h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474213067" target="_blank" class="case-link">474213067</a></td>
+      <td class="subject">No object tracks email recipient views/click engagements on Presentation link</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge sp">Solution Provided</span></td>
+      <td class="owner">G K Naveen</td>
+      <td class="age-cell"><span class="age-ok">4d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-cust">Customer</span></td>
+      <td class="remarks">Solution provided; awaiting customer confirmation</td>
+      <td><span class="tbadge sp">Sol. Provided<br><small>3d 15h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474213342" target="_blank" class="case-link">474213342</a></td>
+      <td class="subject">Product Discussion doesn't deselect when all Recommended Actions are deselected</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Sravani Gajula</td>
+      <td class="age-cell"><span class="age-ok">4d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-supp">Support</span></td>
+      <td class="remarks">Active troubleshooting in progress</td>
+      <td><span class="tbadge working">Working<br><small>3d 16h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474165653" target="_blank" class="case-link">474165653</a></td>
+      <td class="subject">Unable to update the days until Presentation link expires</td>
+      <td><span class="acct-badge pfizer">Pfizer</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Srividya Vedula</td>
+      <td class="age-cell"><span class="age-yellow">10d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-supp">Support</span></td>
+      <td class="remarks">Active troubleshooting in progress</td>
+      <td><span class="tbadge working">Working<br><small>7d 13h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474202455" target="_blank" class="case-link">474202455</a></td>
+      <td class="subject">Unable to filter Medical Insights based on Subject record values online</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge sp">Solution Provided</span></td>
+      <td class="owner">Harsh Thakkar</td>
+      <td class="age-cell"><span class="age-ok">5d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-cust">Customer</span></td>
+      <td class="remarks">Solution provided; awaiting customer confirmation</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>3d 16h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474194770" target="_blank" class="case-link">474194770</a></td>
+      <td class="subject">Ability to hide the Case Details Section from Inquiry Creation Page (Multi Object Layout)</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Abhishek Dixit</td>
+      <td class="age-cell"><span class="age-ok">6d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-supp">Support</span></td>
+      <td class="remarks">Active troubleshooting in progress</td>
+      <td><span class="tbadge working">Working<br><small>4d 16h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474188496" target="_blank" class="case-link">474188496</a></td>
+      <td class="subject">Restrict 'My Team' Tab Visibility by Persona When Users Share the Same Profile</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Hemanth Kumar Yadav Kottam</td>
+      <td class="age-cell"><span class="age-ok">6d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-supp">Support</span></td>
+      <td class="remarks">Active troubleshooting in progress</td>
+      <td><span class="tbadge working">Working<br><small>5d 18h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474188264" target="_blank" class="case-link">474188264</a></td>
+      <td class="subject">User can edit record in Submitted workflow stage even though edit access not granted</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge sp">Solution Provided</span></td>
+      <td class="owner">Harsh Thakkar</td>
+      <td class="age-cell"><span class="age-ok">6d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-cust">Customer</span></td>
+      <td class="remarks">Solution provided; awaiting customer confirmation</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>6d 17h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474180482" target="_blank" class="case-link">474180482</a></td>
+      <td class="subject">Unable to view records in Open/Closed List view on Life Science DCR Object on iPad</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Hemanth Kumar Yadav Kottam</td>
+      <td class="age-cell"><span class="age-yellow">7d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-supp">Support</span></td>
+      <td class="remarks">Active troubleshooting in progress</td>
+      <td><span class="tbadge working">Working<br><small>5d 19h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474132953" target="_blank" class="case-link">474132953</a></td>
+      <td class="subject">#4005 - ProductTerritoryAlignment records not showing in iPad</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p2">P2</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Sai Uma Maheswari Kamatham</td>
+      <td class="age-cell"><span class="age-yellow">13d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-supp">Support</span></td>
+      <td class="remarks">Active troubleshooting in progress</td>
+      <td><span class="tbadge working">Working<br><small>13d 13h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474245168" target="_blank" class="case-link">474245168</a></td>
+      <td class="subject">Unable to rollup Product distributed surveys on Visit's HCP record page</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge cms">Call/Meeting Scheduled</span></td>
+      <td class="owner">Dimple Madhuri Lakshmi Eati</td>
+      <td class="age-cell"><span class="age-ok">0d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-supp">Support</span></td>
+      <td class="remarks">Meeting scheduled with customer</td>
+      <td><span class="tbadge new">New<br><small>4h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474237159" target="_blank" class="case-link">474237159</a></td>
+      <td class="subject">Managed Event objects not available on iPad despite DbSchema configuration</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Mohana Sai Vishnu Sriya Chavva</td>
+      <td class="age-cell"><span class="age-ok">0d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-supp">Support</span></td>
+      <td class="remarks">Active troubleshooting in progress</td>
+      <td><span class="tbadge working">Working<br><small>16h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474236281" target="_blank" class="case-link">474236281</a></td>
+      <td class="subject">Issue navigating to account from upper level in hierarchy view of Affiliation in iPad</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Hemanth Kumar Yadav Kottam</td>
+      <td class="age-cell"><span class="age-ok">0d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-supp">Support</span></td>
+      <td class="remarks">Active troubleshooting in progress</td>
+      <td><span class="tbadge working">Working<br><small>17h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474224290" target="_blank" class="case-link">474224290</a></td>
+      <td class="subject">Product and key message territory alignment not working as expected</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Harsh Thakkar</td>
+      <td class="age-cell"><span class="age-ok">3d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-supp">Support</span></td>
+      <td class="remarks">Active troubleshooting in progress</td>
+      <td><span class="tbadge working">Working<br><small>3d 10h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474206000" target="_blank" class="case-link">474206000</a></td>
+      <td class="subject">Emails not triggered immediately on iPad; same functionality works on web</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Deepika Nagalakshmi Arjunan</td>
+      <td class="age-cell"><span class="age-ok">5d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-supp">Support</span></td>
+      <td class="remarks">Active troubleshooting in progress</td>
+      <td><span class="tbadge working">Working<br><small>4d 14h</small></span></td>
+      <td><a href="https://salesforce.enterprise.slack.com/archives/C0BLPJLHWUA" target="_blank" class="slack-link">🔗 #474206000</a></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474142461" target="_blank" class="case-link">474142461</a></td>
+      <td class="subject">DCR Records Not Created for Affiliation Records</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Sai Shivani Byreddy</td>
+      <td class="age-cell"><span class="age-yellow">12d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-supp">Support</span></td>
+      <td class="remarks">Active troubleshooting in progress</td>
+      <td><span class="tbadge working">Working<br><small>9d 21h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474139508" target="_blank" class="case-link">474139508</a></td>
+      <td class="subject">Issue creating Plan record in Offline mode on iPad</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge nmi">Need More Information</span></td>
+      <td class="owner">Deepika Nagalakshmi Arjunan</td>
+      <td class="age-cell"><span class="age-yellow">13d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-cust">Customer</span></td>
+      <td class="remarks">Awaiting additional info / response from customer</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>8d 23h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474134655" target="_blank" class="case-link">474134655</a></td>
+      <td class="subject">Country Admin User Unable to Create Assessment Task Under Action Plan</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge nmi">Need More Information</span></td>
+      <td class="owner">Neeti Shyam</td>
+      <td class="age-cell"><span class="age-yellow">13d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-cust">Customer</span></td>
+      <td class="remarks">Awaiting additional info / response from customer</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>11d 19h</small></span></td>
+      <td><a href="https://salesforce-internal.slack.com/archives/C09179B6UG3/p1784704747230179" target="_blank" class="slack-link">🔗 #474134655</a></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474129004" target="_blank" class="case-link">474129004</a></td>
+      <td class="subject">Unable to track metrics for MP4 Presentations with actual time spent watching video</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Varun Reddy A</td>
+      <td class="age-cell"><span class="age-red">14d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-supp">Support</span></td>
+      <td class="remarks">Active troubleshooting in progress</td>
+      <td><span class="tbadge working">Working<br><small>7d 8h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474128472" target="_blank" class="case-link">474128472</a></td>
+      <td class="subject">Overlapping Plan Validation Not Working Consistently on iPad</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge nmi">Need More Information</span></td>
+      <td class="owner">Sai Shivani Byreddy</td>
+      <td class="age-cell"><span class="age-red">14d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-cust">Customer</span></td>
+      <td class="remarks">Awaiting additional info / response from customer</td>
+      <td><span class="tbadge working">Working<br><small>5d 6h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474126020" target="_blank" class="case-link">474126020</a></td>
+      <td class="subject">Custom flow error message not displaying correctly on Inquiry Submit MIR validation</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Sai Uma Maheswari Kamatham</td>
+      <td class="age-cell"><span class="age-red">14d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-supp">Support</span></td>
+      <td class="remarks">Active troubleshooting in progress</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>7d 12h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474115275" target="_blank" class="case-link">474115275</a></td>
+      <td class="subject">LSC Event Management: Workflow Path does not support Multi-Level Sequential Approvals</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Abhishek Dixit</td>
+      <td class="age-cell"><span class="age-red">17d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-supp">Support</span></td>
+      <td class="remarks">Active troubleshooting in progress</td>
+      <td><span class="tbadge working">Working<br><small>14d 7h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474115244" target="_blank" class="case-link">474115244</a></td>
+      <td class="subject">LSC Event Management: Limited Product Documentation for Managed Event Budget Objects</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge working">Working</span></td>
+      <td class="owner">Roshan Vemu</td>
+      <td class="age-cell"><span class="age-red">17d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-supp">Support</span></td>
+      <td class="remarks">Active troubleshooting in progress</td>
+      <td><span class="tbadge working">Working<br><small>17d 7h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474094367" target="_blank" class="case-link">474094367</a></td>
+      <td class="subject">Field Rep User able to edit Expense record after submission of linked Visit Record</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge nmi">Need More Information</span></td>
+      <td class="owner">Abhishek Anand</td>
+      <td class="age-cell"><span class="age-red">19d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-cust">Customer</span></td>
+      <td class="remarks">Awaiting additional info / response from customer</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>13d 22h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474087152" target="_blank" class="case-link">474087152</a></td>
+      <td class="subject">App Alert Share records not auto-created when App Alerts created by Automated Process</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge nmi">Need More Information</span></td>
+      <td class="owner">Roshan Vemu</td>
+      <td class="age-cell"><span class="age-red">20d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-cust">Customer</span></td>
+      <td class="remarks">Awaiting additional info / response from customer</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>12d 21h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474200157" target="_blank" class="case-link">474200157</a></td>
+      <td class="subject">Issue/Question related to Survey Response Timeline</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge nmi">Need More Information</span></td>
+      <td class="owner">Shirisha Kuncharam</td>
+      <td class="age-cell"><span class="age-ok">5d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-cust">Customer</span></td>
+      <td class="remarks">Awaiting additional info / response from customer</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>5d 3h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474198525" target="_blank" class="case-link">474198525</a></td>
+      <td class="subject">List View Filters are not working in iPad</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge nmi">Need More Information</span></td>
+      <td class="owner">Dimple Madhuri Lakshmi Eati</td>
+      <td class="age-cell"><span class="age-ok">5d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-cust">Customer</span></td>
+      <td class="remarks">Awaiting additional info / response from customer</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>5d 15h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474178484" target="_blank" class="case-link">474178484</a></td>
+      <td class="subject">Field User Personas unable to access fields on Expense Object</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge nmi">Need More Information</span></td>
+      <td class="owner">Neeti Shyam</td>
+      <td class="age-cell"><span class="age-yellow">7d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-cust">Customer</span></td>
+      <td class="remarks">Awaiting additional info / response from customer</td>
+      <td><span class="tbadge nmi">Need More Info<br><small>6d 11h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://support.salesforce.com/s/case/474161651" target="_blank" class="case-link">474161651</a></td>
+      <td class="subject">Provider account territory summary record issue</td>
+      <td><span class="acct-badge takeda">Takeda</span></td>
+      <td><span class="pbadge p4">P4</span></td>
+      <td><span class="sbadge nmi">Need More Information</span></td>
+      <td class="owner">Mohana Sai Vishnu Sriya Chavva</td>
+      <td class="age-cell"><span class="age-yellow">10d</span></td>
+      <td><span class="no-gus">—</span></td>
+      <td><span class="wu-cust">Customer</span></td>
+      <td class="remarks">Awaiting additional info / response from customer</td>
+      <td><span class="tbadge cms">Call Scheduled<br><small>6d 2h</small></span></td>
+      <td><span class="no-slack">—</span></td>
+    </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+<div class="footer">Generated Aug 4, 2026 &nbsp;·&nbsp; LSC IST Support &nbsp;·&nbsp; <a href="https://bhagath-manicka.github.io/lsc-ist-cases/" style="color:var(--sf-blue)">Live Dashboard</a></div>
 </body>
 </html>
