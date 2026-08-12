@@ -2,77 +2,80 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>LSC Volume Dashboard — IST | Aug 3–12, 2026</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-:root {
-  --sf-navy:#032D60; --sf-blue:#00A1E0; --sf-teal:#00698A;
-  --sf-cloud:#F3F6F9; --hc-orange:#F97316; --rf-amber:#F59E0B;
-  --text-main:#1E293B; --text-muted:#64748B; --border:#E2E8F0;
+:root{
+  --sf-navy:#032D60;--sf-blue:#00A1E0;--sf-teal:#00698A;
+  --sf-cloud:#F3F6F9;--hc-orange:#F97316;--rf-amber:#F59E0B;
+  --text-main:#1E293B;--text-muted:#64748B;--border:#E2E8F0;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Salesforce Sans','Segoe UI',Arial,sans-serif;background:var(--sf-cloud);color:var(--text-main);}
 .header{background:var(--sf-navy);padding:18px 30px;display:flex;align-items:center;justify-content:space-between;}
 .header h1{color:#fff;font-size:19px;font-weight:700;}
 .header .sub{color:#93C5FD;font-size:12px;margin-top:3px;}
-.badge{background:#1E40AF;color:#fff;font-size:11px;padding:3px 10px;border-radius:12px;display:inline-block;}
+.badge-top{background:#1E40AF;color:#fff;font-size:11px;padding:3px 10px;border-radius:12px;display:inline-block;}
 .accent-bar{height:3px;background:linear-gradient(90deg,var(--sf-blue),var(--sf-teal));}
-
-/* SECTION DIVIDERS */
-.section-header{padding:18px 30px 6px;font-size:13px;font-weight:700;color:var(--sf-navy);text-transform:uppercase;letter-spacing:0.6px;border-top:2px solid var(--border);margin-top:8px;display:flex;align-items:center;gap:8px;}
-.section-header span{background:var(--sf-navy);color:#fff;width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px;}
-
-/* KPI STRIP */
-.kpi-strip{display:flex;gap:14px;padding:16px 30px;flex-wrap:wrap;}
-.kpi{background:#fff;border-radius:10px;padding:14px 20px;flex:1;min-width:130px;box-shadow:0 1px 3px rgba(0,0,0,0.08);border-top:3px solid var(--sf-blue);}
+/* NAV */
+.nav{background:#fff;border-bottom:2px solid var(--border);display:flex;gap:0;padding:0 30px;position:sticky;top:0;z-index:99;}
+.nav a{padding:12px 18px;font-size:12px;font-weight:600;color:var(--text-muted);text-decoration:none;border-bottom:3px solid transparent;transition:.2s;}
+.nav a:hover,.nav a.active{color:var(--sf-navy);border-bottom-color:var(--sf-blue);}
+/* SECTION */
+.section-header{padding:18px 30px 6px;font-size:13px;font-weight:700;color:var(--sf-navy);text-transform:uppercase;letter-spacing:.6px;border-top:2px solid var(--border);margin-top:8px;display:flex;align-items:center;gap:8px;}
+.section-header .num{background:var(--sf-navy);color:#fff;width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px;}
+/* KPI */
+.kpi-strip{display:flex;gap:14px;padding:14px 30px;flex-wrap:wrap;}
+.kpi{background:#fff;border-radius:10px;padding:14px 20px;flex:1;min-width:130px;box-shadow:0 1px 3px rgba(0,0,0,.08);border-top:3px solid var(--sf-blue);}
 .kpi.warn{border-top-color:var(--hc-orange);}
 .kpi.amber{border-top-color:var(--rf-amber);}
 .kpi.green{border-top-color:#10B981;}
+.kpi.red{border-top-color:#DC2626;}
 .kpi.purple{border-top-color:#7C3AED;}
-.kpi-num{font-size:30px;font-weight:800;color:var(--sf-navy);line-height:1;}
-.kpi-label{font-size:11px;color:var(--text-muted);margin-top:4px;font-weight:600;text-transform:uppercase;letter-spacing:0.4px;}
+.kpi-num{font-size:28px;font-weight:800;color:var(--sf-navy);line-height:1;}
+.kpi-label{font-size:11px;color:var(--text-muted);margin-top:4px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;}
 .kpi-sub{font-size:11px;color:var(--text-muted);margin-top:2px;}
-
 /* GRID */
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:0 30px 14px;}
 .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;padding:0 30px 14px;}
-.card{background:#fff;border-radius:10px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,0.08);}
+.card{background:#fff;border-radius:10px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,.08);}
 .card.full{grid-column:1/-1;}
 .card h2{font-size:13px;font-weight:700;color:var(--sf-navy);}
 .card .card-sub{font-size:11px;color:var(--text-muted);margin-bottom:14px;margin-top:2px;}
 canvas{max-height:270px;}
-
 /* INSIGHT BOXES */
 .insight{background:#EFF6FF;border-left:4px solid var(--sf-blue);padding:10px 14px;border-radius:6px;margin-top:10px;font-size:12px;color:#1E40AF;}
 .warn-insight{background:#FFF7ED;border-left:4px solid var(--hc-orange);padding:10px 14px;border-radius:6px;margin-top:10px;font-size:12px;color:#92400E;}
 .amber-insight{background:#FFFBEB;border-left:4px solid var(--rf-amber);padding:10px 14px;border-radius:6px;margin-top:10px;font-size:12px;color:#78350F;}
-
-/* ACCOUNT MINI CARDS */
+.red-insight{background:#FEF2F2;border-left:4px solid #DC2626;padding:10px 14px;border-radius:6px;margin-top:10px;font-size:12px;color:#991B1B;}
+/* CAPACITY TABLE */
+.cap-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px;}
+.cap-table th{background:var(--sf-navy);color:#fff;padding:7px 10px;text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.4px;white-space:nowrap;}
+.cap-table td{padding:7px 10px;border-bottom:1px solid #F1F5F9;vertical-align:middle;}
+.cap-table tr.rf{background:#FFFBEB;}
+.cap-table tr.rf td{font-weight:500;}
+.star{color:var(--rf-amber);margin-right:3px;}
+.muted{color:var(--text-muted);font-weight:400;}
+.util-bar-wrap{width:80px;height:8px;background:#F1F5F9;border-radius:4px;display:inline-block;vertical-align:middle;margin-right:6px;}
+.util-bar{height:8px;border-radius:4px;}
+.util-num{font-size:11px;font-weight:700;vertical-align:middle;}
+.badge-pill{display:inline-block;padding:2px 8px;border-radius:12px;font-size:10px;font-weight:700;}
+/* ACC GRID */
 .acc-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;}
 .acc-row{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:7px;background:#F8FAFC;}
 .acc-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0;}
 .acc-name{font-size:12px;font-weight:600;flex:1;}
 .acc-cnt{font-size:20px;font-weight:800;color:var(--sf-navy);}
 .acc-pct{font-size:11px;color:var(--text-muted);}
-
-/* ENGINEER TABLE */
+/* ENG TABLE */
 .eng-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px;}
-.eng-table th{background:var(--sf-navy);color:#fff;padding:7px 10px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:0.3px;}
+.eng-table th{background:var(--sf-navy);color:#fff;padding:7px 10px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.3px;}
 .eng-table td{padding:6px 10px;border-bottom:1px solid #F1F5F9;vertical-align:middle;}
 .eng-table tr.rf{background:#FFFBEB;}
-.eng-table tr.rf td{font-weight:600;}
-.star{color:var(--rf-amber);margin-right:3px;}
 .bar-wrap{width:100%;background:#F1F5F9;border-radius:4px;height:10px;overflow:hidden;}
 .bar-fill{height:10px;border-radius:4px;background:#94A3B8;}
 .bar-fill.rf{background:var(--rf-amber);}
-
-/* RF vs OTHER donut container */
-.donut-row{display:flex;gap:10px;align-items:center;justify-content:center;margin-top:10px;}
-.donut-label{font-size:12px;}
-.donut-label .val{font-size:22px;font-weight:800;display:block;}
-.donut-label .sub{font-size:11px;color:var(--text-muted);}
-
 footer{padding:14px 30px;text-align:center;font-size:11px;color:var(--text-muted);border-top:1px solid var(--border);margin-top:8px;}
 </style>
 </head>
@@ -84,258 +87,456 @@ footer{padding:14px 30px;text-align:center;font-size:11px;color:var(--text-muted
     <div class="sub">Life Sciences Cloud · India Standard Time (IST) · Aug 3–12, 2026 &nbsp;|&nbsp; 10 days</div>
   </div>
   <div style="text-align:right">
-    <div class="badge">HYPERCARE MONITORING</div>
-    <div style="color:#93C5FD;font-size:11px;margin-top:5px;">Source: OrgCS · Product: Industry-Life Sciences</div>
+    <div class="badge-top">HYPERCARE MONITORING</div>
+    <div style="color:#93C5FD;font-size:11px;margin-top:5px;">Source: OrgCS · Product: Industry-Life Sciences · 6 Hypercare Accounts</div>
   </div>
 </div>
 <div class="accent-bar"></div>
 
-<!-- ════════════════════ SECTION 1: VOLUME OVERVIEW ════════════════════ -->
-<div class="section-header"><span>1</span> Volume Overview</div>
+<nav class="nav">
+  <a href="#s1">① Volume</a>
+  <a href="#s2">② Hypercare</a>
+  <a href="#s3">③ Ring-Fenced vs Team</a>
+  <a href="#s4">④ P&T Portfolio</a>
+  <a href="#s5">⑤ Capacity</a>
+  <a href="#s6">⑥ All Engineers</a>
+</nav>
 
+<!-- ══════════════ SECTION 1: VOLUME ══════════════ -->
+<div id="s1" class="section-header"><span class="num">1</span> Volume Overview — 10-Day Inflow</div>
 <div class="kpi-strip">
-  <div class="kpi">
-    <div class="kpi-num">201</div>
-    <div class="kpi-label">Total IST Inflow</div>
-    <div class="kpi-sub">Aug 3–12 · 10 days</div>
-  </div>
-  <div class="kpi warn">
-    <div class="kpi-num">80</div>
-    <div class="kpi-label">Hypercare Cases</div>
-    <div class="kpi-sub">30.8% of IST inflow</div>
-  </div>
-  <div class="kpi warn">
-    <div class="kpi-num">67%</div>
-    <div class="kpi-label">Peak Hypercare Day</div>
-    <div class="kpi-sub">Aug 08 · 4 of 6 cases</div>
-  </div>
-  <div class="kpi green">
-    <div class="kpi-num">37</div>
-    <div class="kpi-label">Engineers Active</div>
-    <div class="kpi-sub">Avg 5.4 cases/engineer</div>
-  </div>
-  <div class="kpi amber">
-    <div class="kpi-num">63</div>
-    <div class="kpi-label">Ring-Fenced Cases</div>
-    <div class="kpi-sub">7 engineers · 31.3% of IST</div>
-  </div>
-  <div class="kpi purple">
-    <div class="kpi-num">38</div>
-    <div class="kpi-label">Peak Day Volume</div>
-    <div class="kpi-sub">Aug 05 · highest inflow</div>
-  </div>
+  <div class="kpi"><div class="kpi-num">201</div><div class="kpi-label">Total IST Inflow</div><div class="kpi-sub">Aug 3–12 · 10 days</div></div>
+  <div class="kpi warn"><div class="kpi-num">80</div><div class="kpi-label">Hypercare Cases</div><div class="kpi-sub">30.8% of IST inflow</div></div>
+  <div class="kpi warn"><div class="kpi-num">67%</div><div class="kpi-label">Peak Hypercare Day</div><div class="kpi-sub">Aug 08 · 4 of 6 cases</div></div>
+  <div class="kpi green"><div class="kpi-num">37</div><div class="kpi-label">Engineers Active</div><div class="kpi-sub">Avg 5.4 cases/engineer</div></div>
+  <div class="kpi purple"><div class="kpi-num">38</div><div class="kpi-label">Peak Day Volume</div><div class="kpi-sub">Aug 05 · highest inflow</div></div>
 </div>
-
 <div class="grid">
   <div class="card">
     <h2>Day-over-Day LSC Inflow</h2>
-    <div class="card-sub">Total IST cases stacked: Hypercare vs Other</div>
+    <div class="card-sub">Hypercare vs Other LSC cases stacked</div>
     <canvas id="inflowChart"></canvas>
-    <div class="insight">📈 <strong>Aug 5 peak (38 cases).</strong> Weekend Aug 8–9 drops sharply as expected. Hypercare accounts for <strong>30.8%</strong> of the 10-day IST inflow.</div>
+    <div class="insight">📈 <strong>Aug 5 peak (38 cases).</strong> Hypercare accounts drove <strong>30.8%</strong> of IST inflow over 10 days. Weekend Aug 8–9 expected dip.</div>
   </div>
   <div class="card">
     <h2>Hypercare % Ratio by Day</h2>
-    <div class="card-sub">What fraction of each day's IST cases came from 6 hypercare accounts</div>
+    <div class="card-sub">% of daily IST volume from 6 hypercare accounts</div>
     <canvas id="ratioChart"></canvas>
-    <div class="warn-insight">⚠️ <strong>Aug 8 (67%) and Aug 12 (57%):</strong> Majority of volume concentrated in hypercare accounts — capacity risk if cases skew P2/P1.</div>
+    <div class="warn-insight">⚠️ <strong>Aug 8 (67%) and Aug 12 (57%):</strong> Over half of volume from hypercare accounts on these days. Monitor for P1/P2 concentration risk.</div>
   </div>
 </div>
 
-<!-- ════════════════════ SECTION 2: HYPERCARE ACCOUNTS ════════════════════ -->
-<div class="section-header"><span>2</span> Hypercare Account Breakdown</div>
-
+<!-- ══════════════ SECTION 2: HYPERCARE ══════════════ -->
+<div id="s2" class="section-header"><span class="num">2</span> Hypercare Account Breakdown — 6 Accounts</div>
 <div class="grid">
   <div class="card">
-    <h2>Hypercare Accounts — Daily Stacked</h2>
-    <div class="card-sub">6 accounts · combined 80 cases</div>
+    <h2>Daily Stacked by Account</h2>
+    <div class="card-sub">6 hypercare accounts · 80 combined cases</div>
     <canvas id="stackedAccChart"></canvas>
   </div>
   <div class="card">
-    <h2>Hypercare Account Totals</h2>
-    <div class="card-sub">10-day totals — 80 hypercare cases combined</div>
+    <h2>10-Day Account Totals</h2>
+    <div class="card-sub">80 hypercare cases across 6 accounts</div>
     <div class="acc-grid">
-      <div class="acc-row">
-        <div class="acc-dot" style="background:#1D4ED8"></div>
-        <div class="acc-name">Pfizer</div>
-        <div>
-          <div class="acc-cnt">28</div>
-          <div class="acc-pct">35% of HC</div>
-        </div>
-      </div>
-      <div class="acc-row">
-        <div class="acc-dot" style="background:#7C3AED"></div>
-        <div class="acc-name">Takeda</div>
-        <div>
-          <div class="acc-cnt">34</div>
-          <div class="acc-pct">42% of HC</div>
-        </div>
-      </div>
-      <div class="acc-row">
-        <div class="acc-dot" style="background:#059669"></div>
-        <div class="acc-name">Genmab US</div>
-        <div>
-          <div class="acc-cnt">6</div>
-          <div class="acc-pct">8% of HC</div>
-        </div>
-      </div>
-      <div class="acc-row">
-        <div class="acc-dot" style="background:#BE185D"></div>
-        <div class="acc-name">FIDIA</div>
-        <div>
-          <div class="acc-cnt">2</div>
-          <div class="acc-pct">2% of HC</div>
-        </div>
-      </div>
-      <div class="acc-row">
-        <div class="acc-dot" style="background:#0891B2"></div>
-        <div class="acc-name">Fresenius Kabi</div>
-        <div>
-          <div class="acc-cnt">1</div>
-          <div class="acc-pct">1% of HC</div>
-        </div>
-      </div>
-      <div class="acc-row">
-        <div class="acc-dot" style="background:#DC2626"></div>
-        <div class="acc-name">Novartis Pharma AG</div>
-        <div>
-          <div class="acc-cnt">9</div>
-          <div class="acc-pct">11% of HC</div>
-        </div>
-      </div>
+      <div class="acc-row"><div class="acc-dot" style="background:#1D4ED8"></div><div class="acc-name">Pfizer</div><div><div class="acc-cnt">28</div><div class="acc-pct">35% of HC</div></div></div>
+      <div class="acc-row"><div class="acc-dot" style="background:#7C3AED"></div><div class="acc-name">Takeda</div><div><div class="acc-cnt">34</div><div class="acc-pct">42% of HC</div></div></div>
+      <div class="acc-row"><div class="acc-dot" style="background:#059669"></div><div class="acc-name">Genmab US</div><div><div class="acc-cnt">6</div><div class="acc-pct">8% of HC</div></div></div>
+      <div class="acc-row"><div class="acc-dot" style="background:#BE185D"></div><div class="acc-name">FIDIA</div><div><div class="acc-cnt">2</div><div class="acc-pct">2% of HC</div></div></div>
+      <div class="acc-row"><div class="acc-dot" style="background:#0891B2"></div><div class="acc-name">Fresenius Kabi</div><div><div class="acc-cnt">1</div><div class="acc-pct">1% of HC</div></div></div>
+      <div class="acc-row"><div class="acc-dot" style="background:#DC2626"></div><div class="acc-name">Novartis Pharma AG</div><div><div class="acc-cnt">9</div><div class="acc-pct">11% of HC</div></div></div>
     </div>
-    <div class="insight" style="margin-top:14px;">🔑 <strong>Pfizer + Takeda = 62 cases</strong> (78% of HC). Novartis across all org IDs: 9. Genmab, FIDIA & Fresenius are lower but active.</div>
+    <div class="insight" style="margin-top:14px;">🔑 <strong>Pfizer + Takeda = 62 cases</strong> (78% of HC). Novartis: 9 across all org IDs. Genmab active with 6 cases.</div>
   </div>
 </div>
 
-<!-- ════════════════════ SECTION 3: RING-FENCED vs ALL ENGINEERS ════════════════════ -->
-<div class="section-header"><span>3</span> Ring-Fenced Engineers vs Full Team</div>
-
-<div class="kpi-strip" style="padding-top:0;">
-  <div class="kpi amber">
-    <div class="kpi-num">63</div>
-    <div class="kpi-label">Ring-Fenced Cases</div>
-    <div class="kpi-sub">7 engineers · 31.3% of IST total</div>
-  </div>
-  <div class="kpi">
-    <div class="kpi-num">138</div>
-    <div class="kpi-label">Other Engineer Cases</div>
-    <div class="kpi-sub">30 engineers · 68.7% of IST total</div>
-  </div>
-  <div class="kpi amber">
-    <div class="kpi-num">9.0</div>
-    <div class="kpi-label">Avg Cases (Ring-Fenced)</div>
-    <div class="kpi-sub">vs 4.6 avg for others</div>
-  </div>
+<!-- ══════════════ SECTION 3: RING-FENCED VS TEAM ══════════════ -->
+<div id="s3" class="section-header"><span class="num">3</span> Ring-Fenced Engineers vs Full Team</div>
+<div class="kpi-strip">
+  <div class="kpi amber"><div class="kpi-num">63</div><div class="kpi-label">Ring-Fenced Inflow</div><div class="kpi-sub">7 engineers · 31.3% of IST total</div></div>
+  <div class="kpi"><div class="kpi-num">138</div><div class="kpi-label">Other Engineer Inflow</div><div class="kpi-sub">30 engineers · 68.7%</div></div>
+  <div class="kpi amber"><div class="kpi-num">9.0</div><div class="kpi-label">RF Avg Cases</div><div class="kpi-sub">vs 4.6 avg for others</div></div>
 </div>
-
 <div class="grid">
   <div class="card">
-    <h2>Ring-Fenced vs Other Engineers — Daily Volume</h2>
-    <div class="card-sub">Stacked: amber = 7 ring-fenced engineers · grey = rest of team</div>
+    <h2>Ring-Fenced vs Others — Daily</h2>
+    <div class="card-sub">Amber = 7 ring-fenced · Grey = remaining team</div>
     <canvas id="rfVsOtherChart"></canvas>
-    <div class="amber-insight">⭐ Ring-fenced 7 engineers handled <strong>31.3% of total IST volume</strong> (63 cases) vs 68.7% from the remaining 30 engineers.</div>
+    <div class="amber-insight">⭐ Ring-fenced 7 handled <strong>31.3% of IST volume</strong> — 9.0 cases/engineer vs 4.6 for the rest.</div>
   </div>
   <div class="card">
-    <h2>Ring-Fenced Engineers — Share Donut</h2>
-    <div class="card-sub">10-day contribution split: 7 ring-fenced vs rest of IST team</div>
-    <canvas id="donutChart" style="max-height:220px;"></canvas>
-    <div class="donut-row">
-      <div class="donut-label" style="color:var(--rf-amber)">
-        <span class="val">63</span>
-        <span class="sub">Ring-Fenced (31.3%)</span>
-      </div>
-      <div style="font-size:20px;color:var(--text-muted)">vs</div>
-      <div class="donut-label" style="color:#64748B">
-        <span class="val">138</span>
-        <span class="sub">Others (68.7%)</span>
-      </div>
+    <h2>Contribution Split</h2>
+    <div class="card-sub">10-day share: ring-fenced 7 vs rest of IST team</div>
+    <canvas id="donutChart" style="max-height:200px;"></canvas>
+    <div style="display:flex;gap:16px;justify-content:center;margin-top:10px;">
+      <div style="text-align:center"><div style="font-size:22px;font-weight:800;color:var(--rf-amber)">63</div><div style="font-size:11px;color:var(--text-muted)">Ring-Fenced (31.3%)</div></div>
+      <div style="font-size:20px;color:var(--text-muted);align-self:center">vs</div>
+      <div style="text-align:center"><div style="font-size:22px;font-weight:800;color:#64748B">138</div><div style="font-size:11px;color:var(--text-muted)">Others (68.7%)</div></div>
     </div>
   </div>
 </div>
-
 <div class="grid">
   <div class="card">
-    <h2>Ring-Fenced Engineers — Day-over-Day Trend</h2>
-    <div class="card-sub">Individual daily case inflow per engineer</div>
+    <h2>Ring-Fenced — Day-over-Day per Engineer</h2>
+    <div class="card-sub">Individual daily inflow trend</div>
     <canvas id="hlEngChart"></canvas>
   </div>
   <div class="card">
     <h2>Ring-Fenced Leaderboard</h2>
-    <div class="card-sub">7 highlighted engineers · 63 cases · 31.3% of IST volume</div>
+    <div class="card-sub">10-day LSC inflow · sorted by volume</div>
     <table class="eng-table">
-      <thead><tr><th>#</th><th>Engineer</th><th>Cases</th><th>% IST</th><th>Load</th></tr></thead>
+      <thead><tr><th>#</th><th>Engineer</th><th>LSC Cases</th><th>% IST</th><th>Load</th></tr></thead>
       <tbody>
-        <tr class="rf">
-          <td>1</td>
-          <td><span class="star">★</span>Varun Reddy A</td>
-          <td><strong>16</strong></td>
-          <td>8.0%</td>
-          <td><div class="bar-wrap"><div class="bar-fill rf" style="width:100%"></div></div></td>
-        </tr>
-        <tr class="rf">
-          <td>2</td>
-          <td><span class="star">★</span>Satya Ghettem</td>
-          <td><strong>11</strong></td>
-          <td>5.5%</td>
-          <td><div class="bar-wrap"><div class="bar-fill rf" style="width:69%"></div></div></td>
-        </tr>
-        <tr class="rf">
-          <td>3</td>
-          <td><span class="star">★</span>Srividya Vedula</td>
-          <td><strong>11</strong></td>
-          <td>5.5%</td>
-          <td><div class="bar-wrap"><div class="bar-fill rf" style="width:69%"></div></div></td>
-        </tr>
-        <tr class="rf">
-          <td>4</td>
-          <td><span class="star">★</span>Arunkumar Vankadhara</td>
-          <td><strong>8</strong></td>
-          <td>4.0%</td>
-          <td><div class="bar-wrap"><div class="bar-fill rf" style="width:50%"></div></div></td>
-        </tr>
-        <tr class="rf">
-          <td>5</td>
-          <td><span class="star">★</span>Soumya Chitra Anandas</td>
-          <td><strong>7</strong></td>
-          <td>3.5%</td>
-          <td><div class="bar-wrap"><div class="bar-fill rf" style="width:44%"></div></div></td>
-        </tr>
-        <tr class="rf">
-          <td>6</td>
-          <td><span class="star">★</span>Abhishek Dixit</td>
-          <td><strong>6</strong></td>
-          <td>3.0%</td>
-          <td><div class="bar-wrap"><div class="bar-fill rf" style="width:38%"></div></div></td>
-        </tr>
-        <tr class="rf">
-          <td>7</td>
-          <td><span class="star">★</span>Sravani Gajula</td>
-          <td><strong>4</strong></td>
-          <td>2.0%</td>
-          <td><div class="bar-wrap"><div class="bar-fill rf" style="width:25%"></div></div></td>
-        </tr>
+        <tr class="rf"><td>1</td><td><span class="star">★</span>Varun Reddy A</td><td><strong>16</strong></td><td>8.0%</td><td><div class="bar-wrap"><div class="bar-fill rf" style="width:100%"></div></div></td></tr>
+        <tr class="rf"><td>2</td><td><span class="star">★</span>Satya Ghettem</td><td><strong>11</strong></td><td>5.5%</td><td><div class="bar-wrap"><div class="bar-fill rf" style="width:69%"></div></div></td></tr>
+        <tr class="rf"><td>3</td><td><span class="star">★</span>Srividya Vedula</td><td><strong>11</strong></td><td>5.5%</td><td><div class="bar-wrap"><div class="bar-fill rf" style="width:69%"></div></div></td></tr>
+        <tr class="rf"><td>4</td><td><span class="star">★</span>Arunkumar Vankadhara</td><td><strong>8</strong></td><td>4.0%</td><td><div class="bar-wrap"><div class="bar-fill rf" style="width:50%"></div></div></td></tr>
+        <tr class="rf"><td>5</td><td><span class="star">★</span>Soumya Chitra Anandas</td><td><strong>7</strong></td><td>3.5%</td><td><div class="bar-wrap"><div class="bar-fill rf" style="width:44%"></div></div></td></tr>
+        <tr class="rf"><td>6</td><td><span class="star">★</span>Abhishek Dixit</td><td><strong>6</strong></td><td>3.0%</td><td><div class="bar-wrap"><div class="bar-fill rf" style="width:38%"></div></div></td></tr>
+        <tr class="rf"><td>7</td><td><span class="star">★</span>Sravani Gajula</td><td><strong>4</strong></td><td>2.0%</td><td><div class="bar-wrap"><div class="bar-fill rf" style="width:25%"></div></div></td></tr>
+      </tbody></table>
+  </div>
+</div>
+
+<!-- ══════════════ SECTION 4: P&T PORTFOLIO ══════════════ -->
+<div id="s4" class="section-header"><span class="num">4</span> P&T Portfolio — Ring-Fenced Engineers</div>
+<div class="kpi-strip">
+  <div class="kpi"><div class="kpi-num">101</div><div class="kpi-label">Total Cases (All P&T)</div><div class="kpi-sub">7 ring-fenced · 10 days</div></div>
+  <div class="kpi"><div class="kpi-num">66</div><div class="kpi-label">LSC Cases</div><div class="kpi-sub">65% of their total load</div></div>
+  <div class="kpi warn"><div class="kpi-num">35</div><div class="kpi-label">Non-LSC Cases</div><div class="kpi-sub">35% of their total load</div></div>
+  <div class="kpi amber"><div class="kpi-num">9</div><div class="kpi-label">Distinct P&T Topics</div><div class="kpi-sub">Besides Life Sciences</div></div>
+</div>
+<div class="grid">
+  <div class="card">
+    <h2>P&T Mix per Ring-Fenced Engineer</h2>
+    <div class="card-sub">Stacked bar — all product topics handled Aug 3–12</div>
+    <canvas id="ptPerEngChart"></canvas>
+    <div class="warn-insight">⚠️ Ring-fenced engineers carry <strong>35% non-LSC load</strong> (35 cases across 8 other P&T topics) on top of their LSC work. Top non-LSC: Retail & Consumer Goods (14 cases).</div>
+  </div>
+  <div class="card">
+    <h2>Overall P&T Distribution (Ring-Fenced)</h2>
+    <div class="card-sub">Total case mix across all product topics</div>
+    <canvas id="ptDonutChart" style="max-height:220px;"></canvas>
+  </div>
+</div>
+<div class="grid">
+  <div class="card full">
+    <h2>LSC vs Non-LSC per Engineer</h2>
+    <div class="card-sub">Side-by-side: LSC dedication vs other P&T load</div>
+    <canvas id="lscVsNonLscChart" style="max-height:200px;"></canvas>
+  </div>
+</div>
+
+<!-- ══════════════ SECTION 5: CAPACITY ══════════════ -->
+<div id="s5" class="section-header"><span class="num">5</span> Capacity Utilisation — Open Case Backlog (Live)</div>
+<div class="kpi-strip">
+  <div class="kpi red"><div class="kpi-num">118</div><div class="kpi-label">RF Total Open Cases</div><div class="kpi-sub">Avg 17 per engineer</div></div>
+  <div class="kpi red"><div class="kpi-num">84%</div><div class="kpi-label">RF Avg Utilisation</div><div class="kpi-sub">Standard capacity = 20 open cases</div></div>
+  <div class="kpi"><div class="kpi-num">169</div><div class="kpi-label">Other IST Open Cases</div><div class="kpi-sub">Avg 10 per engineer</div></div>
+  <div class="kpi"><div class="kpi-num">50%</div><div class="kpi-label">Other IST Avg Util</div><div class="kpi-sub">Same 20-case standard</div></div>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h2>Capacity Utilisation — Ring-Fenced vs Others</h2>
+    <div class="card-sub">% of 20-case standard capacity · Red = critical, Orange = high, Green = healthy</div>
+    <canvas id="capCompareChart" style="max-height:250px;"></canvas>
+    <div class="red-insight">🔴 <strong>Srividya Vedula at 100% utilisation</strong> (20 open cases). Arunkumar at 95%. Average ring-fenced utilisation is <strong>84%</strong> vs 50% for other IST LSC engineers. Ring-fenced engineers are carrying significantly higher load.</div>
+  </div>
+  <div class="card">
+    <h2>Open Case Status Breakdown — Ring-Fenced</h2>
+    <div class="card-sub">Active vs Waiting on Customer vs Pending Closure</div>
+    <canvas id="statusStackChart"></canvas>
+    <div class="insight">💡 Of 118 open RF cases — a large portion are <strong>Waiting on Customer</strong>, meaning actionable backlog is lower. Focus on "Active" cases for real capacity pressure.</div>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="card full">
+    <h2>Ring-Fenced Engineers — Full Capacity Detail</h2>
+    <div class="card-sub">Open backlog · utilisation · status mix · priority · P&T split (as of Aug 12)</div>
+    <table class="cap-table">
+      <thead><tr>
+        <th>Engineer</th><th>Open</th><th>Utilisation</th><th>Status</th>
+        <th>Active</th><th>Wait Cust</th><th>Pend Close</th>
+        <th>P1/P2/P3/P4</th><th>LSC Cases</th><th>Non-LSC</th>
+      </tr></thead>
+      <tbody>
+<tr>
+      <td><span class="star">★</span>Srividya Vedula</td>
+      <td><strong>20</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:100%;background:#DC2626"></div></div>
+        <span class="util-num" style="color:#DC2626">100%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#FEE2E2;color:#991B1B">CRITICAL</span></td>
+      <td>5</td><td>10</td><td>5</td>
+      <td>0 / 8 / 2 / 10</td>
+      <td>11 <span class="muted">(58%)</span></td>
+      <td>8</td>
+    </tr>
+<tr>
+      <td><span class="star">★</span>Arunkumar Vankadhara</td>
+      <td><strong>19</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:95%;background:#DC2626"></div></div>
+        <span class="util-num" style="color:#DC2626">95%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#FEE2E2;color:#991B1B">CRITICAL</span></td>
+      <td>12</td><td>4</td><td>3</td>
+      <td>0 / 4 / 2 / 13</td>
+      <td>8 <span class="muted">(53%)</span></td>
+      <td>7</td>
+    </tr>
+<tr>
+      <td><span class="star">★</span>Satya Ghettem</td>
+      <td><strong>17</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:85%;background:#F97316"></div></div>
+        <span class="util-num" style="color:#F97316">85%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#FFF7ED;color:#92400E">HIGH</span></td>
+      <td>10</td><td>7</td><td>0</td>
+      <td>0 / 9 / 0 / 8</td>
+      <td>12 <span class="muted">(71%)</span></td>
+      <td>5</td>
+    </tr>
+<tr>
+      <td><span class="star">★</span>Abhishek Dixit</td>
+      <td><strong>17</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:85%;background:#F97316"></div></div>
+        <span class="util-num" style="color:#F97316">85%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#FFF7ED;color:#92400E">HIGH</span></td>
+      <td>9</td><td>5</td><td>3</td>
+      <td>0 / 6 / 4 / 7</td>
+      <td>6 <span class="muted">(60%)</span></td>
+      <td>4</td>
+    </tr>
+<tr>
+      <td><span class="star">★</span>Soumya Chitra Anandas</td>
+      <td><strong>16</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:80%;background:#F97316"></div></div>
+        <span class="util-num" style="color:#F97316">80%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#FFF7ED;color:#92400E">HIGH</span></td>
+      <td>11</td><td>4</td><td>1</td>
+      <td>0 / 6 / 1 / 9</td>
+      <td>7 <span class="muted">(54%)</span></td>
+      <td>6</td>
+    </tr>
+<tr>
+      <td><span class="star">★</span>Sravani Gajula</td>
+      <td><strong>15</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:75%;background:#F97316"></div></div>
+        <span class="util-num" style="color:#F97316">75%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#FFF7ED;color:#92400E">HIGH</span></td>
+      <td>7</td><td>3</td><td>5</td>
+      <td>0 / 11 / 2 / 2</td>
+      <td>5 <span class="muted">(71%)</span></td>
+      <td>2</td>
+    </tr>
+<tr>
+      <td><span class="star">★</span>Varun Reddy A</td>
+      <td><strong>14</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:70%;background:#EAB308"></div></div>
+        <span class="util-num" style="color:#EAB308">70%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#FFFBEB;color:#78350F">MEDIUM</span></td>
+      <td>9</td><td>5</td><td>0</td>
+      <td>0 / 5 / 1 / 8</td>
+      <td>17 <span class="muted">(85%)</span></td>
+      <td>3</td>
+    </tr>
       </tbody>
     </table>
   </div>
 </div>
 
-<!-- ════════════════════ SECTION 4: ALL ENGINEERS ════════════════════ -->
-<div class="section-header"><span>4</span> All Engineers — Full Distribution</div>
-
-<div class="grid" style="padding-bottom:0;">
+<div class="grid">
   <div class="card full">
-    <h2>All IST Engineers — Case Distribution (38 engineers)</h2>
-    <div class="card-sub">★ Amber bars = ring-fenced 7 engineers · Grey = rest of team · Aug 3–12</div>
-    <canvas id="allEngChart" style="max-height:340px;"></canvas>
+    <h2>Other IST LSC Engineers — Open Case Utilisation</h2>
+    <div class="card-sub">Comparison baseline — how ring-fenced load compares to peers</div>
+    <table class="cap-table">
+      <thead><tr><th>Engineer</th><th>Open Cases</th><th>Utilisation</th><th>Status</th></tr></thead>
+      <tbody>
+<tr>
+      <td>Dashrath Singh Kaviya</td>
+      <td><strong>19</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:95%;background:#DC2626"></div></div>
+        <span class="util-num" style="color:#DC2626">95%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#FEE2E2;color:#991B1B">CRITICAL</span></td>
+    </tr>
+<tr>
+      <td>Nishit Mahato</td>
+      <td><strong>17</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:85%;background:#F97316"></div></div>
+        <span class="util-num" style="color:#F97316">85%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#FFF7ED;color:#92400E">HIGH</span></td>
+    </tr>
+<tr>
+      <td>Neeti Shyam</td>
+      <td><strong>17</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:85%;background:#F97316"></div></div>
+        <span class="util-num" style="color:#F97316">85%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#FFF7ED;color:#92400E">HIGH</span></td>
+    </tr>
+<tr>
+      <td>Deepika Nagalakshmi Arjunan</td>
+      <td><strong>16</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:80%;background:#F97316"></div></div>
+        <span class="util-num" style="color:#F97316">80%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#FFF7ED;color:#92400E">HIGH</span></td>
+    </tr>
+<tr>
+      <td>Mohana Sai Vishnu Sriya Chavva</td>
+      <td><strong>13</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:65%;background:#EAB308"></div></div>
+        <span class="util-num" style="color:#EAB308">65%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#FFFBEB;color:#78350F">MEDIUM</span></td>
+    </tr>
+<tr>
+      <td>Jithin Venigalla</td>
+      <td><strong>13</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:65%;background:#EAB308"></div></div>
+        <span class="util-num" style="color:#EAB308">65%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#FFFBEB;color:#78350F">MEDIUM</span></td>
+    </tr>
+<tr>
+      <td>Sai Shivani Byreddy</td>
+      <td><strong>10</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:50%;background:#EAB308"></div></div>
+        <span class="util-num" style="color:#EAB308">50%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#FFFBEB;color:#78350F">MEDIUM</span></td>
+    </tr>
+<tr>
+      <td>Akansha Vennela</td>
+      <td><strong>10</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:50%;background:#EAB308"></div></div>
+        <span class="util-num" style="color:#EAB308">50%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#FFFBEB;color:#78350F">MEDIUM</span></td>
+    </tr>
+<tr>
+      <td>Divya Sri Tumma</td>
+      <td><strong>10</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:50%;background:#EAB308"></div></div>
+        <span class="util-num" style="color:#EAB308">50%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#FFFBEB;color:#78350F">MEDIUM</span></td>
+    </tr>
+<tr>
+      <td>Hemanth Kumar Yadav Kottam</td>
+      <td><strong>8</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:40%;background:#10B981"></div></div>
+        <span class="util-num" style="color:#10B981">40%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#D1FAE5;color:#065F46">HEALTHY</span></td>
+    </tr>
+<tr>
+      <td>Dimple Madhuri Lakshmi Eati</td>
+      <td><strong>8</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:40%;background:#10B981"></div></div>
+        <span class="util-num" style="color:#10B981">40%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#D1FAE5;color:#065F46">HEALTHY</span></td>
+    </tr>
+<tr>
+      <td>Anusha Rani Aketi</td>
+      <td><strong>6</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:30%;background:#10B981"></div></div>
+        <span class="util-num" style="color:#10B981">30%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#D1FAE5;color:#065F46">HEALTHY</span></td>
+    </tr>
+<tr>
+      <td>Udayasri Shivakoti</td>
+      <td><strong>5</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:25%;background:#10B981"></div></div>
+        <span class="util-num" style="color:#10B981">25%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#D1FAE5;color:#065F46">HEALTHY</span></td>
+    </tr>
+<tr>
+      <td>Sahithi Reddy Merugu</td>
+      <td><strong>5</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:25%;background:#10B981"></div></div>
+        <span class="util-num" style="color:#10B981">25%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#D1FAE5;color:#065F46">HEALTHY</span></td>
+    </tr>
+<tr>
+      <td>Priyanka Patil</td>
+      <td><strong>4</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:20%;background:#10B981"></div></div>
+        <span class="util-num" style="color:#10B981">20%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#D1FAE5;color:#065F46">HEALTHY</span></td>
+    </tr>
+<tr>
+      <td>Harshita Kagadal</td>
+      <td><strong>4</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:20%;background:#10B981"></div></div>
+        <span class="util-num" style="color:#10B981">20%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#D1FAE5;color:#065F46">HEALTHY</span></td>
+    </tr>
+<tr>
+      <td>Tejaswi Peddireddy</td>
+      <td><strong>4</strong></td>
+      <td>
+        <div class="util-bar-wrap"><div class="util-bar" style="width:20%;background:#10B981"></div></div>
+        <span class="util-num" style="color:#10B981">20%</span>
+      </td>
+      <td><span class="badge-pill" style="background:#D1FAE5;color:#065F46">HEALTHY</span></td>
+    </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 
-<div class="grid" style="padding-top:14px;">
+<!-- ══════════════ SECTION 6: ALL ENGINEERS ══════════════ -->
+<div id="s6" class="section-header"><span class="num">6</span> All IST Engineers — Full Distribution</div>
+<div class="grid">
   <div class="card full">
-    <h2>Complete Engineer Breakdown</h2>
-    <div class="card-sub">All 38 active IST engineers · ★ = ring-fenced</div>
+    <h2>All 38 IST Engineers — 10-Day Case Count</h2>
+    <div class="card-sub">★ Amber = ring-fenced · Grey = rest of team</div>
+    <canvas id="allEngChart" style="max-height:360px;"></canvas>
+  </div>
+</div>
+<div class="grid">
+  <div class="card full">
+    <h2>Complete Engineer Breakdown Table</h2>
+    <div class="card-sub">All IST engineers sorted by volume · ★ = ring-fenced</div>
     <table class="eng-table">
-      <thead><tr><th>Rank</th><th>Engineer</th><th>Cases</th><th>% of IST</th><th>Load Bar</th></tr></thead>
+      <thead><tr><th>Rank</th><th>Engineer</th><th>Cases</th><th>% of IST</th><th>Load</th></tr></thead>
       <tbody>
         <tr class="rf"><td>1</td><td><span class="star">★</span>Varun Reddy A</td><td>16</td><td>8.0%</td><td><div class="bar-wrap"><div class="bar-fill rf" style="width:100%"></div></div></td></tr>
         <tr><td>2</td><td>Mohana Sai Vishnu Sriya Chavva</td><td>12</td><td>6.0%</td><td><div class="bar-wrap"><div class="bar-fill " style="width:75%"></div></div></td></tr>
@@ -374,62 +575,108 @@ footer{padding:14px 30px;text-align:center;font-size:11px;color:var(--text-muted
         <tr><td>35</td><td>Sai Uma Maheswari Kamatham</td><td>1</td><td>0.5%</td><td><div class="bar-wrap"><div class="bar-fill " style="width:6%"></div></div></td></tr>
         <tr><td>36</td><td>Abhishek Anand</td><td>1</td><td>0.5%</td><td><div class="bar-wrap"><div class="bar-fill " style="width:6%"></div></div></td></tr>
         <tr><td>37</td><td>Charan Sai Gottipati</td><td>1</td><td>0.5%</td><td><div class="bar-wrap"><div class="bar-fill " style="width:6%"></div></div></td></tr>
-      </tbody>
-    </table>
+      </tbody></table>
   </div>
 </div>
 
-<footer>LSC Volume Dashboard v2 · Generated Aug 12, 2026 · Data: OrgCS · IST Timezone · 6 Hypercare Accounts · 7 Ring-Fenced Engineers</footer>
+<footer>LSC Volume Dashboard v3 · Generated Aug 12, 2026 · Data: OrgCS · IST Timezone · 6 Hypercare Accounts · 7 Ring-Fenced Engineers · Capacity standard = 20 open cases</footer>
 
 <script>
-const days = ["08-03", "08-04", "08-05", "08-06", "08-07", "08-08", "08-09", "08-10", "08-11", "08-12"];
-const istTotal = [20, 27, 38, 24, 19, 6, 7, 21, 25, 14];
-const hcTotal = [9, 9, 15, 7, 8, 4, 1, 7, 12, 8];
-const nonHC = [11, 18, 23, 17, 11, 2, 6, 14, 13, 6];
-const hcPct = [45, 33, 39, 29, 42, 67, 14, 33, 48, 57];
-const rfByDay = [6, 10, 17, 4, 3, 2, 1, 5, 8, 7];
-const otherByDay = [14, 17, 21, 20, 16, 4, 6, 16, 17, 7];
-
-// Chart 1: Inflow stacked bar
-new Chart(document.getElementById('inflowChart'),{type:'bar',data:{labels:days,datasets:[
-  {label:'Hypercare Cases',data:hcTotal,backgroundColor:'#F97316',stack:'a'},
-  {label:'Other LSC Cases',data:nonHC,backgroundColor:'#CBD5E1',stack:'a'}
-]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10}}}},scales:{x:{stacked:true},y:{stacked:true,beginAtZero:true,title:{display:true,text:'Cases'}}}}});
-
-// Chart 2: HC% line
-new Chart(document.getElementById('ratioChart'),{type:'line',data:{labels:days,datasets:[{
-  label:'Hypercare %',data:hcPct,borderColor:'#F97316',backgroundColor:'rgba(249,115,22,0.1)',
-  fill:true,tension:0.3,pointBackgroundColor:hcPct.map(v=>v>=60?'#DC2626':v>=40?'#F97316':'#10B981'),pointRadius:5
-}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{min:0,max:100,ticks:{callback:v=>v+'%'},title:{display:true,text:'% of IST Total'}}}}});
-
-// Chart 3: Stacked accounts
+const days=["08-03", "08-04", "08-05", "08-06", "08-07", "08-08", "08-09", "08-10", "08-11", "08-12"];
+const istTotal=[20, 27, 38, 24, 19, 6, 7, 21, 25, 14];
+const hcTotal=[9, 9, 15, 7, 8, 4, 1, 7, 12, 8];
+const nonHC=[11, 18, 23, 17, 11, 2, 6, 14, 13, 6];
+const hcPct=[45, 33, 39, 29, 42, 67, 14, 33, 48, 57];
+const rfByDay=[6, 10, 17, 4, 3, 2, 1, 5, 8, 7];
+const otherByDay=[14, 17, 21, 20, 16, 4, 6, 16, 17, 7];
 const accColors={"Pfizer": "#1D4ED8", "Takeda": "#7C3AED", "Genmab US": "#059669", "FIDIA": "#BE185D", "Fresenius Kabi": "#0891B2", "Novartis Pharma AG": "#DC2626"};
 const accDayData={"Pfizer": [0, 3, 8, 2, 3, 4, 0, 2, 5, 1], "Takeda": [5, 4, 5, 3, 4, 0, 1, 3, 2, 7], "Genmab US": [2, 1, 1, 1, 0, 0, 0, 1, 0, 0], "FIDIA": [0, 0, 1, 0, 1, 0, 0, 0, 0, 0], "Fresenius Kabi": [0, 0, 0, 0, 0, 0, 0, 0, 1, 0], "Novartis Pharma AG": [2, 1, 0, 1, 0, 0, 0, 1, 4, 0]};
-const accDatasets=Object.keys(accDayData).map(a=>({label:a,data:accDayData[a],backgroundColor:accColors[a]||'#94A3B8',stack:'a'})).filter(d=>d.data.some(v=>v>0));
-new Chart(document.getElementById('stackedAccChart'),{type:'bar',data:{labels:days,datasets:accDatasets},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10}}}},scales:{x:{stacked:true},y:{stacked:true,beginAtZero:true}}}});
-
-// Chart 4: Ring-fenced vs others stacked
-new Chart(document.getElementById('rfVsOtherChart'),{type:'bar',data:{labels:days,datasets:[
-  {label:'Ring-Fenced (7 engineers)',data:rfByDay,backgroundColor:'#F59E0B',stack:'a'},
-  {label:'Other Engineers',data:otherByDay,backgroundColor:'#94A3B8',stack:'a'}
-]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10}}}},scales:{x:{stacked:true},y:{stacked:true,beginAtZero:true,title:{display:true,text:'Cases'}}}}});
-
-// Chart 5: Donut — ring-fenced vs others
-new Chart(document.getElementById('donutChart'),{type:'doughnut',data:{
-  labels:['Ring-Fenced (7)','Other Engineers'],
-  datasets:[{data:[63,138],backgroundColor:['#F59E0B','#94A3B8'],borderWidth:2,borderColor:'#fff'}]
-},options:{responsive:true,cutout:'68%',plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10}}}}}});
-
-// Chart 6: Highlighted eng day trend
 const hlColors=['#F59E0B','#3B82F6','#10B981','#EF4444','#8B5CF6','#06B6D4','#F97316'];
 const hlEngDay={"Varun Reddy A": [2, 3, 4, 2, 0, 0, 0, 1, 3, 1], "Arunkumar Vankadhara": [0, 1, 5, 0, 0, 0, 0, 2, 0, 0], "Sravani Gajula": [1, 0, 1, 1, 0, 1, 0, 0, 0, 0], "Satya Ghettem": [0, 2, 3, 1, 0, 0, 0, 1, 3, 1], "Srividya Vedula": [2, 0, 3, 0, 2, 0, 0, 1, 1, 2], "Abhishek Dixit": [0, 1, 0, 0, 1, 1, 1, 0, 0, 2], "Soumya Chitra Anandas": [1, 3, 1, 0, 0, 0, 0, 0, 1, 1]};
-new Chart(document.getElementById('hlEngChart'),{type:'line',data:{labels:days,datasets:Object.keys(hlEngDay).map((e,i)=>({label:e,data:hlEngDay[e],borderColor:hlColors[i%hlColors.length],backgroundColor:'transparent',tension:0.3,pointRadius:4}))},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10}}}},scales:{y:{beginAtZero:true,title:{display:true,text:'Cases'}}}}});
-
-// Chart 7: All engineers horizontal
 const allEngNames=["Varun Reddy A", "Mohana Sai Vishnu Sriya Chavva", "Srividya Vedula", "Dashrath Singh Kaviya", "Satya Ghettem", "Nishit Mahato", "Neeti Shyam", "Sai Shivani Byreddy", "Hemanth Kumar Yadav Kottam", "Deepika Nagalakshmi Arjunan", "Arunkumar Vankadhara", "Divya Sri Tumma", "Dimple Madhuri Lakshmi Eati", "Soumya Chitra Anandas", "Akansha Vennela", "Abhishek Dixit", "Udayasri Shivakoti", "Sravani Gajula", "Priyanka Patil", "Himali Fadia", "Anusha Rani Aketi", "Aakansha Sharma", "Lakshmi Sarayu Chiruvella", "Sahithi Reddy Merugu", "Visweswara Rao Gedala", "Shirisha Kuncharam", "Harshita Kagadal", "Roshan Vemu", "Tejaswi Peddireddy", "Harsh Thakkar", "G K Naveen", "Swathi S", "Vipin Sharma", "Jithin Venigalla", "Sai Uma Maheswari Kamatham", "Abhishek Anand", "Charan Sai Gottipati"];
 const allEngCounts=[16, 12, 11, 11, 11, 10, 9, 8, 8, 8, 8, 8, 8, 7, 7, 6, 5, 4, 4, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1];
 const allEngColors=["#F59E0B", "#64748B", "#F59E0B", "#64748B", "#F59E0B", "#64748B", "#64748B", "#64748B", "#64748B", "#64748B", "#F59E0B", "#64748B", "#64748B", "#F59E0B", "#64748B", "#F59E0B", "#64748B", "#F59E0B", "#64748B", "#64748B", "#64748B", "#64748B", "#64748B", "#64748B", "#64748B", "#64748B", "#64748B", "#64748B", "#64748B", "#64748B", "#64748B", "#64748B", "#64748B", "#64748B", "#64748B", "#64748B", "#64748B"];
-new Chart(document.getElementById('allEngChart'),{type:'bar',data:{labels:allEngNames,datasets:[{label:'Cases',data:allEngCounts,backgroundColor:allEngColors}]},options:{responsive:true,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,title:{display:true,text:'Cases'}}}}});
+const rfEngNames=["Srividya Vedula", "Arunkumar Vankadhara", "Satya Ghettem", "Abhishek Dixit", "Soumya Chitra Anandas", "Sravani Gajula", "Varun Reddy A"];
+const rfOpenCounts=[20, 19, 17, 17, 16, 15, 14];
+const rfUtilColors=["#DC2626", "#DC2626", "#F97316", "#F97316", "#F97316", "#F97316", "#EAB308"];
+const otherEngNames=["Dashrath Singh Kaviya", "Nishit Mahato", "Neeti Shyam", "Deepika Nagalakshmi Arjunan", "Mohana Sai Vishnu Sriya Chavva", "Jithin Venigalla", "Sai Shivani Byreddy", "Akansha Vennela", "Divya Sri Tumma", "Hemanth Kumar Yadav Kottam", "Dimple Madhuri Lakshmi Eati", "Anusha Rani Aketi", "Udayasri Shivakoti", "Sahithi Reddy Merugu", "Priyanka Patil", "Harshita Kagadal", "Tejaswi Peddireddy"];
+const otherOpenCounts=[19, 17, 17, 16, 13, 13, 10, 10, 10, 8, 8, 6, 5, 5, 4, 4, 4];
+const otherUtilColors=["#DC2626", "#F97316", "#F97316", "#F97316", "#EAB308", "#EAB308", "#EAB308", "#EAB308", "#EAB308", "#10B981", "#10B981", "#10B981", "#10B981", "#10B981", "#10B981", "#10B981", "#10B981"];
+const ptDatasets=[{"label": "Life Sciences", "data": [17, 8, 5, 12, 11, 6, 7], "backgroundColor": "#00A1E0", "stack": "a"}, {"label": "Retail and Consumer Goods", "data": [0, 6, 1, 2, 2, 1, 2], "backgroundColor": "#F97316", "stack": "a"}, {"label": "Financial Services", "data": [1, 0, 0, 0, 2, 2, 1], "backgroundColor": "#7C3AED", "stack": "a"}, {"label": "Developer Support", "data": [1, 0, 0, 2, 0, 1, 0], "backgroundColor": "#CA8A04", "stack": "a"}, {"label": "Loyalty Management", "data": [0, 1, 0, 1, 2, 0, 0], "backgroundColor": "#DC2626", "stack": "a"}, {"label": "Net Zero Cloud", "data": [0, 0, 1, 0, 1, 0, 2], "backgroundColor": "#059669", "stack": "a"}, {"label": "Security & Activations", "data": [1, 0, 0, 0, 0, 0, 0], "backgroundColor": "#BE185D", "stack": "a"}, {"label": "Manufacturing Cloud", "data": [0, 0, 0, 0, 0, 0, 1], "backgroundColor": "#0891B2", "stack": "a"}, {"label": "Product Configurator", "data": [0, 0, 0, 0, 1, 0, 0], "backgroundColor": "#6366F1", "stack": "a"}];
+const ptNames=["Life Sciences", "Retail and Consumer Goods", "Financial Services", "Developer Support", "Loyalty Management", "Net Zero Cloud", "Security & Activations", "Manufacturing Cloud", "Product Configurator"];
+const ptValues=[66, 14, 6, 4, 4, 4, 1, 1, 1];
+const ptColors=["#00A1E0", "#F97316", "#7C3AED", "#CA8A04", "#DC2626", "#059669", "#BE185D", "#0891B2", "#6366F1"];
+const lscCounts=[17, 8, 5, 12, 11, 6, 7];
+const nonLscCounts=[3, 7, 2, 5, 8, 4, 6];
+const engLabels=["Varun Reddy A", "Arunkumar Vankadhara", "Sravani Gajula", "Satya Ghettem", "Srividya Vedula", "Abhishek Dixit", "Soumya Chitra Anandas"];
+const rfOpenStatus={"Varun Reddy A": [9, 5, 0], "Arunkumar Vankadhara": [12, 4, 3], "Sravani Gajula": [7, 3, 5], "Satya Ghettem": [10, 7, 0], "Srividya Vedula": [5, 10, 5], "Abhishek Dixit": [9, 5, 3], "Soumya Chitra Anandas": [11, 4, 1]};
+
+// 1 Inflow stacked
+new Chart(document.getElementById('inflowChart'),{type:'bar',data:{labels:days,datasets:[
+  {label:'Hypercare',data:hcTotal,backgroundColor:'#F97316',stack:'a'},
+  {label:'Other LSC',data:nonHC,backgroundColor:'#CBD5E1',stack:'a'}
+]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10}}}},scales:{x:{stacked:true},y:{stacked:true,beginAtZero:true}}}});
+
+// 2 HC% line
+new Chart(document.getElementById('ratioChart'),{type:'line',data:{labels:days,datasets:[{
+  label:'HC%',data:hcPct,borderColor:'#F97316',backgroundColor:'rgba(249,115,22,.1)',fill:true,tension:.3,
+  pointBackgroundColor:hcPct.map(v=>v>=60?'#DC2626':v>=40?'#F97316':'#10B981'),pointRadius:5
+}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{min:0,max:100,ticks:{callback:v=>v+'%'}}}}});
+
+// 3 Stacked accounts
+const accDs=Object.keys(accDayData).map(a=>({label:a,data:accDayData[a],backgroundColor:accColors[a]||'#94A3B8',stack:'a'})).filter(d=>d.data.some(v=>v>0));
+new Chart(document.getElementById('stackedAccChart'),{type:'bar',data:{labels:days,datasets:accDs},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10}}}},scales:{x:{stacked:true},y:{stacked:true,beginAtZero:true}}}});
+
+// 4 RF vs others stacked
+new Chart(document.getElementById('rfVsOtherChart'),{type:'bar',data:{labels:days,datasets:[
+  {label:'Ring-Fenced (7)',data:rfByDay,backgroundColor:'#F59E0B',stack:'a'},
+  {label:'Other Engineers',data:otherByDay,backgroundColor:'#94A3B8',stack:'a'}
+]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10}}}},scales:{x:{stacked:true},y:{stacked:true,beginAtZero:true}}}});
+
+// 5 Donut RF vs others
+new Chart(document.getElementById('donutChart'),{type:'doughnut',data:{
+  labels:['Ring-Fenced (7)','Others'],
+  datasets:[{data:[63,138],backgroundColor:['#F59E0B','#94A3B8'],borderWidth:2,borderColor:'#fff'}]
+},options:{responsive:true,cutout:'65%',plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10}}}}}});
+
+// 6 RF day trend
+new Chart(document.getElementById('hlEngChart'),{type:'line',data:{labels:days,datasets:Object.keys(hlEngDay).map((e,i)=>({label:e,data:hlEngDay[e],borderColor:hlColors[i%hlColors.length],backgroundColor:'transparent',tension:.3,pointRadius:4}))},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10}}}},scales:{y:{beginAtZero:true}}}});
+
+// 7 P&T per engineer stacked
+const ptDs = ptDatasets.map(d=>({...d,data:[...d.data]}));
+new Chart(document.getElementById('ptPerEngChart'),{type:'bar',data:{labels:engLabels,datasets:ptDs},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10}}}},scales:{x:{stacked:true},y:{stacked:true,beginAtZero:true,title:{display:true,text:'Cases'}}}}});
+
+// 8 P&T donut
+new Chart(document.getElementById('ptDonutChart'),{type:'doughnut',data:{
+  labels:ptNames,datasets:[{data:ptValues,backgroundColor:ptColors,borderWidth:2,borderColor:'#fff'}]
+},options:{responsive:true,cutout:'55%',plugins:{legend:{position:'bottom',labels:{boxWidth:8,font:{size:9}}}}}});
+
+// 9 LSC vs Non-LSC grouped bar
+new Chart(document.getElementById('lscVsNonLscChart'),{type:'bar',data:{labels:engLabels,datasets:[
+  {label:'LSC Cases',data:lscCounts,backgroundColor:'#00A1E0'},
+  {label:'Non-LSC Cases',data:nonLscCounts,backgroundColor:'#F97316'}
+]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10}}}},scales:{y:{beginAtZero:true,title:{display:true,text:'Cases'}}}}});
+
+// 10 Capacity comparison grouped
+new Chart(document.getElementById('capCompareChart'),{type:'bar',data:{
+  labels:[...rfEngNames,...otherEngNames],
+  datasets:[{
+    label:'Open Cases',
+    data:[...rfOpenCounts,...otherOpenCounts],
+    backgroundColor:[...rfUtilColors,...otherUtilColors]
+  }]
+},options:{responsive:true,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`Open: ${ctx.raw} (${Math.round(ctx.raw/20*100)}% util)`}}},scales:{y:{beginAtZero:true,title:{display:true,text:'Open Cases'},max:25},x:{ticks:{font:{size:9},maxRotation:45}}}}});
+
+// 11 Status stack
+const statusEng=Object.keys(rfOpenStatus);
+new Chart(document.getElementById('statusStackChart'),{type:'bar',data:{labels:statusEng,datasets:[
+  {label:'Active',data:statusEng.map(e=>rfOpenStatus[e][0]),backgroundColor:'#EF4444',stack:'a'},
+  {label:'Waiting on Customer',data:statusEng.map(e=>rfOpenStatus[e][1]),backgroundColor:'#FBBF24',stack:'a'},
+  {label:'Pending Closure',data:statusEng.map(e=>rfOpenStatus[e][2]),backgroundColor:'#10B981',stack:'a'},
+]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10}}}},scales:{x:{stacked:true},y:{stacked:true,beginAtZero:true}}}});
+
+// 12 All engineers
+new Chart(document.getElementById('allEngChart'),{type:'bar',data:{labels:allEngNames,datasets:[{label:'Cases',data:allEngCounts,backgroundColor:allEngColors}]},options:{responsive:true,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true}}}});
 </script>
 </body>
 </html>
