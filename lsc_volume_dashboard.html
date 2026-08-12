@@ -584,8 +584,8 @@ footer{padding:14px 30px;text-align:center;font-size:11px;color:var(--text-muted
 <div id="s7" class="section-header"><span class="num">7</span> Volume Layer Comparison — Hypercare › LSC › All P&T</div>
 
 <div class="kpi-strip">
-  <div class="kpi warn"><div class="kpi-num">9,457</div><div class="kpi-label">IST All P&T Inflow</div><div class="kpi-sub">Aug 3–12, 10 days · all products</div></div>
-  <div class="kpi"><div class="kpi-num">201</div><div class="kpi-label">LSC Inflow (IST)</div><div class="kpi-sub">2.1% of all P&T</div></div>
+  <div class="kpi warn"><div class="kpi-num">546</div><div class="kpi-label">IST All P&T Inflow</div><div class="kpi-sub">Aug 3–12 · IST engineers · all products</div></div>
+  <div class="kpi"><div class="kpi-num">201</div><div class="kpi-label">LSC Inflow (IST)</div><div class="kpi-sub">36.8% of all P&T</div></div>
   <div class="kpi warn"><div class="kpi-num">80</div><div class="kpi-label">Hypercare Volume</div><div class="kpi-sub">39.8% of LSC inflow</div></div>
   <div class="kpi amber"><div class="kpi-num">55%</div><div class="kpi-label">RF Share of HC</div><div class="kpi-sub">44 of 80 hypercare cases</div></div>
   <div class="kpi" style="border-top-color:#7C3AED"><div class="kpi-num">65%</div><div class="kpi-label">RF LSC Density</div><div class="kpi-sub">vs 1.4% for other IST eng.</div></div>
@@ -598,7 +598,7 @@ footer{padding:14px 30px;text-align:center;font-size:11px;color:var(--text-muted
     <h2>Absolute Volume — HC vs LSC vs All P&T</h2>
     <div class="card-sub">Side-by-side per group · note scale difference</div>
     <canvas id="layerGroupedChart" style="max-height:260px"></canvas>
-    <div class="warn-insight">All P&T axis dominates — Ring-Fenced 7 handle only 1.1% of total IST P&T volume but carry <strong>55% of all hypercare</strong> cases and <strong>33% of LSC inflow</strong>.</div>
+    <div class="warn-insight">Ring-Fenced 7 carry <strong>55% of all hypercare</strong> cases and <strong>33% of LSC inflow</strong> on just 19% of the IST team headcount (7 of 37 engineers).</div>
   </div>
 
   <!-- Chart 14: 100% proportional stacked -->
@@ -646,12 +646,12 @@ footer{padding:14px 30px;text-align:center;font-size:11px;color:var(--text-muted
       <tbody>
         <tr style="background:#F8FAFC">
           <td><strong>Overall IST</strong></td>
-          <td><strong>9,457</strong></td>
+          <td><strong>546</strong></td>
           <td>201</td>
-          <td>2.1%</td>
+          <td>36.8%</td>
           <td>80</td>
           <td>39.8%</td>
-          <td>0.8%</td>
+          <td>14.7%</td>
           <td class="muted">Baseline — full IST team across all products</td>
         </tr>
         <tr class="rf">
@@ -671,13 +671,13 @@ footer{padding:14px 30px;text-align:center;font-size:11px;color:var(--text-muted
           <td>1.4%</td>
           <td>36</td>
           <td>26.7%</td>
-          <td>0.4%</td>
+          <td>8.1%</td>
           <td class="muted">Broader P&T portfolio; lower LSC &amp; HC density</td>
         </tr>
       </tbody>
     </table>
     <div class="insight" style="margin-top:12px">
-      <strong>Capacity risk:</strong> 7 ring-fenced engineers absorb 55% of all hypercare volume on just 1.1% of total IST P&T caseload. Their LSC density (65%) is 46× higher than the rest of the team (1.4%). Any attrition or leave within this group directly amplifies hypercare SLA risk.
+      <strong>Capacity risk:</strong> 7 ring-fenced engineers absorb 55% of all hypercare volume while handling 19% of IST P&T caseload. Their LSC density (64%) is 2× higher than the rest of the team (30.5%). Any attrition or leave within this group directly amplifies hypercare SLA risk.
     </div>
   </div>
 </div>
@@ -785,7 +785,7 @@ new Chart(document.getElementById('allEngChart'),{type:'bar',data:{labels:allEng
 const layerGroups   = ['Overall IST', 'Ring-Fenced (7 Eng)', 'Other IST Eng.'];
 const layerHC       = [80, 44, 36];
 const layerLSC      = [201, 66, 135];
-const layerAllPT    = [9457, 101, 9356];
+const layerAllPT    = [546, 103, 443];
 
 // 13 — Absolute grouped bar (HC + LSC + All P&T side by side per group)
 new Chart(document.getElementById('layerGroupedChart'),{
@@ -805,19 +805,19 @@ new Chart(document.getElementById('layerGroupedChart'),{
       tooltip:{callbacks:{
         label: ctx => {
           const g=ctx.dataIndex;
-          const totals=[9457,101,9356];
+          const totals=[546,103,443];
           const pct=(ctx.raw/totals[g]*100).toFixed(1);
           return `${ctx.dataset.label}: ${ctx.raw} (${pct}% of All P&T)`;
         }
       }}
     },
-    scales:{y:{beginAtZero:true,title:{display:true,text:'Cases (log-like scale — note All P&T dominance)'},ticks:{font:{size:10}}}}
+    scales:{y:{beginAtZero:true,title:{display:true,text:'Cases'},ticks:{font:{size:10}}}}
   }
 });
 
 // 14 — Proportional stacked 100% bars (share within each group)
 const pct100 = (vals,totals) => vals.map((v,i)=>+(v/totals[i]*100).toFixed(1));
-const tot100 = [9457,101,9356];
+const tot100 = [546,103,443];
 new Chart(document.getElementById('layerPctChart'),{
   type:'bar',
   data:{
@@ -844,7 +844,7 @@ new Chart(document.getElementById('layerPctChart'),{
 // 15 — Ring-fenced vs Others: HC & LSC absolute horizontal bars
 const rfVsOthLabels=['Ring-Fenced: Hypercare','Ring-Fenced: LSC','Ring-Fenced: All P&T',
                      'Others: Hypercare','Others: LSC','Others: All P&T'];
-const rfVsOthData  =[44,66,101,36,135,9356];
+const rfVsOthData  =[44,66,103,36,135,443];
 const rfVsOthColor =['#F97316','#00A1E0','#032D60','#FDBA74','#7DD3FC','#94A3B8'];
 new Chart(document.getElementById('rfVsOthChart'),{
   type:'bar',
