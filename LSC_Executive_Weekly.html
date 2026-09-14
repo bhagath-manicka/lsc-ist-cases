@@ -7,6 +7,7 @@
 <style>
   :root {
     --navy: #032D60; --blue: #00A1E0; --teal: #00698A; --purple: #8B5CF6;
+    --orange: #F97316;
     --light-bg: #F4F6F9; --white: #FFFFFF; --dark: #1A1A2E; --mid: #6B7280;
     --green: #059669; --amber: #D97706; --red: #DC2626; --gold: #CA8A04;
     --card-border: #E5E7EB;
@@ -14,11 +15,9 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Segoe UI', Arial, sans-serif; background: #EEF2F7; color: var(--dark); }
 
-  /* SLIDE CONTAINER */
   .slide { width: 960px; margin: 24px auto; background: white; border-radius: 8px;
            box-shadow: 0 4px 20px rgba(0,0,0,.15); overflow: hidden; }
 
-  /* HEADER */
   .slide-header { background: var(--navy); padding: 14px 20px 10px; position: relative; }
   .slide-header::after { content:''; display:block; height:4px; background:var(--blue);
                           margin-top:10px; margin-left:-20px; width:calc(100% + 40px); }
@@ -26,93 +25,98 @@
   .slide-header .week-badge { float:right; background:rgba(255,255,255,.12);
     color:#B0C4DE; font-size:11px; padding:4px 10px; border-radius:12px; margin-top:2px; }
 
-  /* FOOTER */
   .slide-footer { background:var(--navy); color:#B0C4DE; font-size:10px;
                   text-align:center; padding:6px; }
 
-  /* KPI STRIP */
   .kpi-strip { display:flex; }
   .kpi { flex:1; padding:10px 8px; text-align:center; }
   .kpi:nth-child(odd)  { background:var(--navy); }
   .kpi:nth-child(even) { background:#05428A; }
-  .kpi .val { font-size:28px; font-weight:700; color:var(--blue); line-height:1.1; }
+  .kpi .val { font-size:26px; font-weight:700; color:var(--blue); line-height:1.1; }
   .kpi .lbl { font-size:10px; color:#B0C4DE; margin-top:3px; }
 
-  /* SECTION LABEL */
   .sec-label { background:var(--navy); color:var(--blue); font-size:11px;
                font-weight:700; padding:4px 10px; margin-bottom:6px; border-radius:2px; }
 
-  /* SLIDE 1 GRID */
   .s1-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; padding:12px 16px; }
   .s1-panel { background:var(--light-bg); border-radius:6px; padding:10px 12px; }
 
-  /* BARS */
   .bar-row { display:flex; align-items:center; gap:6px; margin-bottom:5px; font-size:12px; }
   .bar-row .label { width:130px; flex-shrink:0; font-size:11px; color:var(--dark); }
   .bar-wrap { flex:1; display:flex; flex-direction:column; gap:2px; }
-  .bar { height:10px; border-radius:2px; min-width:2px; transition:width .3s; }
+  .bar { height:10px; border-radius:2px; min-width:2px; }
   .bar.teal   { background:var(--teal); }
   .bar.purple { background:var(--purple); }
+  .bar.orange { background:var(--orange); }
   .bar-val { font-size:10px; font-weight:700; color:var(--dark); flex-shrink:0; min-width:24px; }
 
-  /* GEO SPLIT */
-  .geo-block { margin-bottom:14px; }
-  .geo-name { font-weight:700; font-size:14px; margin-bottom:4px; }
-  .geo-name.teal { color:var(--teal); }
+  .geo-block { margin-bottom:12px; }
+  .geo-name { font-weight:700; font-size:13px; margin-bottom:4px; }
+  .geo-name.teal   { color:var(--teal); }
   .geo-name.purple { color:var(--purple); }
+  .geo-name.orange { color:var(--orange); }
   .geo-bar-wrap { margin-bottom:3px; }
   .geo-bar-label { font-size:10px; color:var(--mid); margin-bottom:2px; }
   .geo-bar-track { background:#E5E7EB; border-radius:3px; height:12px; }
   .geo-bar-fill { height:12px; border-radius:3px; }
 
-  /* 16W TREND */
   .trend-wrap { padding:10px 16px 12px; }
   .trend-bars { display:flex; align-items:flex-end; gap:3px; height:60px; }
-  .trend-bar { flex:1; border-radius:2px 2px 0 0; position:relative; }
-  .trend-label { font-size:8px; text-align:center; margin-top:2px; color:var(--mid); }
-  .trend-val { position:absolute; top:-14px; left:50%; transform:translateX(-50%);
-               font-size:9px; font-weight:700; }
 
-  /* SLIDE 2 CARDS */
   .cards-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:12px 16px; }
   .card { border-radius:6px; overflow:hidden; background:var(--light-bg); }
   .card-accent { height:4px; }
   .card-body { padding:10px 12px; }
   .card-title { font-weight:700; font-size:13px; margin-bottom:6px; }
   .card ul { list-style:none; padding:0; }
-  .card li { font-size:11px; color:var(--dark); padding:2px 0;
-             padding-left:14px; position:relative; }
+  .card li { font-size:11px; color:var(--dark); padding:2px 0; padding-left:14px; position:relative; }
   .card li::before { content:'•'; position:absolute; left:2px; color:var(--mid); }
   .card-wide { grid-column:1/-1; }
 
-  /* SLIDE 3 */
-  .s3-grid { display:grid; grid-template-columns:1fr 1fr 200px; gap:12px; padding:12px 16px; }
-  .ff-row { display:flex; align-items:center; gap:6px; margin-bottom:6px; }
-  .ff-name { width:140px; font-size:11px; color:var(--dark); flex-shrink:0; }
-  .ff-bar { height:14px; border-radius:2px; background:var(--teal); }
-  .ff-cnt { font-size:11px; font-weight:700; color:var(--dark); margin-left:4px; }
+  /* GUS Slide */
+  .s3-grid { display:grid; grid-template-columns:2fr 1fr; gap:12px; padding:12px 16px; }
 
-  .rt-card { background:var(--light-bg); border-radius:6px; padding:8px 10px;
-             margin-bottom:8px; }
-  .rt-card .rt-lbl { font-size:10px; color:var(--mid); }
-  .rt-card .rt-val { font-size:20px; font-weight:700; }
+  .gus-table { width:100%; border-collapse:collapse; font-size:11px; }
+  .gus-table th { background:var(--navy); color:#B0C4DE; padding:6px 8px; text-align:left; font-size:10px; font-weight:600; }
+  .gus-table td { padding:7px 8px; border-bottom:1px solid #E5E7EB; vertical-align:middle; }
+  .gus-table tr:last-child td { border-bottom:none; }
+  .gus-table tr:hover td { background:#EDF2F7; }
 
-  /* GUS banner */
-  .gus-banner { background:#FEF3C7; border-left:4px solid #D97706;
-                padding:8px 14px; margin:0 16px 12px; border-radius:4px;
-                font-size:12px; color:#92400E; }
+  .status-badge { display:inline-block; padding:2px 8px; border-radius:10px; font-size:10px; font-weight:600; }
+  .status-open   { background:#FEE2E2; color:#DC2626; }
+  .status-inprog { background:#FEF3C7; color:#D97706; }
+  .status-fixed  { background:#D1FAE5; color:#059669; }
 
-  /* LEGEND */
+  .age-critical { color:#DC2626; font-weight:700; }
+  .age-warn     { color:#D97706; font-weight:700; }
+  .age-ok       { color:#059669; font-weight:700; }
+
+  .sb-row { display:flex; align-items:center; gap:8px; margin-bottom:7px; }
+  .sb-label { width:80px; font-size:11px; }
+  .sb-bar-track { flex:1; background:#E5E7EB; border-radius:3px; height:16px; }
+  .sb-bar-fill { height:16px; border-radius:3px; display:flex; align-items:center;
+                 padding-left:6px; font-size:10px; font-weight:700; color:white; }
+  .sb-count { width:20px; font-size:11px; font-weight:700; }
+
+  .ad-row { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+  .ad-label { width:70px; font-size:10px; color:var(--mid); }
+  .ad-bar-track { flex:1; background:#E5E7EB; border-radius:3px; height:13px; }
+  .ad-bar-fill { height:13px; border-radius:3px; }
+  .ad-count { width:16px; font-size:11px; font-weight:700; }
+
   .legend { display:flex; gap:16px; font-size:11px; color:var(--mid); margin-top:6px; }
   .legend-dot { display:inline-block; width:12px; height:12px;
                 border-radius:2px; margin-right:4px; vertical-align:middle; }
+
+  .apac-note { background:#FFF7ED; border-left:3px solid var(--orange);
+               padding:5px 10px; font-size:10px; color:#9A3412; margin-top:6px; border-radius:2px; }
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════════════════════════════ -->
-<!-- SLIDE 1 — EXECUTIVE DASHBOARD -->
-<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SLIDE 1 — EXECUTIVE DASHBOARD                             -->
+<!-- ═══════════════════════════════════════════════════════════ -->
 <div class="slide">
   <div class="slide-header">
     <span class="week-badge">Aug 9 – 15, 2026</span>
@@ -123,58 +127,42 @@
     <div class="kpi"><div class="val">136</div><div class="lbl">Total Cases</div></div>
     <div class="kpi"><div class="val">87%</div><div class="lbl">IST Share</div></div>
     <div class="kpi"><div class="val">13%</div><div class="lbl">EMEA Share</div></div>
+    <div class="kpi"><div class="val" style="font-size:18px;padding-top:4px;">—</div><div class="lbl">APAC Share</div></div>
     <div class="kpi"><div class="val">32.4%</div><div class="lbl">Closure Rate</div></div>
     <div class="kpi"><div class="val">44</div><div class="lbl">P1 Critical</div></div>
     <div class="kpi"><div class="val">20</div><div class="lbl">P2 High+</div></div>
   </div>
 
   <div class="s1-grid">
+
     <!-- Top Accounts -->
     <div class="s1-panel">
       <div class="sec-label">▸ TOP ACCOUNTS BY CASE VOLUME</div>
-      <div id="accounts">
-        <!-- Takeda -->
-        <div class="bar-row"><span class="label">Takeda Pharma</span>
-          <div class="bar-wrap">
-            <div class="bar teal" style="width:100%"></div>
-          </div><span class="bar-val">30</span></div>
-        <div class="bar-row"><span class="label">Mylan Inc.</span>
-          <div class="bar-wrap">
-            <div class="bar teal" style="width:87%"></div>
-            <div class="bar purple" style="width:6%"></div>
-          </div><span class="bar-val">17</span></div>
-        <div class="bar-row"><span class="label">AstraZeneca</span>
-          <div class="bar-wrap">
-            <div class="bar teal" style="width:80%"></div>
-          </div><span class="bar-val">12</span></div>
-        <div class="bar-row"><span class="label">Pfizer EMEA</span>
-          <div class="bar-wrap">
-            <div class="bar teal" style="width:73%"></div>
-          </div><span class="bar-val">11</span></div>
-        <div class="bar-row"><span class="label">IQVIA</span>
-          <div class="bar-wrap">
-            <div class="bar teal" style="width:60%"></div>
-          </div><span class="bar-val">9</span></div>
-        <div class="bar-row"><span class="label">Deloitte Global</span>
-          <div class="bar-wrap">
-            <div class="bar teal" style="width:53%"></div>
-          </div><span class="bar-val">8</span></div>
-        <div class="bar-row"><span class="label">Birlasoft</span>
-          <div class="bar-wrap">
-            <div class="bar teal" style="width:47%"></div>
-          </div><span class="bar-val">7</span></div>
-        <div class="bar-row"><span class="label">Novartis Pharma</span>
-          <div class="bar-wrap">
-            <div class="bar purple" style="width:33%"></div>
-          </div><span class="bar-val">5</span></div>
-        <div class="bar-row"><span class="label">MEDICE GmbH</span>
-          <div class="bar-wrap">
-            <div class="bar purple" style="width:33%"></div>
-          </div><span class="bar-val">5</span></div>
-      </div>
+      <div class="bar-row"><span class="label">Takeda Pharma</span>
+        <div class="bar-wrap"><div class="bar teal" style="width:100%"></div></div><span class="bar-val">30</span></div>
+      <div class="bar-row"><span class="label">Mylan Inc.</span>
+        <div class="bar-wrap">
+          <div class="bar teal" style="width:87%"></div>
+          <div class="bar purple" style="width:6%"></div>
+        </div><span class="bar-val">17</span></div>
+      <div class="bar-row"><span class="label">AstraZeneca</span>
+        <div class="bar-wrap"><div class="bar teal" style="width:80%"></div></div><span class="bar-val">12</span></div>
+      <div class="bar-row"><span class="label">Pfizer EMEA</span>
+        <div class="bar-wrap"><div class="bar teal" style="width:73%"></div></div><span class="bar-val">11</span></div>
+      <div class="bar-row"><span class="label">IQVIA</span>
+        <div class="bar-wrap"><div class="bar teal" style="width:60%"></div></div><span class="bar-val">9</span></div>
+      <div class="bar-row"><span class="label">Deloitte Global</span>
+        <div class="bar-wrap"><div class="bar teal" style="width:53%"></div></div><span class="bar-val">8</span></div>
+      <div class="bar-row"><span class="label">Birlasoft</span>
+        <div class="bar-wrap"><div class="bar teal" style="width:47%"></div></div><span class="bar-val">7</span></div>
+      <div class="bar-row"><span class="label">Novartis Pharma</span>
+        <div class="bar-wrap"><div class="bar purple" style="width:33%"></div></div><span class="bar-val">5</span></div>
+      <div class="bar-row"><span class="label">MEDICE GmbH</span>
+        <div class="bar-wrap"><div class="bar purple" style="width:33%"></div></div><span class="bar-val">5</span></div>
       <div class="legend">
         <span><span class="legend-dot" style="background:var(--teal)"></span>IST</span>
         <span><span class="legend-dot" style="background:var(--purple)"></span>EMEA</span>
+        <span><span class="legend-dot" style="background:var(--orange)"></span>APAC</span>
       </div>
     </div>
 
@@ -212,51 +200,52 @@
       <div class="legend" style="margin-top:12px;">
         <span><span class="legend-dot" style="background:var(--teal)"></span>IST</span>
         <span><span class="legend-dot" style="background:var(--purple)"></span>EMEA</span>
+        <span><span class="legend-dot" style="background:var(--orange)"></span>APAC</span>
       </div>
-      <div style="margin-top:12px;font-size:11px;color:var(--mid);">
-        <b>Note:</b> P-level mapped from internal score field:<br>
-        0→P1 · 13-16→P2 · 26-31→P3 · 45-70→P4
+      <div style="margin-top:10px;font-size:10px;color:var(--mid);">
+        <b>Note:</b> P-level from internal score: 0→P1 · 13-16→P2 · 26-31→P3 · 45-70→P4
       </div>
     </div>
 
     <!-- Geo Split & Closure -->
     <div class="s1-panel">
-      <div class="sec-label">▸ GEO SPLIT & CLOSURE</div>
+      <div class="sec-label">▸ GEO SPLIT &amp; CLOSURE</div>
       <div class="geo-block">
         <div class="geo-name teal">IST</div>
         <div class="geo-bar-wrap">
           <div class="geo-bar-label">118 cases</div>
-          <div class="geo-bar-track">
-            <div class="geo-bar-fill" style="width:100%;background:var(--teal)"></div>
-          </div>
+          <div class="geo-bar-track"><div class="geo-bar-fill" style="width:100%;background:var(--teal)"></div></div>
         </div>
         <div class="geo-bar-wrap" style="margin-top:4px;">
           <div class="geo-bar-label">Closure: 30.5% (36 closed)</div>
-          <div class="geo-bar-track">
-            <div class="geo-bar-fill" style="width:30.5%;background:#004F69"></div>
-          </div>
+          <div class="geo-bar-track"><div class="geo-bar-fill" style="width:30.5%;background:#004F69"></div></div>
         </div>
       </div>
       <div class="geo-block">
         <div class="geo-name purple">EMEA</div>
         <div class="geo-bar-wrap">
           <div class="geo-bar-label">18 cases</div>
-          <div class="geo-bar-track">
-            <div class="geo-bar-fill" style="width:15%;background:var(--purple)"></div>
-          </div>
+          <div class="geo-bar-track"><div class="geo-bar-fill" style="width:15%;background:var(--purple)"></div></div>
         </div>
         <div class="geo-bar-wrap" style="margin-top:4px;">
           <div class="geo-bar-label">Closure: 44.4% (8 closed)</div>
-          <div class="geo-bar-track">
-            <div class="geo-bar-fill" style="width:44.4%;background:#6D28D9"></div>
-          </div>
+          <div class="geo-bar-track"><div class="geo-bar-fill" style="width:44.4%;background:#6D28D9"></div></div>
         </div>
       </div>
-      <div style="margin-top:10px;font-size:11px;">
+      <div class="geo-block">
+        <div class="geo-name orange">APAC</div>
+        <div class="geo-bar-wrap">
+          <div class="geo-bar-label">Tracking begins Aug 16+</div>
+          <div class="geo-bar-track"><div class="geo-bar-fill" style="width:0%;background:var(--orange)"></div></div>
+        </div>
+      </div>
+      <div class="apac-note">APAC GEO added to scope from Aug 16. Data will appear in next report.</div>
+      <div style="margin-top:8px;font-size:11px;">
         <span style="color:var(--red);font-weight:700;">▲ +57% inflow</span>
         <span style="color:var(--mid);"> vs 3 weeks ago (87→136)</span>
       </div>
     </div>
+
   </div>
 
   <!-- 16-Week Trend -->
@@ -264,7 +253,7 @@
     <div class="sec-label" style="display:inline-block;margin-bottom:8px;">▸ 16-WEEK INFLOW TREND</div>
     <div class="trend-bars" id="trend"></div>
     <div style="font-size:10px;color:var(--mid);margin-top:4px;text-align:right;">
-      Week-over-week — current week highlighted in <span style="color:var(--blue);font-weight:700;">blue</span> · all-time high in <span style="color:var(--red);font-weight:700;">red</span>
+      Current week in <span style="color:var(--blue);font-weight:700;">blue</span> · all-time high in <span style="color:var(--red);font-weight:700;">red</span>
     </div>
   </div>
   <script>
@@ -277,11 +266,9 @@
       const isMax = v===maxV;
       const col = isLast ? '#00A1E0' : (isMax ? '#DC2626' : '#9CAFC4');
       const bar = document.createElement('div');
-      bar.className = 'trend-bar';
       bar.style.cssText = `height:${pct}%;background:${col};flex:1;border-radius:2px 2px 0 0;position:relative;`;
       if(isLast||isMax){
         const lbl=document.createElement('span');
-        lbl.className='trend-val';
         lbl.style.cssText=`position:absolute;top:-14px;left:50%;transform:translateX(-50%);font-size:9px;font-weight:700;color:${col};white-space:nowrap;`;
         lbl.textContent=v;
         bar.appendChild(lbl);
@@ -290,13 +277,13 @@
     });
   </script>
 
-  <div class="slide-footer">CONFIDENTIAL &nbsp;|&nbsp; LSC P&amp;T Support &nbsp;|&nbsp; EMEA &amp; IST &nbsp;|&nbsp; Aug 9–15, 2026</div>
+  <div class="slide-footer">CONFIDENTIAL &nbsp;|&nbsp; LSC P&amp;T Support &nbsp;|&nbsp; EMEA · IST · APAC &nbsp;|&nbsp; Aug 9–15, 2026</div>
 </div>
 
 
-<!-- ═══════════════════════════════════════════════════════════════════════ -->
-<!-- SLIDE 2 — TAKEAWAYS & ACTIONS -->
-<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SLIDE 2 — TAKEAWAYS & ACTIONS                             -->
+<!-- ═══════════════════════════════════════════════════════════ -->
 <div class="slide">
   <div class="slide-header">
     <span class="week-badge">Aug 9 – 15, 2026</span>
@@ -357,6 +344,19 @@
       </div>
     </div>
 
+    <div class="card">
+      <div class="card-accent" style="background:var(--orange)"></div>
+      <div class="card-body">
+        <div class="card-title" style="color:var(--orange)">🟠 APAC Signal</div>
+        <ul>
+          <li>APAC GEO added to scope — tracking starts Aug 16, 2026</li>
+          <li>First data will appear in next week's report (Aug 16–22)</li>
+          <li>Monitor P1 Critical cases and top account concentration</li>
+          <li>Flag any accounts with immediate escalation risk</li>
+        </ul>
+      </div>
+    </div>
+
     <div class="card card-wide">
       <div class="card-accent" style="background:var(--teal)"></div>
       <div class="card-body">
@@ -371,118 +371,165 @@
     </div>
 
   </div>
-  <div class="slide-footer">CONFIDENTIAL &nbsp;|&nbsp; LSC P&amp;T Support &nbsp;|&nbsp; EMEA &amp; IST &nbsp;|&nbsp; Aug 9–15, 2026</div>
+  <div class="slide-footer">CONFIDENTIAL &nbsp;|&nbsp; LSC P&amp;T Support &nbsp;|&nbsp; EMEA · IST · APAC &nbsp;|&nbsp; Aug 9–15, 2026</div>
 </div>
 
 
-<!-- ═══════════════════════════════════════════════════════════════════════ -->
-<!-- SLIDE 3 — SLACK ANALYSIS -->
-<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SLIDE 3 — GUS INVESTIGATIONS                              -->
+<!-- ═══════════════════════════════════════════════════════════ -->
 <div class="slide">
   <div class="slide-header">
     <span class="week-badge">Aug 9 – 15, 2026</span>
-    <h1>#ask-lsc-engineering &nbsp;|&nbsp; Slack Analysis</h1>
+    <h1>GUS Investigations &nbsp;|&nbsp; Weekly Analysis</h1>
   </div>
 
   <div class="kpi-strip">
-    <div class="kpi"><div class="val">81</div><div class="lbl">Engineering Asks</div></div>
-    <div class="kpi"><div class="val">12</div><div class="lbl">Engineers Active</div></div>
-    <div class="kpi"><div class="val">20.7h</div><div class="lbl">Avg Response</div></div>
-    <div class="kpi"><div class="val">10.2h</div><div class="lbl">Median Response</div></div>
-    <div class="kpi"><div class="val">48%</div><div class="lbl">Response Rate</div></div>
-    <div class="kpi"><div class="val">5</div><div class="lbl">→ GUS Investigations</div></div>
+    <div class="kpi"><div class="val">5</div><div class="lbl">Total Open GUS</div></div>
+    <div class="kpi"><div class="val">2</div><div class="lbl">Created This Week</div></div>
+    <div class="kpi"><div class="val">1</div><div class="lbl">Closed This Week</div></div>
+    <div class="kpi"><div class="val">22d</div><div class="lbl">Avg Age</div></div>
+    <div class="kpi"><div class="val">1</div><div class="lbl">P1 GUS</div></div>
+    <div class="kpi"><div class="val">3</div><div class="lbl">P2 GUS</div></div>
   </div>
 
   <div class="s3-grid">
 
-    <!-- Theme Clusters -->
-    <div class="s1-panel">
-      <div class="sec-label">▸ THEME CLUSTERS FROM ASKS</div>
-      <div class="bar-row"><span class="label" style="width:160px;">iPad / Mobile App Issues</span>
-        <div class="bar-wrap"><div class="bar teal" style="width:100%"></div></div><span class="bar-val">18</span></div>
-      <div class="bar-row"><span class="label" style="width:160px;">Configuration &amp; Setup</span>
-        <div class="bar-wrap"><div class="bar teal" style="width:78%"></div></div><span class="bar-val">14</span></div>
-      <div class="bar-row"><span class="label" style="width:160px;">Permission Set / Access</span>
-        <div class="bar-wrap"><div class="bar teal" style="width:56%"></div></div><span class="bar-val">10</span></div>
-      <div class="bar-row"><span class="label" style="width:160px;">Data Sync / Integration</span>
-        <div class="bar-wrap"><div class="bar teal" style="width:50%"></div></div><span class="bar-val">9</span></div>
-      <div class="bar-row"><span class="label" style="width:160px;">Agentforce / AI Features</span>
-        <div class="bar-wrap"><div class="bar teal" style="width:39%"></div></div><span class="bar-val">7</span></div>
-      <div class="bar-row"><span class="label" style="width:160px;">Reporting &amp; Analytics</span>
-        <div class="bar-wrap"><div class="bar teal" style="width:33%"></div></div><span class="bar-val">6</span></div>
-      <div class="bar-row"><span class="label" style="width:160px;">Email / Messaging</span>
-        <div class="bar-wrap"><div class="bar teal" style="width:28%"></div></div><span class="bar-val">5</span></div>
-      <div class="bar-row"><span class="label" style="width:160px;">Other / Misc</span>
-        <div class="bar-wrap"><div class="bar" style="width:67%;background:#9CAFC4;"></div></div><span class="bar-val">12</span></div>
+    <!-- GUS Details Table -->
+    <div class="s1-panel" style="overflow-x:auto;">
+      <div class="sec-label">▸ GUS DETAILS — ACTION TRACKER</div>
+      <table class="gus-table">
+        <thead>
+          <tr>
+            <th>W-Number</th>
+            <th>Summary</th>
+            <th>Geo</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th>Age</th>
+            <th>Action Needed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--blue)">W-22954128</strong></td>
+            <td>BDF Joint Session — Config Issue</td>
+            <td><span style="color:var(--teal);font-weight:700;">IST</span></td>
+            <td><span style="color:var(--red);font-weight:700;">P1</span></td>
+            <td><span class="status-badge status-open">Open</span></td>
+            <td><span class="age-critical">28d</span></td>
+            <td style="font-size:10px;color:#DC2626;font-weight:700;">🔴 Escalate — aging &gt;21d</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--blue)">W-23644487</strong></td>
+            <td>Data Sync Failure — LSC Integration</td>
+            <td><span style="color:var(--teal);font-weight:700;">IST</span></td>
+            <td><span style="color:var(--amber);font-weight:700;">P2</span></td>
+            <td><span class="status-badge status-inprog">In Progress</span></td>
+            <td><span class="age-warn">19d</span></td>
+            <td style="font-size:10px;color:#D97706;">🟠 Eng review pending — no update 5d</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--blue)">W-23552985</strong></td>
+            <td>BDF Sandbox Joint Session</td>
+            <td><span style="color:var(--teal);font-weight:700;">IST</span></td>
+            <td><span style="color:var(--amber);font-weight:700;">P2</span></td>
+            <td><span class="status-badge status-inprog">In Progress</span></td>
+            <td><span class="age-warn">12d</span></td>
+            <td style="font-size:10px;color:#D97706;">🟠 Schedule follow-up session</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--blue)">W-23886339</strong></td>
+            <td>LSC Mobile App Crash — Repro</td>
+            <td><span style="color:var(--teal);font-weight:700;">IST</span></td>
+            <td><span style="color:var(--mid);font-weight:700;">P3</span></td>
+            <td><span class="status-badge status-open">Open</span></td>
+            <td><span class="age-ok">5d</span></td>
+            <td style="font-size:10px;color:#059669;">🟢 Awaiting repro steps from customer</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--blue)">W-21321687</strong></td>
+            <td>Permission Set Defect — EMEA</td>
+            <td><span style="color:var(--purple);font-weight:700;">EMEA</span></td>
+            <td><span style="color:var(--amber);font-weight:700;">P2</span></td>
+            <td><span class="status-badge status-fixed">Fixed</span></td>
+            <td><span class="age-ok">45d</span></td>
+            <td style="font-size:10px;color:#059669;">✅ Closed this week — verify with customer</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <!-- Firefighter Responses -->
-    <div class="s1-panel">
-      <div class="sec-label">▸ FIREFIGHTER RESPONSES (39/81 threads)</div>
-      <div class="ff-row"><span class="ff-name">Srikant Chonnad</span>
-        <div class="ff-bar" style="width:calc(23/23 * 160px)"></div><span class="ff-cnt">23</span></div>
-      <div class="ff-row"><span class="ff-name">Tyler Brown</span>
-        <div class="ff-bar" style="width:calc(10/23 * 160px)"></div><span class="ff-cnt">10</span></div>
-      <div class="ff-row"><span class="ff-name">Bharath Kumar NJ</span>
-        <div class="ff-bar" style="width:calc(5/23 * 160px)"></div><span class="ff-cnt">5</span></div>
-      <div class="ff-row"><span class="ff-name">Aditya Sharma</span>
-        <div class="ff-bar" style="width:calc(4/23 * 160px)"></div><span class="ff-cnt">4</span></div>
-      <div class="ff-row"><span class="ff-name">Vishal Sadwal</span>
-        <div class="ff-bar" style="width:calc(2/23 * 160px)"></div><span class="ff-cnt">2</span></div>
-      <div class="ff-row"><span class="ff-name">Berna Berker</span>
-        <div class="ff-bar" style="width:calc(1/23 * 160px)"></div><span class="ff-cnt">1</span></div>
-      <div class="ff-row"><span class="ff-name">Nitesh Rajwar</span>
-        <div class="ff-bar" style="width:calc(1/23 * 160px)"></div><span class="ff-cnt">1</span></div>
-      <div class="ff-row"><span class="ff-name">Ramakrishna</span>
-        <div class="ff-bar" style="width:calc(1/23 * 160px)"></div><span class="ff-cnt">1</span></div>
-      <div class="ff-row"><span class="ff-name">Varun Mittal</span>
-        <div class="ff-bar" style="width:calc(1/23 * 160px)"></div><span class="ff-cnt">1</span></div>
-      <div class="ff-row"><span class="ff-name">Shalini Tomar</span>
-        <div class="ff-bar" style="width:calc(1/23 * 160px)"></div><span class="ff-cnt">1</span></div>
-      <div style="margin-top:8px;font-size:10px;color:var(--red);">
-        ⚠ 42 of 81 threads (52%) had <strong>no firefighter response</strong>
-      </div>
-      <div style="margin-top:4px;font-size:10px;color:var(--mid);">
-        Srikant Chonnad handled 59% of all firefighter responses
-      </div>
-    </div>
-
-    <!-- Response Time -->
+    <!-- Right panel -->
     <div>
-      <div class="sec-label">▸ RESPONSE TIME</div>
-      <div class="rt-card">
-        <div class="rt-lbl">Fastest</div>
-        <div class="rt-val" style="color:var(--green)">6.8 min</div>
-        <div style="font-size:10px;color:var(--mid);">Ramakrishna</div>
+
+      <div class="s1-panel" style="margin-bottom:12px;">
+        <div class="sec-label">▸ STATUS BREAKDOWN</div>
+        <div class="sb-row">
+          <span class="sb-label" style="color:var(--red);font-weight:600;">Open</span>
+          <div class="sb-bar-track"><div class="sb-bar-fill" style="width:40%;background:#DC2626;">2</div></div>
+          <span class="sb-count">2</span>
+        </div>
+        <div class="sb-row">
+          <span class="sb-label" style="color:var(--amber);font-weight:600;">In Progress</span>
+          <div class="sb-bar-track"><div class="sb-bar-fill" style="width:40%;background:#D97706;">2</div></div>
+          <span class="sb-count">2</span>
+        </div>
+        <div class="sb-row">
+          <span class="sb-label" style="color:var(--green);font-weight:600;">Fixed</span>
+          <div class="sb-bar-track"><div class="sb-bar-fill" style="width:20%;background:#059669;">1</div></div>
+          <span class="sb-count">1</span>
+        </div>
       </div>
-      <div class="rt-card">
-        <div class="rt-lbl">Median</div>
-        <div class="rt-val" style="color:var(--blue)">10.2h</div>
+
+      <div class="s1-panel" style="margin-bottom:12px;">
+        <div class="sec-label">▸ AGE DISTRIBUTION</div>
+        <div class="ad-row">
+          <span class="ad-label">0–7 days</span>
+          <div class="ad-bar-track"><div class="ad-bar-fill" style="width:20%;background:var(--green);"></div></div>
+          <span class="ad-count" style="color:var(--green);">1</span>
+        </div>
+        <div class="ad-row">
+          <span class="ad-label">8–30 days</span>
+          <div class="ad-bar-track"><div class="ad-bar-fill" style="width:60%;background:var(--amber);"></div></div>
+          <span class="ad-count" style="color:var(--amber);">3</span>
+        </div>
+        <div class="ad-row">
+          <span class="ad-label">31–90 days</span>
+          <div class="ad-bar-track"><div class="ad-bar-fill" style="width:20%;background:var(--red);"></div></div>
+          <span class="ad-count" style="color:var(--red);">1</span>
+        </div>
+        <div class="ad-row">
+          <span class="ad-label">90+ days</span>
+          <div class="ad-bar-track"><div class="ad-bar-fill" style="width:0%;background:#991B1B;"></div></div>
+          <span class="ad-count">0</span>
+        </div>
+        <div style="margin-top:6px;font-size:10px;color:var(--mid);">Green: healthy · Amber: watch · Red: action required</div>
       </div>
-      <div class="rt-card">
-        <div class="rt-lbl">Average</div>
-        <div class="rt-val" style="color:var(--amber)">20.7h</div>
+
+      <div class="s1-panel">
+        <div class="sec-label">▸ GUS BY GEO</div>
+        <div class="sb-row">
+          <span class="sb-label" style="color:var(--teal);font-weight:700;">IST</span>
+          <div class="sb-bar-track"><div class="sb-bar-fill" style="width:60%;background:var(--teal);">3</div></div>
+          <span class="sb-count">3</span>
+        </div>
+        <div class="sb-row">
+          <span class="sb-label" style="color:var(--purple);font-weight:700;">EMEA</span>
+          <div class="sb-bar-track"><div class="sb-bar-fill" style="width:20%;background:var(--purple);">1</div></div>
+          <span class="sb-count">1</span>
+        </div>
+        <div class="sb-row">
+          <span class="sb-label" style="color:var(--orange);font-weight:700;">APAC</span>
+          <div class="sb-bar-track"><div class="sb-bar-fill" style="width:0%;background:var(--orange);min-width:0;"></div></div>
+          <span class="sb-count" style="color:var(--mid);">—</span>
+        </div>
       </div>
-      <div class="rt-card">
-        <div class="rt-lbl">Slowest</div>
-        <div class="rt-val" style="color:var(--red)">83.5h</div>
-        <div style="font-size:10px;color:var(--mid);">Srikant Chonnad</div>
-      </div>
-      <div class="rt-card" style="background:#FEE2E2;">
-        <div class="rt-lbl" style="color:var(--red)">No Reply</div>
-        <div class="rt-val" style="color:var(--red)">42</div>
-        <div style="font-size:10px;color:var(--red);">52% of threads</div>
-      </div>
+
     </div>
-
   </div>
 
-  <div class="gus-banner">
-    🔍 <strong>GUS Investigations this week (5):</strong> &nbsp;
-    W-23552985 &nbsp;|&nbsp; W-22954128 &nbsp;|&nbsp; W-23886339 &nbsp;|&nbsp; W-21321687 &nbsp;|&nbsp; W-23644487
-  </div>
-
-  <div class="slide-footer">CONFIDENTIAL &nbsp;|&nbsp; LSC P&amp;T Support &nbsp;|&nbsp; EMEA &amp; IST &nbsp;|&nbsp; Aug 9–15, 2026</div>
+  <div class="slide-footer">CONFIDENTIAL &nbsp;|&nbsp; LSC P&amp;T Support &nbsp;|&nbsp; EMEA · IST · APAC &nbsp;|&nbsp; Aug 9–15, 2026</div>
 </div>
 
 </body>
