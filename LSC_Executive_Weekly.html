@@ -5,109 +5,67 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LSC Weekly Executive Report — Sep 13–19, 2026</title>
 <style>
-  :root {
-    --navy:#032D60; --blue:#00A1E0; --ist:#00698A; --emea:#8B5CF6; --apac:#F97316;
-    --red:#DC2626; --amber:#F59E0B; --green:#059669; --lgray:#F3F4F6; --mgray:#6B7280; --dgray:#1F2937;
-  }
-  * { box-sizing:border-box; margin:0; padding:0; }
-  body { font-family:'Salesforce Sans',Arial,sans-serif; background:#f8fafc; color:var(--dgray); }
-
-  .page-header { background:var(--navy); color:#fff; padding:18px 32px 10px; border-bottom:4px solid var(--blue); }
-  .page-header h1 { font-size:22px; font-weight:700; }
-  .page-header .sub { font-size:12px; color:#9EC5FE; margin-top:4px; }
-
-  .container { max-width:1320px; margin:0 auto; padding:24px 20px 40px; }
-
-  /* KPI strip */
-  .kpi-strip { display:flex; gap:12px; margin-bottom:24px; flex-wrap:wrap; }
-  .kpi { background:#fff; border:1px solid #E5E7EB; border-top:4px solid var(--blue);
-         border-radius:8px; padding:14px 16px; flex:1; min-width:140px; text-align:center; }
-  .kpi .val { font-size:28px; font-weight:700; }
-  .kpi .lbl { font-size:11px; color:var(--mgray); margin-top:4px; }
-  .kpi .sub { font-size:10px; color:var(--mgray); }
-
-  /* Section headers */
-  .section-title { font-size:13px; font-weight:700; color:var(--navy); text-transform:uppercase;
-                   letter-spacing:.06em; padding:6px 0 10px; border-bottom:2px solid var(--blue); margin-bottom:14px; }
-
-  /* Grid layouts */
-  .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:24px; }
-  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:24px; }
-  .panel { background:#fff; border-radius:10px; padding:16px; border:1px solid #E5E7EB; }
-
-  /* Bar chart */
-  .bar-wrap { margin:6px 0; }
-  .bar-label { font-size:11px; color:var(--dgray); margin-bottom:3px; display:flex; justify-content:space-between; }
-  .bar-track { display:flex; height:18px; border-radius:4px; overflow:hidden; background:#F3F4F6; }
-  .bar-seg { display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:#fff; }
-  .bar-total { font-size:11px; font-weight:700; color:var(--dgray); margin-left:6px; line-height:18px; }
-
-  /* Geo closure bars */
-  .geo-row { display:flex; align-items:center; gap:10px; margin:10px 0; }
-  .geo-tag { font-size:11px; font-weight:700; min-width:42px; }
-  .geo-info { font-size:11px; color:var(--mgray); min-width:120px; }
-  .closure-track { flex:1; height:16px; background:#F3F4F6; border-radius:4px; overflow:hidden; }
-  .closure-fill { height:100%; display:flex; align-items:center; justify-content:flex-end; padding-right:4px;
-                  font-size:10px; font-weight:700; color:#fff; border-radius:4px; }
-  .closure-pct { font-size:11px; font-weight:700; min-width:36px; }
-
-  /* Severity table */
-  table { width:100%; border-collapse:collapse; font-size:11px; }
-  th { background:var(--navy); color:#fff; padding:7px 10px; text-align:left; font-size:11px; }
-  tr:nth-child(even) td { background:#F8FAFC; }
-  td { padding:6px 10px; border-bottom:1px solid #E5E7EB; vertical-align:middle; }
-
-  /* L1 pill */
-  .pill { display:inline-block; padding:2px 8px; border-radius:12px; font-size:10px; font-weight:600; }
-  .pill-red  { background:#FEE2E2; color:var(--red); }
-  .pill-amber{ background:#FEF3C7; color:#92400E; }
-  .pill-teal { background:#CCEBF2; color:var(--ist); }
-  .pill-emea { background:#EDE9FE; color:var(--emea); }
-
-  /* Insight cards */
-  .card { background:#fff; border-radius:10px; overflow:hidden; border:1px solid #E5E7EB; }
-  .card-hdr { padding:10px 14px; font-size:12px; font-weight:700; color:#fff; }
-  .card-body { padding:12px 14px; }
-  .card-body ul { list-style:none; }
-  .card-body ul li { font-size:11.5px; color:var(--dgray); padding:3px 0 3px 14px; position:relative; border-bottom:1px dotted #E5E7EB; }
-  .card-body ul li:before { content:"•"; position:absolute; left:0; color:var(--mgray); }
-  .card-body ul li:last-child { border-bottom:none; }
-
-  /* iPad cluster */
-  .ipad-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; margin-top:10px; }
-  .ipad-item { background:var(--lgray); border-radius:6px; padding:8px; text-align:center; }
-  .ipad-item .cnt { font-size:20px; font-weight:700; color:var(--ist); }
-  .ipad-item .nm  { font-size:9px; color:var(--mgray); margin-top:2px; }
-
-  /* Alert banners */
-  .alert { border-radius:8px; padding:10px 14px; font-size:12px; margin-bottom:16px; }
-  .alert-amber { background:#FEF3C7; border-left:4px solid var(--amber); color:#92400E; }
-  .alert-orange { background:#FFF7ED; border-left:4px solid var(--apac); color:#7C3009; }
-  .alert-blue   { background:#EFF6FF; border-left:4px solid var(--blue); color:#1E40AF; }
-
-  /* Trend sparkline (CSS bars) */
-  .trend-wrap { display:flex; align-items:flex-end; gap:3px; height:50px; }
-  .trend-bar { flex:1; background:var(--ist); border-radius:2px 2px 0 0; position:relative; }
-  .trend-bar.highlight { background:var(--apac); }
-  .trend-bar:last-child { background:var(--red); }
-  .trend-val { font-size:8px; position:absolute; top:-14px; left:50%; transform:translateX(-50%); white-space:nowrap; color:var(--dgray); }
-
-  .page-footer { background:var(--navy); color:#9EC5FE; text-align:center; padding:10px; font-size:11px; margin-top:32px; }
-  .slide-divider { height:6px; background:linear-gradient(90deg,var(--ist),var(--emea),var(--apac)); border-radius:3px; margin:32px 0; }
+  :root{--navy:#032D60;--blue:#00A1E0;--ist:#00698A;--emea:#8B5CF6;--apac:#F97316;--red:#DC2626;--amber:#F59E0B;--green:#059669;--lgray:#F3F4F6;--mgray:#6B7280;--dgray:#1F2937;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Salesforce Sans',Arial,sans-serif;background:#f8fafc;color:var(--dgray);}
+  .page-header{background:var(--navy);color:#fff;padding:18px 32px 10px;border-bottom:4px solid var(--blue);}
+  .page-header h1{font-size:22px;font-weight:700;}
+  .page-header .sub{font-size:12px;color:#9EC5FE;margin-top:4px;}
+  .container{max-width:1320px;margin:0 auto;padding:24px 20px 40px;}
+  .kpi-strip{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap;}
+  .kpi{background:#fff;border:1px solid #E5E7EB;border-top:4px solid var(--blue);border-radius:8px;padding:14px 16px;flex:1;min-width:140px;text-align:center;}
+  .kpi .val{font-size:28px;font-weight:700;}
+  .kpi .lbl{font-size:11px;color:var(--mgray);margin-top:4px;}
+  .kpi .sub{font-size:10px;color:var(--mgray);}
+  .section-title{font-size:13px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.06em;padding:6px 0 10px;border-bottom:2px solid var(--blue);margin-bottom:14px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px;}
+  .panel{background:#fff;border-radius:10px;padding:16px;border:1px solid #E5E7EB;}
+  .bar-wrap{margin:6px 0;}
+  .bar-label{font-size:11px;color:var(--dgray);margin-bottom:3px;display:flex;justify-content:space-between;}
+  .bar-track{display:flex;height:18px;border-radius:4px;overflow:hidden;background:#F3F4F6;}
+  .bar-seg{display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;}
+  .geo-row{display:flex;align-items:center;gap:10px;margin:10px 0;}
+  .geo-tag{font-size:11px;font-weight:700;min-width:42px;}
+  .geo-info{font-size:11px;color:var(--mgray);min-width:120px;}
+  .closure-track{flex:1;height:16px;background:#F3F4F6;border-radius:4px;overflow:hidden;}
+  .closure-fill{height:100%;display:flex;align-items:center;justify-content:flex-end;padding-right:4px;font-size:10px;font-weight:700;color:#fff;border-radius:4px;}
+  table{width:100%;border-collapse:collapse;font-size:11px;}
+  th{background:var(--navy);color:#fff;padding:7px 10px;text-align:left;font-size:11px;}
+  tr:nth-child(even) td{background:#F8FAFC;}
+  td{padding:6px 10px;border-bottom:1px solid #E5E7EB;vertical-align:middle;}
+  .pill{display:inline-block;padding:2px 8px;border-radius:12px;font-size:10px;font-weight:600;}
+  .pill-red{background:#FEE2E2;color:var(--red);}
+  .pill-amber{background:#FEF3C7;color:#92400E;}
+  .pill-green{background:#D1FAE5;color:#065F46;}
+  .pill-teal{background:#CCEBF2;color:var(--ist);}
+  .pill-emea{background:#EDE9FE;color:var(--emea);}
+  .alert{border-radius:8px;padding:10px 14px;font-size:12px;margin-bottom:16px;}
+  .alert-amber{background:#FEF3C7;border-left:4px solid var(--amber);color:#92400E;}
+  .alert-orange{background:#FFF7ED;border-left:4px solid var(--apac);color:#7C3009;}
+  .alert-blue{background:#EFF6FF;border-left:4px solid var(--blue);color:#1E40AF;}
+  .alert-red{background:#FEF2F2;border-left:4px solid var(--red);color:#991B1B;}
+  .gus-section-hdr{font-size:12px;font-weight:700;padding:8px 12px;border-radius:6px 6px 0 0;margin-top:18px;}
+  .trend-wrap{display:flex;align-items:flex-end;gap:3px;height:50px;}
+  .trend-bar{flex:1;background:var(--ist);border-radius:2px 2px 0 0;position:relative;}
+  .trend-bar:last-child{background:var(--red);}
+  .trend-val{font-size:8px;position:absolute;top:-14px;left:50%;transform:translateX(-50%);white-space:nowrap;color:var(--dgray);}
+  .slide-divider{height:6px;background:linear-gradient(90deg,var(--ist),var(--emea),var(--apac));border-radius:3px;margin:32px 0;}
+  .page-footer{background:var(--navy);color:#9EC5FE;text-align:center;padding:10px;font-size:11px;margin-top:32px;}
+  .ipad-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:10px;}
+  .ipad-item{background:var(--lgray);border-radius:6px;padding:8px;text-align:center;}
+  .ipad-item .cnt{font-size:20px;font-weight:700;color:var(--ist);}
+  .ipad-item .nm{font-size:9px;color:var(--mgray);margin-top:2px;}
 </style>
 </head>
 <body>
-
 <div class="page-header">
   <h1>LSC Weekly Executive Report</h1>
   <div class="sub">Sep 13–19, 2026 &nbsp;|&nbsp; EMEA · IST · APAC &nbsp;|&nbsp; Life Sciences Cloud Support</div>
 </div>
-
 <div class="container">
 
-<!-- ═══════════════════════════════════════════════════════════ SLIDE 1 -->
+<!-- ═══ SLIDE 1: Executive Dashboard ═══ -->
 <div class="section-title" style="margin-top:8px">Executive Dashboard</div>
-
 <div class="kpi-strip">
   <div class="kpi"><div class="val" style="color:var(--navy)">142</div><div class="lbl">Total Cases</div><div class="sub">+10% WoW</div></div>
   <div class="kpi"><div class="val" style="color:var(--ist)">85%</div><div class="lbl">IST Share</div><div class="sub">121 / 142</div></div>
@@ -117,14 +75,8 @@
   <div class="kpi"><div class="val" style="color:var(--amber)">76</div><div class="lbl">L2 Urgent</div><div class="sub">cases</div></div>
   <div class="kpi"><div class="val" style="color:var(--red)">4</div><div class="lbl">L1 Critical</div><div class="sub">all IST</div></div>
 </div>
-
-<div class="alert alert-orange">
-  <strong>iPad/Mobile Cluster:</strong> 40 cases across 19 accounts (28% of total inflow) —
-  Deloitte (5) · AstraZeneca (5) · Novartis (5) · ModernaTX (3) · Mylan (3) · Pfizer (3) leading
-</div>
-
+<div class="alert alert-orange"><strong>iPad/Mobile Cluster:</strong> 40 cases across 19 accounts (28% of total inflow) — Deloitte (5) · AstraZeneca (5) · Novartis (5) · ModernaTX (3) · Mylan (3) · Pfizer (3) leading</div>
 <div class="grid3">
-  <!-- Top Accounts -->
   <div class="panel">
     <div class="section-title">Top Accounts</div>
     <div style="display:flex;gap:12px;margin-bottom:8px;font-size:10px;">
@@ -137,196 +89,106 @@
     const accts=[["Deloitte (combined)",[19,0,0]],["Mylan Inc.",[11,7,0]],["Novartis Pharma AG",[17,1,0]],
       ["AstraZeneca",[15,0,0]],["Pfizer (LSC EMEA)",[10,0,0]],["Takeda Pharma",[10,0,0]],
       ["ModernaTX",[5,0,0]],["FIDIA Farmaceutici",[0,4,0]]];
-    const max=19; const clrs=["var(--ist)","var(--emea)","var(--apac)"];
+    const max=19,clrs=["var(--ist)","var(--emea)","var(--apac)"];
     let h=''; accts.forEach(([nm,vs])=>{
       const tot=vs.reduce((a,b)=>a+b,0);
-      h+=`<div class="bar-wrap"><div class="bar-label"><span>${nm}</span></div>
-      <div style="display:flex;align-items:center;gap:4px">
-      <div class="bar-track" style="flex:1">`;
-      vs.forEach((v,i)=>{ if(v>0) h+=`<div class="bar-seg" style="width:${v/max*100}%;background:${clrs[i]}">${v>1?v:''}</div>`; });
-      h+=`</div><span class="bar-total">${tot}</span></div></div>`;
+      h+=`<div class="bar-wrap"><div class="bar-label"><span>${nm}</span></div><div style="display:flex;align-items:center;gap:4px"><div class="bar-track" style="flex:1">`;
+      vs.forEach((v,i)=>{if(v>0)h+=`<div class="bar-seg" style="width:${v/max*100}%;background:${clrs[i]}">${v>1?v:''}</div>`;});
+      h+=`</div><span style="font-size:11px;font-weight:700;margin-left:4px">${tot}</span></div></div>`;
     }); document.getElementById('acct-bars').innerHTML=h;
     </script>
   </div>
-
-  <!-- Severity by Geo -->
   <div class="panel">
     <div class="section-title">Severity by Geo</div>
     <div id="sev-bars"></div>
     <script>
     const sevs=[["L1 Critical",[4,0,0]],["L2 Urgent",[68,7,1]],["L3 High",[33,5,1]],["L4 Medium",[16,5,0]]];
-    const sevmax=76; const clrs2=["var(--ist)","var(--emea)","var(--apac)"];
+    const sm=76,clrs2=["var(--ist)","var(--emea)","var(--apac)"];
     let h2=''; sevs.forEach(([nm,vs])=>{
       const tot=vs.reduce((a,b)=>a+b,0);
-      h2+=`<div class="bar-wrap" style="margin:10px 0"><div class="bar-label"><span>${nm}</span><span style="font-size:10px;color:var(--mgray)">${tot} total</span></div>
-      <div style="display:flex;align-items:center;gap:4px">
-      <div class="bar-track" style="flex:1">`;
-      vs.forEach((v,i)=>{ if(v>0) h2+=`<div class="bar-seg" style="width:${v/sevmax*100}%;background:${clrs2[i]}">${v}</div>`; });
-      h2+=`</div></div></div>`;
+      h2+=`<div class="bar-wrap" style="margin:10px 0"><div class="bar-label"><span>${nm}</span><span style="font-size:10px;color:var(--mgray)">${tot}</span></div><div class="bar-track">`;
+      vs.forEach((v,i)=>{if(v>0)h2+=`<div class="bar-seg" style="width:${v/sm*100}%;background:${clrs2[i]}">${v}</div>`;});
+      h2+=`</div></div>`;
     }); document.getElementById('sev-bars').innerHTML=h2;
     </script>
   </div>
-
-  <!-- Geo Split & Closure -->
   <div class="panel">
-    <div class="section-title">Geo Split & Closure Rate</div>
-    <div class="geo-row">
-      <span class="geo-tag" style="color:var(--ist)">IST</span>
-      <span class="geo-info">121 in / 129 closed</span>
-      <div class="closure-track">
-        <div class="closure-fill" style="width:97%;background:var(--ist)">107%</div>
-      </div>
-    </div>
-    <div class="geo-row">
-      <span class="geo-tag" style="color:var(--emea)">EMEA</span>
-      <span class="geo-info">19 in / 13 closed</span>
-      <div class="closure-track">
-        <div class="closure-fill" style="width:62%;background:var(--emea)">68%</div>
-      </div>
-    </div>
-    <div class="geo-row">
-      <span class="geo-tag" style="color:var(--apac)">APAC</span>
-      <span class="geo-info">2 in / 1 closed</span>
-      <div class="closure-track">
-        <div class="closure-fill" style="width:45%;background:var(--apac)">50%</div>
-      </div>
-    </div>
-    <div style="margin-top:16px">
-      <div class="section-title" style="font-size:11px">16-Week Inflow Trend</div>
-      <div class="trend-wrap" id="trend"></div>
-      <div style="font-size:9px;color:var(--mgray);margin-top:4px">May 31 → Sep 19, 2026 &nbsp;|&nbsp; <span style="color:var(--red)">■</span> This week</div>
-      <script>
-      const tv=[27,44,71,62,48,48,46,64,83,94,83,87,160,126,129,142];
-      const mx=Math.max(...tv); let th='';
-      tv.forEach((v,i)=>{
-        const isLast=i===tv.length-1;
-        th+=`<div class="trend-bar${isLast?' highlight':''}" style="height:${v/mx*46}px"><span class="trend-val">${isLast?v:''}</span></div>`;
-      }); document.getElementById('trend').innerHTML=th;
-      </script>
-    </div>
+    <div class="section-title">Geo Split &amp; Closure Rate</div>
+    <div class="geo-row"><span class="geo-tag" style="color:var(--ist)">IST</span><span class="geo-info">121 in / 129 closed</span><div class="closure-track"><div class="closure-fill" style="width:97%;background:var(--ist)">107%</div></div></div>
+    <div class="geo-row"><span class="geo-tag" style="color:var(--emea)">EMEA</span><span class="geo-info">19 in / 13 closed</span><div class="closure-track"><div class="closure-fill" style="width:62%;background:var(--emea)">68%</div></div></div>
+    <div class="geo-row"><span class="geo-tag" style="color:var(--apac)">APAC</span><span class="geo-info">2 in / 1 closed</span><div class="closure-track"><div class="closure-fill" style="width:45%;background:var(--apac)">50%</div></div></div>
+    <div style="margin-top:16px"><div class="section-title" style="font-size:11px">16-Week Inflow Trend</div>
+    <div class="trend-wrap" id="trend"></div>
+    <div style="font-size:9px;color:var(--mgray);margin-top:4px">May 31 → Sep 19, 2026 &nbsp;|&nbsp; <span style="color:var(--red)">■</span> This week</div>
+    <script>
+    const tv=[27,44,71,62,48,48,46,64,83,94,83,87,160,126,129,142];
+    const mx=Math.max(...tv); let th='';
+    tv.forEach((v,i)=>{const l=i===tv.length-1; th+=`<div class="trend-bar" style="height:${v/mx*46}px${l?';background:var(--red)':''}">${l?`<span class="trend-val">${v}</span>`:''}</div>`;});
+    document.getElementById('trend').innerHTML=th;
+    </script></div>
   </div>
 </div>
 
 <div class="slide-divider"></div>
 
-<!-- ═══════════════════════════════════════════════════════════ SLIDE 2 -->
-<div class="section-title">Takeaways &amp; Actions</div>
-<div class="grid3">
-  <div class="card">
-    <div class="card-hdr" style="background:var(--navy)">Backlog at Risk</div>
-    <div class="card-body"><ul>
-      <li>Inflow: 142 (+10% WoW from 129) — trend UP 2nd consecutive week</li>
-      <li>Net change: -1 (breakeven) — IST cleared at 107% closure rate</li>
-      <li>EMEA 68% closure rate — adding ~6 net-new to open queue</li>
-      <li>FTE needed: 13.5 total / 11.5 IST at current volume</li>
-      <li>3 consecutive weeks &gt;125 — sustained capacity pressure</li>
-    </ul></div>
-  </div>
-  <div class="card">
-    <div class="card-hdr" style="background:var(--emea)">Account Concentration</div>
-    <div class="card-body"><ul>
-      <li>Deloitte (Global+Consulting): 19 combined — ALL IST-owned</li>
-      <li>Mylan: 18 cases IST(11)/EMEA(7) — cross-geo coordination needed</li>
-      <li>Novartis: 18 cases IST(17)/EMEA(1) — assign dedicated engineer</li>
-      <li>AstraZeneca: 15 cases, ALL IST — 100% geo concentration risk</li>
-      <li>Takeda + Pfizer: 10 each, ALL IST — no geo diversification</li>
-    </ul></div>
-  </div>
-  <div class="card">
-    <div class="card-hdr" style="background:var(--ist)">IST Capacity Risk</div>
-    <div class="card-body"><ul>
-      <li>IST holds 4/4 L1 Criticals (100%) + 68/76 L2 Urgents (89%)</li>
-      <li>IST inflow 121 — 11.5 FTE needed for IST alone</li>
-      <li>5 of top 6 accounts 100% IST-owned (no geo spread)</li>
-      <li>Recommend: named engineers for AZ, Novartis, Deloitte</li>
-      <li>iPad/MuleSoft cluster needs dedicated AFLS mobile specialist</li>
-    </ul></div>
-  </div>
-</div>
-<div class="grid3">
-  <div class="card">
-    <div class="card-hdr" style="background:var(--emea)">EMEA Signal</div>
-    <div class="card-body"><ul>
-      <li>19 cases; 0 L1 Criticals — lighter severity profile, positive signal</li>
-      <li>L2 Urgent: 7 (37%) — MEDICE (Germany), FIDIA (Italy) leading</li>
-      <li>Mylan EMEA: 7 cases — highest EMEA account; L2-heavy</li>
-      <li>Closure 68% — improving but still adding ~6 net-new</li>
-      <li>2 unclassified severity cases — request triage from EMEA engineers</li>
-    </ul></div>
-  </div>
-  <div class="card">
-    <div class="card-hdr" style="background:var(--apac)">APAC Signal</div>
-    <div class="card-body"><ul>
-      <li>Only 2 cases — unusually low volume for APAC this week</li>
-      <li>No L1 Criticals; 1 L2 Urgent, 1 L3 High</li>
-      <li>Beiersdorf still in iPad/Mobile cluster (IST-attributed)</li>
-      <li>Low volume may reflect regional holiday — monitor closely</li>
-      <li>Validate APAC coverage for Beiersdorf/AstraZeneca queues</li>
-    </ul></div>
-  </div>
-  <div class="card">
-    <div class="card-hdr" style="background:var(--red)">This Week Priorities</div>
-    <div class="card-body"><ul>
-      <li>1. Triage 4 L1s: Hansa Biopharma, IQVIA, Deloitte, Takeda</li>
-      <li>2. Assign named engineers: AZ (15), Novartis (18), Deloitte (19)</li>
-      <li>3. iPad war room: 40 cases / 19 accounts — AFLS mobile lead needed</li>
-      <li>4. EMEA: target ~13+ closures to stop queue growth</li>
-      <li>5. Escalate to leadership if inflow &gt;150 next week</li>
-    </ul></div>
-  </div>
+<!-- ═══ SLIDE 2: GUS Investigations ═══ -->
+<div class="section-title">GUS Investigations — Life Sciences Cloud</div>
+<div class="kpi-strip">
+  <div class="kpi"><div class="val" style="color:var(--amber)">5</div><div class="lbl">Open / Investigating</div></div>
+  <div class="kpi"><div class="val" style="color:var(--green)">4</div><div class="lbl">Closed – Fix Available</div></div>
+  <div class="kpi"><div class="val" style="color:var(--red)">2</div><div class="lbl">Closed – No Fix Build</div></div>
+  <div class="kpi"><div class="val" style="color:var(--navy)">11</div><div class="lbl">Total Linked This Week</div></div>
 </div>
 
-<div class="slide-divider"></div>
-
-<!-- ═══════════════════════════════════════════════════════════ SLIDE 3 -->
-<div class="section-title">GUS Investigations &amp; Escalations</div>
-
-<div class="alert alert-amber">
-  <strong>Note:</strong> GUS (ADM_Work__c) not accessible via current OrgCS connection.
-  L1 Critical cases shown as engineering escalation proxy.
-  Pull W-numbers from GUS portal or request list from Praveen / Shyam.
+<!-- Open -->
+<div class="alert alert-amber" style="margin-bottom:6px"><strong>Open / Investigating — assign owner + ETA</strong></div>
+<div class="panel" style="margin-bottom:18px">
+<table>
+<thead><tr><th>W-Number</th><th>Account</th><th>Subject</th><th>Geo</th><th>Status</th><th>Product Tag</th></tr></thead>
+<tbody>
+  <tr><td>W-24245840</td><td>Mylan Inc.</td><td>TerritoryUserDowntime during migration</td><td><span class="pill pill-teal">IST</span></td><td><span class="pill pill-amber">Investigating</span></td><td>LS-Thanos-Trust</td></tr>
+  <tr><td>W-24219499</td><td>Mylan Inc.</td><td>LSC Email not generated for Remote Visits after Teams integration</td><td><span class="pill pill-teal">IST</span></td><td><span class="pill pill-amber">Investigating</span></td><td>LS Remote Engagement</td></tr>
+  <tr><td>W-24230779</td><td>Takeda</td><td>Field History Tracking Issues in Life Sciences Cloud</td><td><span class="pill pill-teal">IST</span></td><td><span class="pill pill-amber">Investigating</span></td><td>LS-Provider Classification</td></tr>
+  <tr><td>W-24230455</td><td>AstraZeneca</td><td>Consent Subscription: Translated column headers not reflecting on iPad</td><td><span class="pill pill-teal">IST</span></td><td><span class="pill pill-amber">More Info Reqd</span></td><td>LS-ConsentMgmt-Mobile</td></tr>
+  <tr><td>W-24148484</td><td>Novartis</td><td>Web Parity: Insight capture from account record / list page</td><td><span class="pill pill-teal">IST</span></td><td><span class="pill pill-amber">New (Build 266)</span></td><td>LS-Insights-Web</td></tr>
+</tbody>
+</table>
 </div>
 
-<div class="panel" style="margin-bottom:20px">
-  <div class="section-title">L1 Critical Cases — Active (Engineering Escalation Required)</div>
-  <table>
-    <thead><tr><th>Case #</th><th>Account</th><th>Subject</th><th>Geo</th><th>Status</th><th>Created</th><th>Action</th></tr></thead>
-    <tbody>
-      <tr><td>474603021</td><td>Hansa Biopharma AB</td><td>OOB Solution for HCP Alignment — HCO Share &amp; Provider Affiliation</td><td><span class="pill pill-teal">IST</span></td><td><span class="pill pill-red">Working</span></td><td>Sep 15</td><td>Assign owner + ETA</td></tr>
-      <tr><td>474604886</td><td>IQVIA</td><td>Life Sciences Cloud Picklist Field</td><td><span class="pill pill-teal">IST</span></td><td><span class="pill pill-red">Working</span></td><td>Sep 16</td><td>Assign owner + ETA</td></tr>
-      <tr><td>474620728</td><td>Deloitte Global</td><td>MuleSoft Automation, Platform Events &amp; CDC Support in AFLS iPad App</td><td><span class="pill pill-teal">IST</span></td><td><span class="pill pill-red">Working</span></td><td>Sep 17</td><td>Assign owner + ETA</td></tr>
-      <tr><td>474625422</td><td>Takeda Pharma Intl AG</td><td>Survey Records not showing in iPad App</td><td><span class="pill pill-teal">IST</span></td><td><span class="pill pill-amber">Need More Info</span></td><td>Sep 18</td><td>Request info + ETA</td></tr>
-    </tbody>
-  </table>
+<!-- Fix Available -->
+<div class="alert" style="background:#D1FAE5;border-left:4px solid var(--green);color:#065F46;margin-bottom:6px"><strong>Closed – Fix Available — confirm customers on affected build are notified</strong></div>
+<div class="panel" style="margin-bottom:18px">
+<table>
+<thead><tr><th>W-Number</th><th>Account</th><th>Subject</th><th>Geo</th><th>Fix Build</th><th>Product Tag</th></tr></thead>
+<tbody>
+  <tr><td>W-23914606</td><td>AstraZeneca</td><td>Agentforce deep links render greyed-out / non-tappable on iPad</td><td><span class="pill pill-teal">IST</span></td><td><span class="pill pill-green">AFSDK-264.0</span></td><td>Mobile Agentforce SDK</td></tr>
+  <tr><td>W-23441045</td><td>Mylan Inc.</td><td>Weighted Territory Goal not displayed on Activity Plan widget</td><td><span class="pill pill-emea">EMEA</span></td><td><span class="pill pill-green">LS.Mobile 264.2</span></td><td>LS-ActivityPlan-Mobile</td></tr>
+  <tr><td>W-24008690</td><td>Deloitte LLP</td><td>HTML tags shown in Calendar drag-drop best times</td><td><span class="pill pill-teal">IST</span></td><td><span class="pill pill-green">LS.Pkg 266</span></td><td>LS-Planner-Routes-Web</td></tr>
+  <tr><td>W-23789409</td><td>Deloitte Global</td><td>Remove Flow Automation Agent from Agent Picker dropdown</td><td><span class="pill pill-teal">IST</span></td><td><span class="pill pill-green">264.5</span></td><td>Einstein GPT for Flow</td></tr>
+</tbody>
+</table>
 </div>
 
-<div class="panel">
-  <div class="section-title">iPad / Mobile Cluster — 40 Cases / 19 Accounts (28% of Total Inflow)</div>
-  <div class="ipad-grid">
-    <div class="ipad-item"><div class="cnt">5</div><div class="nm">Deloitte</div></div>
-    <div class="ipad-item"><div class="cnt">5</div><div class="nm">AstraZeneca</div></div>
-    <div class="ipad-item"><div class="cnt">5</div><div class="nm">Novartis</div></div>
-    <div class="ipad-item"><div class="cnt">3</div><div class="nm">ModernaTX</div></div>
-    <div class="ipad-item"><div class="cnt">3</div><div class="nm">Mylan</div></div>
-    <div class="ipad-item"><div class="cnt">3</div><div class="nm">Pfizer</div></div>
-    <div class="ipad-item"><div class="cnt">2</div><div class="nm">ZS Associates</div></div>
-    <div class="ipad-item"><div class="cnt">2</div><div class="nm">SPIMACO</div></div>
-    <div class="ipad-item"><div class="cnt">2</div><div class="nm">Takeda</div></div>
-    <div class="ipad-item"><div class="cnt">2</div><div class="nm">Abbvie CRM</div></div>
-    <div class="ipad-item"><div class="cnt">1</div><div class="nm">Beiersdorf</div></div>
-    <div class="ipad-item" style="background:#FFF7ED"><div class="cnt" style="color:var(--apac)">+8</div><div class="nm">others</div></div>
-  </div>
-
-  <div class="alert alert-blue" style="margin-top:16px">
-    <strong>Recommended Actions:</strong><br>
-    1. Convene AFLS iPad/Mobile war room — 40 cases / 19 accounts needs structured response, not ad-hoc handling<br>
-    2. Assign AFLS mobile specialist (Preston Noe or Tyler Brown) as single point of contact for iPad cluster<br>
-    3. Praveen / Shyam: pull open GUS W-numbers for iPad sync issues and share with Bhagat for next week's deck
-  </div>
+<!-- No Fix -->
+<div class="alert alert-red" style="margin-bottom:6px"><strong>Closed – No Fix Build — exec-critical: customers still impacted, no resolution</strong></div>
+<div class="panel" style="margin-bottom:18px">
+<table>
+<thead><tr><th>W-Number</th><th>Account</th><th>Subject</th><th>Geo</th><th>Reason</th><th>Product Tag</th></tr></thead>
+<tbody>
+  <tr><td>W-22898404</td><td>Novartis</td><td>Medical Insight Account not auto-linked when creating from Visit (Web)</td><td><span class="pill pill-teal">IST</span></td><td><span class="pill pill-red">Feature Request</span></td><td>LS-Insights-Web</td></tr>
+  <tr><td>W-20984695</td><td>FIDIA Farmac.</td><td>HCP Advanced Search Specialities field visibility on LSC app</td><td><span class="pill pill-emea">EMEA</span></td><td><span class="pill pill-red">Feature Request</span></td><td>LS-AccountMgmt-Mobile</td></tr>
+</tbody>
+</table>
 </div>
 
-</div><!-- /container -->
+<div class="alert alert-blue">
+  <strong>Actions:</strong><br>
+  1. <strong>Open items:</strong> assign owners + ETAs — W-24245840 (Mylan/migration), W-24219499 (Mylan/Teams), W-24230779 (Takeda/field history), W-24230455 (AZ/iPad consent)<br>
+  2. <strong>Fix builds:</strong> confirm customers notified — W-23914606 (AZ, AFSDK-264.0), W-23441045 (Mylan, LS.Mobile 264.2), W-24008690 (Deloitte LLP, LS.Pkg 266), W-23789409 (Deloitte, 264.5)<br>
+  3. <strong>No-Fix items:</strong> W-22898404 (Novartis) + W-20984695 (FIDIA) closed as Feature Requests — communicate roadmap / workaround to customers
+</div>
 
+</div>
 <div class="page-footer">LSC Executive Report &nbsp;|&nbsp; Sep 13–19, 2026 &nbsp;|&nbsp; Confidential — Internal Use Only</div>
 </body>
 </html>
