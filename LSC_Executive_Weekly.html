@@ -44,12 +44,9 @@
   .sbar-track{flex:1;display:flex;border-radius:3px;overflow:hidden;height:22px;}
   .sbar-seg{display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;font-weight:700;}
   .sbar-val{font-size:11px;color:var(--muted);width:38px;text-align:right;}
-  /* monthly chart */
-  .mchart{display:flex;align-items:flex-end;gap:10px;height:120px;padding:8px 4px 0;margin-bottom:4px;}
-  .mbar-wrap{display:flex;flex-direction:column;align-items:center;flex:1;}
-  .mbar-val{font-size:10px;font-weight:700;color:var(--navy);margin-bottom:2px;}
-  .mbar{border-radius:3px 3px 0 0;width:100%;}
-  .mbar-lbl{font-size:9px;color:var(--muted);margin-top:3px;}
+  /* monthly chart — SVG-based, no height% issues */
+  .mchart-wrap{width:100%;margin-bottom:6px;}
+  .mchart-wrap svg{width:100%;display:block;}
   /* GUS table */
   table{width:100%;border-collapse:collapse;font-size:12px;}
   th{background:var(--navy);color:#fff;padding:7px 10px;text-align:left;font-size:11px;}
@@ -106,20 +103,72 @@
   <!-- Monthly Inflow Trend -->
   <div class="card">
     <div class="sec-title">Monthly Inflow Trend — January to September 2026</div>
-    <div class="mchart">
-      <div class="mbar-wrap"><div class="mbar-val">152</div><div class="mbar" style="height:22%;background:#CBD5E1"></div><div class="mbar-lbl">Jan</div></div>
-      <div class="mbar-wrap"><div class="mbar-val">290</div><div class="mbar" style="height:43%;background:#CBD5E1"></div><div class="mbar-lbl">Feb</div></div>
-      <div class="mbar-wrap"><div class="mbar-val">388</div><div class="mbar" style="height:58%;background:#CBD5E1"></div><div class="mbar-lbl">Mar</div></div>
-      <div class="mbar-wrap"><div class="mbar-val">356</div><div class="mbar" style="height:53%;background:#CBD5E1"></div><div class="mbar-lbl">Apr</div></div>
-      <div class="mbar-wrap"><div class="mbar-val">341</div><div class="mbar" style="height:51%;background:#CBD5E1"></div><div class="mbar-lbl">May</div></div>
-      <div class="mbar-wrap"><div class="mbar-val">475</div><div class="mbar" style="height:71%;background:var(--sfblue)"></div><div class="mbar-lbl">Jun</div></div>
-      <div class="mbar-wrap"><div class="mbar-val" style="color:var(--red)">669</div><div class="mbar" style="height:100%;background:var(--red)"></div><div class="mbar-lbl"><b>Jul&#x25B2;</b></div></div>
-      <div class="mbar-wrap"><div class="mbar-val">614</div><div class="mbar" style="height:92%;background:var(--sfblue)"></div><div class="mbar-lbl">Aug</div></div>
-      <div class="mbar-wrap"><div class="mbar-val" style="color:var(--ist)">616</div><div class="mbar" style="height:92%;background:var(--ist)"></div><div class="mbar-lbl"><b>Sep</b></div></div>
+    <div class="mchart-wrap">
+      <!-- SVG bar chart: viewBox 580×210, CHART_H=150, baseline y=170, bar_w=44, gap=20 -->
+      <!-- max=669, scale factor = 150/669 = 0.2242 -->
+      <svg viewBox="0 0 580 210" xmlns="http://www.w3.org/2000/svg" aria-label="Monthly inflow trend Jan–Sep 2026">
+        <!-- baseline -->
+        <line x1="10" y1="172" x2="570" y2="172" stroke="#E2E8F0" stroke-width="1.5"/>
+        <!-- gridlines at 200, 400, 600 -->
+        <line x1="10" y1="127" x2="570" y2="127" stroke="#F1F5F9" stroke-width="1" stroke-dasharray="4,3"/>
+        <line x1="10" y1="82"  x2="570" y2="82"  stroke="#F1F5F9" stroke-width="1" stroke-dasharray="4,3"/>
+        <line x1="10" y1="37"  x2="570" y2="37"  stroke="#FECACA" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="6" y="130" font-size="8" fill="#94A3B8" text-anchor="end">200</text>
+        <text x="6" y="85"  font-size="8" fill="#94A3B8" text-anchor="end">400</text>
+        <text x="6" y="40"  font-size="8" fill="#94A3B8" text-anchor="end">600</text>
+
+        <!-- Jan 152: h=34, y=138 -->
+        <rect x="16"  y="138" width="44" height="34" rx="3" fill="#CBD5E1"/>
+        <text x="38"  y="133" font-size="9"  fill="#64748B" text-anchor="middle" font-weight="700">152</text>
+        <text x="38"  y="184" font-size="9"  fill="#64748B" text-anchor="middle">Jan</text>
+
+        <!-- Feb 290: h=65, y=107 -->
+        <rect x="76"  y="107" width="44" height="65" rx="3" fill="#CBD5E1"/>
+        <text x="98"  y="102" font-size="9"  fill="#64748B" text-anchor="middle" font-weight="700">290</text>
+        <text x="98"  y="184" font-size="9"  fill="#64748B" text-anchor="middle">Feb</text>
+
+        <!-- Mar 388: h=87, y=85 -->
+        <rect x="136" y="85"  width="44" height="87" rx="3" fill="#CBD5E1"/>
+        <text x="158" y="80"  font-size="9"  fill="#64748B" text-anchor="middle" font-weight="700">388</text>
+        <text x="158" y="184" font-size="9"  fill="#64748B" text-anchor="middle">Mar</text>
+
+        <!-- Apr 356: h=80, y=92 -->
+        <rect x="196" y="92"  width="44" height="80" rx="3" fill="#CBD5E1"/>
+        <text x="218" y="87"  font-size="9"  fill="#64748B" text-anchor="middle" font-weight="700">356</text>
+        <text x="218" y="184" font-size="9"  fill="#64748B" text-anchor="middle">Apr</text>
+
+        <!-- May 341: h=76, y=96 -->
+        <rect x="256" y="96"  width="44" height="76" rx="3" fill="#CBD5E1"/>
+        <text x="278" y="91"  font-size="9"  fill="#64748B" text-anchor="middle" font-weight="700">341</text>
+        <text x="278" y="184" font-size="9"  fill="#64748B" text-anchor="middle">May</text>
+
+        <!-- Jun 475: h=106, y=66 -->
+        <rect x="316" y="66"  width="44" height="106" rx="3" fill="#00A1E0"/>
+        <text x="338" y="61"  font-size="9"  fill="#032D60" text-anchor="middle" font-weight="700">475</text>
+        <text x="338" y="184" font-size="9"  fill="#64748B" text-anchor="middle">Jun</text>
+
+        <!-- Jul 669: h=150, y=22 — PEAK, red -->
+        <rect x="376" y="22"  width="44" height="150" rx="3" fill="#DC2626"/>
+        <text x="398" y="17"  font-size="9"  fill="#DC2626" text-anchor="middle" font-weight="700">669 ▲</text>
+        <text x="398" y="184" font-size="9"  fill="#DC2626" text-anchor="middle" font-weight="700">Jul</text>
+
+        <!-- Aug 614: h=137, y=35 -->
+        <rect x="436" y="35"  width="44" height="137" rx="3" fill="#00A1E0"/>
+        <text x="458" y="30"  font-size="9"  fill="#032D60" text-anchor="middle" font-weight="700">614</text>
+        <text x="458" y="184" font-size="9"  fill="#64748B" text-anchor="middle">Aug</text>
+
+        <!-- Sep 616: h=138, y=34 — current, IST teal -->
+        <rect x="496" y="34"  width="44" height="138" rx="3" fill="#00698A"/>
+        <text x="518" y="29"  font-size="9"  fill="#00698A" text-anchor="middle" font-weight="700">616</text>
+        <text x="518" y="184" font-size="9"  fill="#00698A" text-anchor="middle" font-weight="700">Sep</text>
+
+        <!-- "Peak" annotation arrow -->
+        <text x="398" y="10" font-size="7.5" fill="#DC2626" text-anchor="middle">PEAK</text>
+      </svg>
     </div>
-    <div style="font-size:11px;color:var(--muted);margin-top:6px;">
-      Peak: <b style="color:var(--red)">Jul 669</b> &nbsp;|&nbsp; Sep 616 (flat vs Aug 614, &#8722;0.3%) &nbsp;|&nbsp; Jun–Sep avg: <b>594/mo</b><br/>
-      Jan–May avg 305 → Jun breakout signals sustained high volume for 4+ months.
+    <div style="font-size:11px;color:var(--muted);margin-top:2px;">
+      Peak: <b style="color:#DC2626">Jul 669</b> &nbsp;|&nbsp; Sep 616 (flat vs Aug 614, &minus;0.3%) &nbsp;|&nbsp; Jun–Sep avg: <b>594/mo</b><br/>
+      Jan–May avg 305 &rarr; Jun breakout signals sustained high volume for 4+ months.
     </div>
   </div>
 
